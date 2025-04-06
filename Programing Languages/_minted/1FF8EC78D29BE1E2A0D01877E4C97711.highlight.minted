@@ -1,0 +1,6 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{myStruct}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{string}\PYG{+w}{ }\PYG{n}{param1}\PYG{p}{;}\PYG{+w}{    }\PYG{c+c1}{// atribute 1}
+\PYG{+w}{    }\PYG{k+kt}{double}\PYG{+w}{ }\PYG{n}{param2}\PYG{p}{;}\PYG{+w}{   }\PYG{c+c1}{// atribute 2}
+\PYG{p}{\PYGZcb{}}\PYG{n}{s1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{s2}\PYG{p}{;}\PYG{+w}{            }\PYG{c+c1}{// myStruct instances}
+\end{MintedVerbatim}

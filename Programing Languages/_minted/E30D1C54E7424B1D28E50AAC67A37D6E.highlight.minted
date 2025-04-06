@@ -1,0 +1,24 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{myClasses}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{param1}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{param2}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{myClasses}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{p1}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{p2}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// constructor}
+\PYG{+w}{            }\PYG{n}{param1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p1}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{param2}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p2}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{        }\PYG{n}{myClasses}\PYG{p}{(}\PYG{p}{)}\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// default constructor}
+\PYG{+w}{            }\PYG{n}{param1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{        }\PYG{n}{string}\PYG{+w}{ }\PYG{n}{getParam1}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{//getter}
+\PYG{+w}{            }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{param1}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{setParam1}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{p1}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}\PYG{+w}{ }\PYG{c+c1}{// setter}
+\PYG{+w}{            }\PYG{n}{param1}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\end{MintedVerbatim}

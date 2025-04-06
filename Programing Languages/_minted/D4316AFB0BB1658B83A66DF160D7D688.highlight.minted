@@ -1,0 +1,18 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include}\PYG{c+cpf}{\PYGZlt{}iostream\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}myHeader.h\PYGZdq{}}
+
+\PYG{n}{MyClass}\PYG{o}{:}\PYG{o}{:}\PYG{n}{MyClass}\PYG{p}{(}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{publicAtribute}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{privAtribute}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{MyClass}\PYG{o}{:}\PYG{o}{:}\PYG{n}{MyClass}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{p1}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{p2}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{publicAtribute}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p1}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{privAtribute}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{p2}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{MyClass}\PYG{o}{:}\PYG{o}{:}\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{myFunction}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{c+c1}{// my code}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}

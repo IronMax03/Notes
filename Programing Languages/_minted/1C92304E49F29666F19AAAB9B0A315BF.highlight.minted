@@ -1,0 +1,17 @@
+\begin{MintedVerbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{ifndef MYCLASS\PYGZus{}H }\PYG{c+c1}{//if no def for MyClass}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{define MYCLASS\PYGZus{}H }\PYG{c+c1}{//else}
+
+\PYG{k}{using}\PYG{+w}{ }\PYG{k}{namespace}\PYG{+w}{ }\PYG{n+nn}{std}\PYG{p}{;}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{MyClass}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{        }\PYG{n}{MyClass}\PYG{p}{(}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//default constructor}
+\PYG{+w}{        }\PYG{n}{MyClass}\PYG{p}{(}\PYG{n}{p1}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{p2}\PYG{p}{)}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//parameterized constructor}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{publicAtribute}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{myFunction}\PYG{p}{(}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{const}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{privAtribute}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}\PYG{p}{;}
+\PYG{c+cp}{\PYGZsh{}}\PYG{c+cp}{endif}
+\end{MintedVerbatim}

@@ -1,0 +1,14 @@
+\begin{MintedVerbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8\relax}]
+\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{x}\PYG{p}{;}
+\PYG{k}{switch}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{:}
+\PYG{+w}{        }\PYG{c+cm}{/*Code in case 0*/}
+\PYG{+w}{    }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{esc}{$\vdots$}
+\PYG{+w}{    }\PYG{k}{case}\PYG{+w}{ }\PYG{n+no}{n}\PYG{p}{:}
+\PYG{+w}{        }\PYG{c+cm}{/*Code in case n*/}
+\PYG{+w}{    }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{default}\PYG{o}{:}
+\PYG{+w}{        }\PYG{c+cm}{/*Code if no case match*/}
+\PYG{p}{\PYGZcb{}}
+\end{MintedVerbatim}
