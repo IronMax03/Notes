@@ -124,12 +124,10 @@ Two matrce are row-equivalent if there is a sequence of \textbf{EROS} that trans
 2. Leading entry in each row is 1. \\
 3. Each leading 1 is the only non-zero entry in its column. \\
 
-\subsection{Pivot}
-A pivot position
-
 
 \subsection{Theorems}
 \newtheorem{theorem}{Theorem}
+\newtheorem{properties}{Properties}
 \begin{theorem}
 Every matrix is row equivalent to a unique row echelon form.
 \end{theorem}
@@ -137,6 +135,29 @@ Every matrix is row equivalent to a unique row echelon form.
 \begin{theorem}
 Every matrix is row equivalent to a unique row echelon form.
 \end{theorem}
+
+
+\section{Orthogonality and Diagonalization}
+\subsection{Definition}
+\begin{tabular}{ll}
+  Inner Product       & $\vec{v}\cdot\vec{u}=\vec{v}^T\vec{u}=u_1v_1 + ... + u_nv_n$\\
+                      & \footnotesize{(Also called dot product or scalar product)}\\
+  Length of $\vec{x}$ & $||\vec{x}||=\sqrt{\vec{x}\cdot\vec{x}}=\sqrt{x^2_1+...+x^2_n}$\\
+                      & \footnotesize{(Also called Norm or Magnitude)}\\
+  Unit vectore        & A vector with $||\vec{x}||=1$
+  
+\end{tabular}
+
+\subsection{Theorems}
+\begin{properties}
+  Let $\vec{u},\vec{v},\vec{w} \in \mathbb{R}^n$ and $c\in \mathbb{R}^n$
+  \begin{itemize}
+    \item $\vec{u}\cdot\vec{v}=\vec{v}\cdot\vec{u}$ 
+    \item $(\vec{u}+\vec{v})\cdot \vec{w}=\vec{u}\cdot\vec{w}+\vec{v}\cdot \vec{w}$
+    \item $(c\vec{u})\cdot \vec{v}=c(\vec{u}\cdot \vec{v})=(c\vec{v})\cdot \vec{u}$
+    \item $\vec{u}\cdot \vec{u}=u_1^2+...+u^2_n\geq 0$
+  \end{itemize}
+\end{properties}
 
 \end{multicols}
 \end{document}
