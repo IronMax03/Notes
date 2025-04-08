@@ -8,7 +8,7 @@
 \usepackage{relsize}
 \usepackage{mathtools}
 \usepackage{nccmath}
-
+\usepackage[inline]{enumitem}
 
 \usepackage{empheq}
 \usepackage{amsfonts}
@@ -48,8 +48,8 @@
 
 
 \begin{center}
-     \Large{\textbf{Linear Algebra}}\\
-     \small{Class: ...}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+     \Large{\textbf{Linear Algebra from Elementary to Advanced}}\\
+     \footnotesize{University: Johns Hopkins University}\hfill\footnotesize{\textcopyright Maximilien Notz \the\year{}}
      \noindent\rule{20.2cm}{0.4pt}
 \end{center}
 
@@ -158,11 +158,17 @@ Every matrix is row equivalent to a unique row echelon form.
                             (2,1) coordinate (u) node[right] {};
                         \end{tikzpicture}\\
 Orthogonality         & $\vec{u}\cdot \vec{v} = 0$
-                       \begin{tikzpicture}[scale=0.5]
-                        \draw[black,step=0.3] (0,0) grid (0.3,0.3);
-                        \draw[->] (0,0)--(1,0) node[right]{\footnotesize$\vec{u}$};
-                        \draw[->] (0,0)--(0,1) node[above]{\footnotesize$\vec{v}$};
+                      \begin{tikzpicture}[scale=0.5]
+                        \draw[black,step=0.3, line width=1pt] (0,0) grid (0.3,0.3);
+                        \draw[->,line width=1pt] (0,0)--(1,0) node[above]{\footnotesize$\vec{u}$};
+                        \draw[->,line width=1pt,] (0,0)--(0,1) node[right]{\footnotesize$\vec{v}$};
                       \end{tikzpicture}\\
+Orthogonal Set        & A set  of vectors $\{\vec{u}_1, ..., \vec{u}_p\}\in\mathbb{R}^n$ such that\\ 
+                      & each distinct vectors are orthogonal.\\
+Orthogonal Basis      & For a subspace $W$ of $R^n$ is a basis that is also\\
+                      & an orthogonal set.\\
+Orthonormal set       & is a set  of  orthogonal unit vectors.\\
+Orthogonal matrix     & Is a squared matrix whose columns are orthonormal.
 \end{tabular}
 \begin{tabular}{ll}                      
 Orthogonal Complements  & Let $W$ be a subspace of $\mathbb{R}^n$.\\
@@ -171,30 +177,54 @@ Orthogonal Complements  & Let $W$ be a subspace of $\mathbb{R}^n$.\\
 \end{tabular}
 
 \subsection{Fact about the Orthogonal Complements}
-\begin{itemize}
+\begin{itemize*}
   \item $\vec{0}\in W^\perp$ since $\vec{0}\cdot\vec{w}=0$
   \item If $W\in W^\perp, c\in \mathbb{R}$ then $cW\in W^\perp$
   \item If $\vec{w}_1,\vec{w}_2\in W^\perp$ so $(\vec{w}_1+\vec{w}_2)\cdot\vec{x}=\vec{w}_1\cdot\vec{x}+\vec{w}_2\cdot\vec{x}\in W$
-\end{itemize}
+\end{itemize*}
 
 \subsection{Theorems}
 \begin{properties}
-  Let $\vec{u},\vec{v},\vec{w} \in \mathbb{R}^n$ and $c\in \mathbb{R}^n$ then:
-  \begin{itemize}
+  Let $\vec{u},\vec{v},\vec{w} \in \mathbb{R}^n$ and $c\in \mathbb{R}^n$ then:\\
+  \begin{itemize*}
     \item $\vec{u}\cdot\vec{v}=\vec{v}\cdot\vec{u}$ 
     \item $(\vec{u}+\vec{v})\cdot \vec{w}=\vec{u}\cdot\vec{w}+\vec{v}\cdot \vec{w}$
     \item $(c\vec{u})\cdot \vec{v}=c(\vec{u}\cdot \vec{v})=(c\vec{v})\cdot \vec{u}$
     \item $\vec{u}\cdot \vec{u}=u_1^2+...+u^2_n\geq 0$
-  \end{itemize}
+  \end{itemize*}
 \end{properties}
 
-\begin{theorem}[Fundamental Subspaces Theorem] 
-  Let $A_{M\times N}$
-  \begin{itemize}
+\begin{theorem}[Fundamental Subspaces Theorem]
+  Let $A_{M\times N}$ then:
+  \begin{itemize*}
     \item $(row(A))^\perp=nul(A)$
     \item $(COl(A))^\perp=nul(a^\perp)$
-  \end{itemize}
+  \end{itemize*}
 \end{theorem}
+
+\begin{theorem}
+  If $S=\{\vec{u}_1,...,\vec{u}_p\}$ is an \textbf{orthogonal set} of non-zero vectors in $\mathbb{R}$ then $S$ is a \textbf{linearly independant} set. 
+\end{theorem}
+
+\begin{theorem}
+  let $\{\vec{u}_1,...,\vec{u}_p\}$ be an \textbf{orthogonal basis} for $w\subset \mathbb{R}^n$. 
+  Let $y\in W$. Then $\vec{y}=C_1\vec{u}_1 + ... + C_p\vec{u}_p$, $C_j=\frac{\vec{y}\cdot\vec{u}_i}{\vec{u}_i\cdot\vec{u}_i}$
+\end{theorem}
+
+\begin{theorem}
+  Let $u=(\vec{u}_1 \vec{u}_2 \vec{u}_3)$, where $\{\vec{u}_1, \vec{u}_2, \vec{u}_3\}$ is orthonormal set.
+  $u^T\cdot u= I$
+\end{theorem}
+
+\begin{theorem}
+  Let $u$ be an \textbf{orthogonal matrix}, Let $\vec{x},\vec{y}\in\mathbb{R}$:
+  \begin{itemize*}
+    \item $|u\vec{x}|=|\vec{x}|\:$
+    \item $(u\vec{x})\cdot(u\vec{y})=\vec{x}\cdot\vec{y}$
+  \end{itemize*}
+\end{theorem}
+
+
 
 \end{multicols}
 \end{document}
