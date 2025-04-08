@@ -157,13 +157,25 @@ Every matrix is row equivalent to a unique row echelon form.
                             (2,0) coordinate (v) node[right] {}
                             (2,1) coordinate (u) node[right] {};
                         \end{tikzpicture}\\
-Orthogonality         & $\vec{u}\cdot \vec{v}$
+Orthogonality         & $\vec{u}\cdot \vec{v} = 0$
                        \begin{tikzpicture}[scale=0.5]
                         \draw[black,step=0.3] (0,0) grid (0.3,0.3);
                         \draw[->] (0,0)--(1,0) node[right]{\footnotesize$\vec{u}$};
                         \draw[->] (0,0)--(0,1) node[above]{\footnotesize$\vec{v}$};
-                      \end{tikzpicture}
+                      \end{tikzpicture}\\
 \end{tabular}
+\begin{tabular}{ll}                      
+Orthogonal Complements  & Let $W$ be a subspace of $\mathbb{R}^n$.\\
+                        & The orthogonal complement of $W$ is: \\
+                        & $W^\perp=\{\vec{x}\in\mathbb{R}^n|\vec{x}\cdot\vec{w}=\vec{0}, \forall\vec{w}\in W\}$
+\end{tabular}
+
+\subsection{Fact about the Orthogonal Complements}
+\begin{itemize}
+  \item $\vec{0}\in W^\perp$ since $\vec{0}\cdot\vec{w}=0$
+  \item If $W\in W^\perp, c\in \mathbb{R}$ then $cW\in W^\perp$
+  \item If $\vec{w}_1,\vec{w}_2\in W^\perp$ so $(\vec{w}_1+\vec{w}_2)\cdot\vec{x}=\vec{w}_1\cdot\vec{x}+\vec{w}_2\cdot\vec{x}\in W$
+\end{itemize}
 
 \subsection{Theorems}
 \begin{properties}
@@ -175,6 +187,14 @@ Orthogonality         & $\vec{u}\cdot \vec{v}$
     \item $\vec{u}\cdot \vec{u}=u_1^2+...+u^2_n\geq 0$
   \end{itemize}
 \end{properties}
+
+\begin{theorem}[Fundamental Subspaces Theorem] 
+  Let $A_{M\times N}$
+  \begin{itemize}
+    \item $(row(A))^\perp=nul(A)$
+    \item $(COl(A))^\perp=nul(a^\perp)$
+  \end{itemize}
+\end{theorem}
 
 \end{multicols}
 \end{document}
