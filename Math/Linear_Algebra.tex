@@ -144,13 +144,30 @@ Every matrix is row equivalent to a unique row echelon form.
                       & \footnotesize{(Also called dot product or scalar product)}\\
   Length of $\vec{x}$ & $||\vec{x}||=\sqrt{\vec{x}\cdot\vec{x}}=\sqrt{x^2_1+...+x^2_n}$\\
                       & \footnotesize{(Also called Norm or Magnitude)}\\
-  Unit vectore        & A vector with $||\vec{x}||=1$
-  
+  Unit vectore        & A vector with $||\vec{x}||=1$ \\
+  Normalization       & The formula $\vec{u}=\frac{\vec{x}}{||\vec{x}||}$ creat a unit vector in the \\
+                      & same direction as $\vec{x}$. \\
+  Distance            &  $dist(\color{blue}\vec{u}\color{black},\color{red}\vec{v}\color{black})=\color{blue}\vec{u}\color{black}-\color{red}\vec{v}$      
+                          \begin{tikzpicture}[scale=0.50]
+                          \draw[line width=1pt,black](2,0)--(2,1) node[anchor=south west]{};
+                          \draw[line width=1pt,blue,-stealth](0,0)--(2,1) node[anchor=south west]{};
+                          \draw[line width=1pt,red,-stealth](0,0)--(2,0) node[anchor=south]{}; 
+                          \draw [line width=0.5pt]
+                            (2,0.5) coordinate (d) node[right] {\footnotesize$dist(\vec{u},\vec{v})$}
+                            (2,0) coordinate (v) node[right] {}
+                            (2,1) coordinate (u) node[right] {};
+                        \end{tikzpicture}\\
+Orthogonality         & $\vec{u}\cdot \vec{v}$
+                       \begin{tikzpicture}[scale=0.5]
+                        \draw[black,step=0.3] (0,0) grid (0.3,0.3);
+                        \draw[->] (0,0)--(1,0) node[right]{\footnotesize$\vec{u}$};
+                        \draw[->] (0,0)--(0,1) node[above]{\footnotesize$\vec{v}$};
+                      \end{tikzpicture}
 \end{tabular}
 
 \subsection{Theorems}
 \begin{properties}
-  Let $\vec{u},\vec{v},\vec{w} \in \mathbb{R}^n$ and $c\in \mathbb{R}^n$
+  Let $\vec{u},\vec{v},\vec{w} \in \mathbb{R}^n$ and $c\in \mathbb{R}^n$ then:
   \begin{itemize}
     \item $\vec{u}\cdot\vec{v}=\vec{v}\cdot\vec{u}$ 
     \item $(\vec{u}+\vec{v})\cdot \vec{w}=\vec{u}\cdot\vec{w}+\vec{v}\cdot \vec{w}$
