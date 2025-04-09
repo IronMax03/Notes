@@ -168,7 +168,13 @@ Orthonormal set       & is a set  of  orthogonal unit vectors.\\
 Orthogonal matrix     & Is a squared matrix whose columns are\\
                       & orthonormal.\\
 Normal equation       & $A^TA\vec{x}=A^T\vec{b}$\\
-least-squares error   & $||\vec{b}-A\hat{x}||$
+Least-Squares Error   & $||\vec{b}-A\hat{x}||$\\
+Symetric              & $A_{m\times n}$ is symetric if $A=A^T$\\
+Spectrum              & Set of eigenvalues of $A_{n\times n}\{\lambda_1,...,\lambda_n\}$ is\\
+                      & called the \textbf{spectrum} of $A$.\\
+Quadratic Form        & A \textbf{quadratic form} on $\mathbb{R}^n$ is a function $Q$ \\
+                      & from $\mathbb{R}^n\rightarrow\mathbb{R}$ of the form $Q(\vec{x})=\vec{x}^TA\vec{x}$,\\
+                      & where $A$ is a symetric matrix.
 \end{tabular}
 \begin{tabular}{ll}
 Orthogonal Complements  & Let $W$ be a subspace of $\mathbb{R}^n$.\\
@@ -178,7 +184,14 @@ Orthogonal Projection   & of $\vec{y}\in\mathbb{R}^n$ onto subspace $W$ of $\mat
                         & the vector $\hat{y}$ in $W$ such that $\vec{y} -\hat{y}$ \\
                         & is in $W^\perp$. (Noted $\text{proj}_W(\vec{y})$)\\
 Least-Squares Problem   & is to find $\vec{x}$ that makes $||\vec{b}-A\vec{x}||$ \\
-                        & $=\text{dist}(\vec{b},A\vec{x})$ as small as possible.                  
+                        & $=\text{dist}(\vec{b},A\vec{x})$ as small as possible. 
+\end{tabular}
+\begin{tabular}{ll}
+  Orthogonally Diagonalizable Matrix & is a square matrix for which\\
+                                     & there exist an orthogonal \\
+                                     & matrix $P$ and a diagonal \\
+                                     & matrix $D$ such that \\
+                                     & $A=PDP^{-1}=PDP^T$.
 \end{tabular}
 
 \subsection{Theorems}
@@ -252,6 +265,49 @@ Least-Squares Problem   & is to find $\vec{x}$ that makes $||\vec{b}-A\vec{x}||$
   The set of least squares solutions of $A\vec{x}=\vec{b}$ coincide the non-empty solutions of the Normal equation.
 \end{theorem}
 
+\begin{theorem}[Criteria for a Unique Least-Squares Sol.]
+  Let $A_{M\times N}$ then the following are equivalent: 
+  \begin{itemize*}
+    \item $A\vec{x}=\vec{b}$ has unique least-square solution $\forall\vec{b}\in\mathbb{R}^n$.
+    \item Columns of $A$ are linearly independant.
+    \item The matrix $A^TA$ is invertible.
+  \end{itemize*}
+  When the statements are true, the least squares solution is given by $\hat{x}=(A^TA)^{-1}A^T\vec{b}$
+\end{theorem}
+
+\begin{theorem}[Eigenvectors of a Symmetric Matrix]
+  Let $A$ be a symmetric matrix. Then any two eigenvectors of $A$ from different eigenspaces are
+orthogonal.
+\end{theorem}
+
+\begin{theorem}[Symmetric Matrices and Orth. Diag.]
+  A square matrix $A$ is orthogonally diagonalizable if and only if $A$ is a symmetric matrix.
+\end{theorem}
+
+\begin{theorem}[Spectral Theorem For Symetric Matrices]
+  Let $A_{n\times n}$ be symetric. Then the following properties hold.
+  \begin{itemize*}
+    \item $A$ has $n$ real eigenvalues (counting multiplicities).
+    \item Then dimension of the eigenspace for each eigenvalue $\lambda$ is equal to the multiplicity of $\lambda$.
+    \item The eigenvectors of $A$ corresponding to different eigenvalues are orthogonal.
+    \item $A$ is orthogonally diagonalizable.
+  \end{itemize*}
+\end{theorem}
+
+\begin{theorem}[Principal Axis Theorem]
+  Let $A_{N\times N}$ be symetric. Then there is an orthogonal change of variable $\vec{x}=P\vec{y}$ that transform the quadratic form $\vec{x}^TA\vec{x}$ to $\vec{y}^TA\vec{y}$ whith no cross terms(Ex. ofcross terms is $x_1x_2$). 
+  The columns of $P$ are the eiganvectors of $A$.
+\end{theorem}
+
+\begin{theorem}[eiganvalue of definites]
+  The quadratic form is:
+  \begin{itemize*}
+    \item Positive definite if and only if $\forall i\lambda_i>0$.
+    \item Negative definite if and only if $\forall i\lambda_i<0$.
+    \item Indefinite if and only if $A$ as positive and negative eiganvalues.
+  \end{itemize*}
+\end{theorem}
+
 \subsection{Fact about the Orthogonal Complements}
 \begin{itemize*}
   \item $\vec{0}\in W^\perp$ since $\vec{0}\cdot\vec{w}=0$
@@ -266,6 +322,24 @@ $\vec{v}_1=\vec{x}_1$\\
 $\vec{v}_2=\vec{x}_2 -\left(\frac{\vec{x}_2\cdot\vec{v}_1}{\vec{v}_1\cdot\vec{v}_1}\right)\vec{v}_1$\\
 \vdots\\
 $\vec{v}_n=\vec{x}_n -\left(\frac{\vec{x}_n\cdot\vec{v}_1}{\vec{v}_1\cdot\vec{v}_1}\right)\vec{v}_1- ... -\left(\frac{\vec{x}_n\cdot\vec{v}_{n-1}}{\vec{v}_{n-1}\cdot\vec{v}_{n-1}}\right)\vec{v}_{n-1}$\\
+
+
+\subsection{Finding the Matrix of a Quadratic Form}
+$Q(\vec{x})=Ax^2_1+Bx_1x_2+Cx^2_2 \Leftrightarrow
+\begin{bmatrix}
+  A & \frac{B}{2} \\
+  \frac{B}{2} & C \\
+\end{bmatrix}
+$
+
+\subsection{Quadratic Form Terminology}
+A quadratic for $Q(\vec{x})$ is:
+\begin{itemize*}
+  \item Positive Definite If $Q(\vec{x})>0,\forall\vec{x}\ne\vec{0}$
+  \item Positive Semidefinite If $Q(\vec{x})\ge 0$
+  \item Negative Definite If $Q(\vec{x})<0,\forall\vec{x}\ne\vec{0}$
+  \item Negative Semidefinite If $Q(\vec{x})\le 0$
+\end{itemize*}
 
 
 \end{multicols}
