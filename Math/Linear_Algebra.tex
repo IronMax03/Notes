@@ -9,6 +9,7 @@
 \usepackage{mathtools}
 \usepackage{nccmath}
 \usepackage[inline]{enumitem}
+\usepackage{algpseudocode}
 
 \usepackage{empheq}
 \usepackage{amsfonts}
@@ -69,36 +70,31 @@
      Conist
 \end{tabular}
 
-
-\subsection{Coefficient Matrix}
+\section{Linear Systems and Matrix Equations}
+\subsection{Coefficient Matrix Example}
 \begin{equation}
 \centering
 \left\{\begin{split}
 A_1x_1+A_2x_2+A_3x_3=\alpha \\
 B_1x_1+B_2x_2+B_3x_3=\beta \\
-C_1x_1+C_2x_2+C_3x_3=\gamma \\
 \end{split}\right.
 \Leftrightarrow
 \begin{bmatrix}
     A_1 & A_2 & A_3\\
     B_1 & B_2 & B_3\\
-    C_1 & C_2 & C_3\\
 \end{bmatrix}
 \end{equation}
 
-
-\subsection{Augmented Matrix}
+\subsection{Augmented Matrix Example}
 \begin{equation}
 \left\{\begin{split}
 A_1x_1+A_2x_2+A_3x_3=\alpha \\
 B_1x_1+B_2x_2+B_3x_3=\beta \\
-C_1x_1+C_2x_2+C_3x_3=\gamma \\
 \end{split}\right.
 \Leftrightarrow
 \begin{amatrix}{3}
     A_1 & A_2 & A_3 & \alpha \\
     B_1 & B_2 & B_3 & \beta \\
-    C_1 & C_2 & C_3 & \gamma \\
  \end{amatrix}
 \end{equation}
 
@@ -136,6 +132,7 @@ Every matrix is row equivalent to a unique row echelon form.
 Every matrix is row equivalent to a unique row echelon form.
 \end{theorem}
 
+\section{Matrix Algebra, Determinants, \& Eigenvectors}
 
 \section{Orthogonality and Diagonalization}
 \subsection{Definition}
@@ -145,10 +142,10 @@ Every matrix is row equivalent to a unique row echelon form.
   Length of $\vec{x}$ & $||\vec{x}||=\sqrt{\vec{x}\cdot\vec{x}}=\sqrt{x^2_1+...+x^2_n}$\\
                       & \footnotesize{(Also called Norm or Magnitude)}\\
   Unit vectore        & A vector with $||\vec{x}||=1$ \\
-  Normalization       & The formula $\vec{u}=\frac{\vec{x}}{||\vec{x}||}$ creat a unit vector in the \\
-                      & same direction as $\vec{x}$. \\
+  Normalization       & The formula $\vec{u}=\frac{\vec{x}}{||\vec{x}||}$ creat a unit vector \\
+                      & in the same direction as $\vec{x}$. \\
   Distance            &  $dist(\color{blue}\vec{u}\color{black},\color{red}\vec{v}\color{black})=\color{blue}\vec{u}\color{black}-\color{red}\vec{v}$      
-                          \begin{tikzpicture}[scale=0.50]
+                        \begin{tikzpicture}[scale=0.50,baseline={([yshift={-\ht\strutbox-12}]current bounding box.north)}]
                           \draw[line width=1pt,black](2,0)--(2,1) node[anchor=south west]{};
                           \draw[line width=1pt,blue,-stealth](0,0)--(2,1) node[anchor=south west]{};
                           \draw[line width=1pt,red,-stealth](0,0)--(2,0) node[anchor=south]{}; 
@@ -158,30 +155,31 @@ Every matrix is row equivalent to a unique row echelon form.
                             (2,1) coordinate (u) node[right] {};
                         \end{tikzpicture}\\
 Orthogonality         & $\vec{u}\cdot \vec{v} = 0$
-                      \begin{tikzpicture}[scale=0.5]
+                      \begin{tikzpicture}[scale=0.5,baseline={([yshift={-\ht\strutbox-10}]current bounding box.north)}]
                         \draw[black,step=0.3, line width=1pt] (0,0) grid (0.3,0.3);
                         \draw[->,line width=1pt] (0,0)--(1,0) node[above]{\footnotesize$\vec{u}$};
                         \draw[->,line width=1pt,] (0,0)--(0,1) node[right]{\footnotesize$\vec{v}$};
                       \end{tikzpicture}\\
 Orthogonal Set        & A set  of vectors $\{\vec{u}_1, ..., \vec{u}_p\}\in\mathbb{R}^n$ such that\\ 
                       & each distinct vectors are orthogonal.\\
-Orthogonal Basis      & For a subspace $W$ of $R^n$ is a basis that is also\\
-                      & an orthogonal set.\\
+Orthogonal Basis      & For a subspace $W$ of $R^n$ is a basis that is\\
+                      & also an orthogonal set.\\
 Orthonormal set       & is a set  of  orthogonal unit vectors.\\
-Orthogonal matrix     & Is a squared matrix whose columns are orthonormal.
+Orthogonal matrix     & Is a squared matrix whose columns are\\
+                      & orthonormal.\\
+Normal equation       & $A^TA\vec{x}=A^T\vec{b}$\\
+least-squares error   & $||\vec{b}-A\hat{x}||$
 \end{tabular}
-\begin{tabular}{ll}                      
+\begin{tabular}{ll}
 Orthogonal Complements  & Let $W$ be a subspace of $\mathbb{R}^n$.\\
                         & The orthogonal complement of $W$ is: \\
-                        & $W^\perp=\{\vec{x}\in\mathbb{R}^n|\vec{x}\cdot\vec{w}=\vec{0}, \forall\vec{w}\in W\}$
+                        & $W^\perp=\{\vec{x}\in\mathbb{R}^n|\vec{x}\cdot\vec{w}=\vec{0}, \forall\vec{w}\in W\}$\\
+Orthogonal Projection   & of $\vec{y}\in\mathbb{R}^n$ onto subspace $W$ of $\mathbb{R}^n$ is\\
+                        & the vector $\hat{y}$ in $W$ such that $\vec{y} -\hat{y}$ \\
+                        & is in $W^\perp$. (Noted $\text{proj}_W(\vec{y})$)\\
+Least-Squares Problem   & is to find $\vec{x}$ that makes $||\vec{b}-A\vec{x}||$ \\
+                        & $=\text{dist}(\vec{b},A\vec{x})$ as small as possible.                  
 \end{tabular}
-
-\subsection{Fact about the Orthogonal Complements}
-\begin{itemize*}
-  \item $\vec{0}\in W^\perp$ since $\vec{0}\cdot\vec{w}=0$
-  \item If $W\in W^\perp, c\in \mathbb{R}$ then $cW\in W^\perp$
-  \item If $\vec{w}_1,\vec{w}_2\in W^\perp$ so $(\vec{w}_1+\vec{w}_2)\cdot\vec{x}=\vec{w}_1\cdot\vec{x}+\vec{w}_2\cdot\vec{x}\in W$
-\end{itemize*}
 
 \subsection{Theorems}
 \begin{properties}
@@ -224,6 +222,50 @@ Orthogonal Complements  & Let $W$ be a subspace of $\mathbb{R}^n$.\\
   \end{itemize*}
 \end{theorem}
 
+\begin{theorem}[Orthogonal Decomposition Theorem]
+  Let $W$ be a subspace with an orthogonal basis $\{\vec{u}_1,...,\vec{u}_p\}$. let $\vec{y}\in\mathbb{R}^n$ then: 
+  $\hat{y}=\left(\frac{\vec{y}\cdot\vec{u}_1}{\vec{u}_1\cdot\vec{u}_1}\right)\vec{u}_1 + ... + \left(\frac{\vec{y}\cdot\vec{u}_p}{\vec{u}_p\cdot\vec{u}_p}\right)\vec{u}_p$
+ \begin{tikzpicture}[scale=0.50, baseline={([yshift={-\ht\strutbox}]current bounding box.north)}]
+    \draw[line width=1pt,black,-stealth](4,0)--(4,1) node[anchor=south west]{};
+    \draw[line width=1pt,blue,-stealth](0,0)--(4,1) node[anchor=south west]{};
+    \draw[line width=1pt,red,-stealth](0,0)--(4,0) node[anchor=south]{}; 
+    \draw [line width=0.5pt]
+      (2,1) coordinate (v) node[right] {\footnotesize{$\color{blue}\vec{}{y}$}}
+      (4,1) coordinate (d) node[right] {\footnotesize{$\hat{y}^\perp=\vec{y}-\hat{y}$}}
+      (4,0) coordinate (u) node[right] {\footnotesize{$\color{red}\hat{y}$}};
+  \end{tikzpicture}
+\end{theorem}
+
+\begin{theorem}[Best Approximation Theorem]
+  Let $W$ be a subspace of $\mathbb{R}$. Let $\vec{y}\in\mathbb{R}^n$ and $\hat{y}=\text{proj}_W(\vec{}y)$. 
+  Then $\hat{y}$ is closest point to $\vec{y}$ in $W$. That is $\forall\vec{v}\ne\vec{y}\;\; ||\vec{y}-\hat{y}||<||\vec{y}-\vec{v}||$  
+\end{theorem}
+
+\begin{theorem}[Orth. Proj. with Orthonormal Bases]
+  Let $W$ subspace in $\mathbb{R}^n$. 
+  Let $\{\vec{u}_1, ..., \vec{u}_p\}$ be an orthonormal basis of  $W$.
+  $\text{proj}_W(\vec{y})=(\vec{y}\cdot\vec{u}_1)\vec{u}_1 + ... + (\vec{y}\cdot\vec{u}_p)\vec{u}_p$
+  Let $U=(\vec{u}_1\; \vec{u}_2\; ...\; \vec{u}_p)$. Then $\text{proj}_W(\vec{y})=UU^T\vec{y}$
+\end{theorem}
+
+\begin{theorem}[Normal Equations and Least-Squares Sol.]
+  The set of least squares solutions of $A\vec{x}=\vec{b}$ coincide the non-empty solutions of the Normal equation.
+\end{theorem}
+
+\subsection{Fact about the Orthogonal Complements}
+\begin{itemize*}
+  \item $\vec{0}\in W^\perp$ since $\vec{0}\cdot\vec{w}=0$
+  \item If $W\in W^\perp, c\in \mathbb{R}$ then $cW\in W^\perp$
+  \item If $\vec{w}_1,\vec{w}_2\in W^\perp$ so $(\vec{w}_1+\vec{w}_2)\cdot\vec{x}=\vec{w}_1\cdot\vec{x}+\vec{w}_2\cdot\vec{x}\in W$
+\end{itemize*}
+
+\subsection{Gram-Schmit Process(G-S)}
+The Gram-Schmit Process is an algorithme producing an orthogonal basis.\\
+Start whith $\{\vec{x}_1,...,\vec{x}_n\}$ basis for noozero subspace w of $\mathbb{R}^n$ define:\\
+$\vec{v}_1=\vec{x}_1$\\
+$\vec{v}_2=\vec{x}_2 -\left(\frac{\vec{x}_2\cdot\vec{v}_1}{\vec{v}_1\cdot\vec{v}_1}\right)\vec{v}_1$\\
+\vdots\\
+$\vec{v}_n=\vec{x}_n -\left(\frac{\vec{x}_n\cdot\vec{v}_1}{\vec{v}_1\cdot\vec{v}_1}\right)\vec{v}_1- ... -\left(\frac{\vec{x}_n\cdot\vec{v}_{n-1}}{\vec{v}_{n-1}\cdot\vec{v}_{n-1}}\right)\vec{v}_{n-1}$\\
 
 
 \end{multicols}
