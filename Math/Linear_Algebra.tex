@@ -95,6 +95,14 @@
 \small{Linearly Dependent}  & A set of vectors $\{\vec{v}_1, \vec{v}_2, ..., \vec{v}_n\}\in\mathbb{R}^n$ is\\
                             & \textbf{linearly dependent} if there exist weights\\
                             & such that $\vec{c}_1\vec{v}_1 + \vec{c}_2\vec{v}_2 + ... + \vec{c}_p\vec{v}_p=\vec{0}$.\\
+\small{Surjective}\footnotesize{(onto)}                  & For a \textbf{linear transformation} $T$:\\
+                            & for every vector $\vec{w}\in W$, there exist a\\
+                            & vector $\vec{v}\in V$ such that $T(v)=W$.\\
+\small{Injective}\footnotesize{(one-to-one)}                   & For a \textbf{linear transformation} $T$:\\
+                            & with $V\rightarrow W$, if $T(\vec{v}_1)=T(\vec{v}_2)$, then $\vec{v}_1=\vec{v}_2$\\
+                            & meaning that each vector in $V$ maps to a\\
+                            & unique vector in $W$.\\
+Standard Vector             & $\vec{e}_j=$\footnotesize{$\begin{pmatrix}0\\ \vdots\\ 1\\ \vdots\\ 0\end{pmatrix}$} \footnotesize{The Standard vectors of $\mathbb{R}^n$ are $\{\vec{e}_1, ..., \vec{e}_n\}$}\\
 \end{tabular}
 \begin{tabular}{ll}
 Linearly Independent  & $\{\vec{v}_1, \vec{v}_2, ..., \vec{v}_n\}$ is \textbf{linearly independent}\\
@@ -167,15 +175,23 @@ matrix is not a pivot column.
 \end{theorem}
 
 \begin{theorem}[Sets of Two or More Vectors]
-  The set of  $s=\{\vec{v}_1,\vec{v}_2, ... ,\vec{v}_p\}$ of 2 or more vectors is linearly dependent if and only if at least 1 vector is a linear combination of the other.
+  The set of  $s=\{\vec{v}_1,\vec{v}_2, ... ,\vec{v}_p\}$ of 2 or more vectors 
+  is linearly dependent if and only if at least 1 vector is a linear combination 
+  of the other.
 \end{theorem}
 
 \begin{theorem}[Sets with More Vectors than Entries]
-  If $p>n$, then the set $\{\vec{v}_1, \vec{v}_2, ..., \vec{v}_n\}\in\mathbb{R}$ must be linearly dependent.
+  If $p>n$, then the set $\{\vec{v}_1, \vec{v}_2, ..., \vec{v}_n\}\in\mathbb{R}$ 
+  must be linearly dependent.
 \end{theorem}
 
 \begin{theorem}[Sets Containing the Zero Vector]
   Any set of vectors that contains the zero vector is linearly dependent.
+\end{theorem}
+
+\begin{theorem}[The Standard Matrix of a Lin. Trans.]
+  Let $T:\mathbb{R}^n\rightarrow\mathbb{R}^m$ be a linear transformation. Then $T$ 
+  is injective if and only if $T(\vec{x})=\vec{0}$ has only the trivial solution.
 \end{theorem}
 
 \subsection{Coefficient Matrix Example}
