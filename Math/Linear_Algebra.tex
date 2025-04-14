@@ -47,7 +47,6 @@
 
 \begin{document}
 
-\section{Linear Systems and Matrix Equations}
 \begin{center}
      \Large{\textbf{Linear Algebra from Elementary to Advanced}}\\
      \footnotesize{University: Johns Hopkins University}\hfill\footnotesize{\textcopyright Maximilien Notz \the\year{}}
@@ -58,17 +57,126 @@
 \begin{multicols}{2}
 \setcounter{secnumdepth}{0}
 
-
+\section{Linear Systems and Matrix Equations}
 \subsection{Definition}
 \begin{tabular}{ll}
-    Linear Functions & All terms are of  degree 0 or 1. \\
-                   & A solution of a system of linear \\ 
-                   & equation is set of points that makes \\
-                   & the equation system true. \\
-     Consistent    & lin. systems is consistent if either 1 or $\infty$ \\
-                   & solutions exist else inconsistent.\\
-     Conist
+    Linear Functions        & All terms are of  degree 0 or 1. \\
+    Consistent              & lin. systems is consistent if either 1 or $\infty$ \\
+                            & solutions exist else inconsistent.\\
+\small{Row-Equivalence}     & Two matrce are row-equivalent if there is\\
+                            & a sequence of \textbf{EROS} that transforms one\\
+                            & into the other.\\
+    Pivot Position          & is a position in a matrix that corresponds\\
+                            & to a leading 1 in the matrix reduced\\
+                            & echelon form.\\
+    Pivot Columns           & is a culumn of $A$ that contain a \textbf{pivot}.\\
+    Leading Entry           & of a row in a matrix is the leftmost nonzero\\
+                            & entry in the row.\\
+    Basic Variables         & in a system of linear equations are the\\
+                            & variables that correspond to pivot columns\\
+                            & of the matrix for the system.\\                    
+    Free Variables          & are the variables that do not correspond to\\
+                            & pivot columns.\\
+    Column Vector           & is a matrix with only one column.\\
+    Lin. Combination        & \footnotesize{$\begin{pmatrix}A_1\\ \vdots\\ A_n\end{pmatrix}=C_1 + ... + C_m$}\\
+    Span                    & $\text{span}(\vec{v})$ is the set of all scalar multiples of\\
+                            & $\vec{v}$, where $\vec{c}\neq\vec{0}$. \\
+    Identity Matrix         & \footnotesize{$\begin{bmatrix}
+                                  1 & 0 & ... & 0 \\
+                                  0 & 1 & ... & 0 \\
+                                  \vdots & \vdots & \ddots & \vdots \\
+                                  0 & 0 & ... & 1 \\
+                                \end{bmatrix}_{n\times n}$}\\
+   Homogeneous              & A homogeneous system of linear equations\\
+                            & can be written in the form $A\vec{x}=\vec{0}$.\\
+   Trivial Sol.             & The trivial solution to a homogeneous\\
+                            & system is $\vec{x}=\vec{0}$. Any other solutions are\\
+                            & called nontrivial solutions.\\
+\small{Linearly Dependent}  & A set of vectors $\{\vec{v}_1, \vec{v}_2, ..., \vec{v}_n\}\in\mathbb{R}^n$ is\\
+                            & \textbf{linearly dependent} if there exist weights\\
+                            & such that $\vec{c}_1\vec{v}_1 + \vec{c}_2\vec{v}_2 + ... + \vec{c}_p\vec{v}_p=\vec{0}$.\\
 \end{tabular}
+\begin{tabular}{ll}
+Linearly Independent  & $\{\vec{v}_1, \vec{v}_2, ..., \vec{v}_n\}$ is \textbf{linearly independent}\\
+                      & if the equation $x_1\vec{v}_1 + x_2\vec{v}_2 + ... + x_n\vec{v}_n$\\
+Linear Transformation & is a transformation $T$ that satisfies\\
+                      & both the following conditions:\\
+                      & $\bullet$ $T(\vec{u}+\vec{v}) = T(\vec{u}) + T(\vec{v})$\\
+                      & $\bullet$ $T(c\vec{u})=cT(\vec{u})$\\
+\end{tabular}
+
+\subsection{Theorems}
+\newtheorem{theorem}{Theorem}
+\newtheorem{properties}{Properties}
+
+\begin{properties}
+  Let $\vec{u},\vec{v}, \vec{w}\in \mathbb{R}^n$ and $c,d\in\mathbb{R}$ then:
+  \begin{itemize*}
+    \item $\vec{u}+\vec{v}=\vec{v}+\vec{u}$
+    \item $\vec{u}+\vec{0}=\vec{u}$
+    \item $\vec{u}+(-\vec{u})=\vec{0}$
+    \item $c(\vec{u}+\vec{v})=c\vec{u}+c\vec{v}$
+    \item $(c+d)\vec{w}=c\vec{w}+d\vec{w}$
+    \item $c(d\vec{u})=(cd)\vec{u}$
+  \end{itemize*}
+\end{properties}
+
+\begin{theorem}[Uniqueness of Reduced Echelon Form]
+  Every matrix is row equivalent to a unique row echelon form.
+\end{theorem}
+
+\begin{theorem}[Existence of Solutions]
+  A system of linear equations is consistent if and only if the last (rightmost) column of its augmented
+matrix is not a pivot column.
+\end{theorem}
+
+\begin{theorem}[Matrix Eq., Vector Equ., and Lin. Systems]
+  If $A$ is a $m\times n$ matrix  with columns $\vec{a}_1, ..., \vec{a}_n$, $\vec{b}\in\mathbb{R}^n$ 
+  then the matrix equation $A\vec{x}=\vec{b}$ has same solution set as vector equation $x_1\vec{a}_1 + ... + x_n\vec{a}_n=\vec{b}$  
+  wich is the same solution set to system of linear equation with augmented matrix 
+  $\left[A|\vec{b}\right]=\left[\vec{a}_1, ..., \vec{a}_n|\vec{b}\right]$ 
+\end{theorem}
+
+\begin{theorem}[Existence of Solutions]
+  Let $A_{n\times m}$ the following are equivalent:
+  \begin{itemize*}
+    \item $\forall\vec{b}\in\mathbb{R}^n, A\vec{x}=\vec{b}$ has a solution.
+    \item each $\vec{b}$ is the linear combination of the columns of $A$.
+    \item Columns of $A$ span $\mathbb{R}^n$.
+    \item $A$ has a pivot in every row.
+  \end{itemize*}
+\end{theorem}
+
+\begin{theorem}
+  If $A_{m\times n},\vec{u},\vec{v}\in\mathbb{R}^n$ $c\in\mathbb{R}$, where $A\vec{u}$ is defined\\
+  \begin{itemize*}
+    \item $A(\vec{u}+\vec{v})=A\vec{u}+A\vec{v}$
+    \item $A(c\vec{u})=c(A\vec{u})$
+  \end{itemize*}
+\end{theorem}
+
+\begin{theorem}[Nontrivial Sol. of Homogeneous Equ.]
+  The homogeneous equation $A\vec{x}=0$ has a nontrivial solution if and only if the equation has at least
+  one free variable.
+\end{theorem}
+
+\begin{theorem}[Solution Sets with Free Variables]
+  Suppose the equation $A\vec{x}=\vec{b}$ is consistent. Let $p$ be a particular solution to the equation $A\vec{x}=\vec{b}$ 
+  Then the solution set of $A\vec{x}=\vec{b}$ is the set of all vectors of the form $\vec{w}=\vec{p}+\vec{v}_h$,
+  where $v_h$ is the solution of the homogeneous equation $A\vec{x}=\vec{0}$.
+\end{theorem}
+
+\begin{theorem}[Sets of Two or More Vectors]
+  The set of  $s=\{\vec{v}_1,\vec{v}_2, ... ,\vec{v}_p\}$ of 2 or more vectors is linearly dependent if and only if at least 1 vector is a linear combination of the other.
+\end{theorem}
+
+\begin{theorem}[Sets with More Vectors than Entries]
+  If $p>n$, then the set $\{\vec{v}_1, \vec{v}_2, ..., \vec{v}_n\}\in\mathbb{R}$ must be linearly dependent.
+\end{theorem}
+
+\begin{theorem}[Sets Containing the Zero Vector]
+  Any set of vectors that contains the zero vector is linearly dependent.
+\end{theorem}
 
 \subsection{Coefficient Matrix Example}
 \begin{equation}
@@ -97,11 +205,6 @@ B_1x_1+B_2x_2+B_3x_3=\beta \\
  \end{amatrix}
 \end{equation}
 
-
-\subsection{Row-Equivalence}
-Two matrce are row-equivalent if there is a sequence of \textbf{EROS} that transforms one into the other.
-
-
 \subsection{Elementary Row Operations (EROS)}
 1. \textbf{[Replacement]} Replace one row by sum of itself. \\
 2. \textbf{[Interchange]} Swap position of 2 rows. \\
@@ -119,17 +222,13 @@ Two matrce are row-equivalent if there is a sequence of \textbf{EROS} that trans
 2. Leading entry in each row is 1. \\
 3. Each leading 1 is the only non-zero entry in its column. \\
 
+\subsection{Vector Operations}
+$\begin{pmatrix}A_1\\ A_2\end{pmatrix}+\begin{pmatrix}B_1\\ B_2\end{pmatrix}=\begin{pmatrix}A_1+B_1\\ A_2+B_2\end{pmatrix}\;\;\;\;$
+$C\begin{pmatrix}A_1\\ A_2\end{pmatrix}=\begin{pmatrix}CA_1\\ CA_2\end{pmatrix}, C\in\mathbb{R}$
 
-\subsection{Theorems}
-\newtheorem{theorem}{Theorem}
-\newtheorem{properties}{Properties}
-\begin{theorem}
-Every matrix is row equivalent to a unique row echelon form.
-\end{theorem}
+\subsection{Matrix \& Vector Multiplication}
+Let $A_{m\times n}, \vec{x}\in\mathbb{R}^n$. $A\vec{x}=\left[a_1, ...,a_n\right]\begin{pmatrix}x_1\\ \vdots\\ x_n\end{pmatrix}=a_1x_1 + ... + a_nx_n$
 
-\begin{theorem}
-Every matrix is row equivalent to a unique row echelon form.
-\end{theorem}
 
 \section{Matrix Algebra, Determinants, \& Eigenvectors}
 
