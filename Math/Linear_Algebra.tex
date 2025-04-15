@@ -189,9 +189,22 @@ matrix is not a pivot column.
   Any set of vectors that contains the zero vector is linearly dependent.
 \end{theorem}
 
-\begin{theorem}[The Standard Matrix of a Lin. Trans.]
+\begin{theorem}[One-to-One Transformations]
   Let $T:\mathbb{R}^n\rightarrow\mathbb{R}^m$ be a linear transformation. Then $T$ 
   is injective if and only if $T(\vec{x})=\vec{0}$ has only the trivial solution.
+\end{theorem}
+
+\begin{theorem}[The Standard Matrix of a Lin. Trans.]
+  Let $T:\;\mathbb{R}^n\rightarrow\mathbb{R}^m$ be a linear transformation. Then there is unique matrix $A$ such that $T(\vec{x})=A\vec{x}$ for all $\vec{x}\in\mathbb{R}^n$.
+  $A$ is the $m\times n$ matrix whose $j$th column is the vector $T(\vec{e}_j)$: $A=\left[T(\vec{e}_1), T(\vec{e}_2), ...,T(\vec{e}_n)\right]$.
+\end{theorem}
+
+\begin{theorem}[One-to-One and Onto Tran. and Matrices]
+  Let $A$ be the standard matrix for the linear transformation $T:\mathbb{R}^n\rightarrow\mathbb{R}^m$. Then:
+  \begin{itemize*}
+    \item $T$ maps $\mathbb{R}^n$ onto $\mathbb{R}^m$ if and only if the columns of $A$ span $\mathbb{R}^m$
+    \item $T$ is \textbf{Injective} if and only if the columns of $A$ are linearly independent.
+  \end{itemize*}
 \end{theorem}
 
 \subsection{Coefficient Matrix Example}
