@@ -28,7 +28,7 @@
 }
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
-\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\DeclarePairedDelimiter\norm{\lVert\lVert}{\rVert\rVert}%
 
 \makeatletter
 \let\oldabs\abs
@@ -102,7 +102,7 @@
                             & with $V\rightarrow W$, if $T(\vec{v}_1)=T(\vec{v}_2)$, then $\vec{v}_1=\vec{v}_2$\\
                             & meaning that each vector in $V$ maps to a\\
                             & unique vector in $W$.\\
-Standard Vector             & $\vec{e}_j=$\footnotesize{$\begin{pmatrix}0\\ \vdots\\ 1\\ \vdots\\ 0\end{pmatrix}$} \footnotesize{The Standard vectors of $\mathbb{R}^n$ are $\{\vec{e}_1, ..., \vec{e}_n\}$}\\
+Standard Vector             & $\vec{e}_j=$\footnotesize{$\begin{pmatrix}0\\ \vdots\\ 1\\ \vdots\\ 0\end{pmatrix}$}\\
 \end{tabular}
 \begin{tabular}{ll}
 Linearly Independent  & $\{\vec{v}_1, \vec{v}_2, ..., \vec{v}_n\}$ is \textbf{linearly independent}\\
@@ -208,6 +208,7 @@ matrix is not a pivot column.
 \end{theorem}
 
 \subsection{Coefficient Matrix Example}
+\small{
 \begin{equation}
 \centering
 \left\{\begin{split}
@@ -219,9 +220,10 @@ B_1x_1+B_2x_2+B_3x_3=\beta \\
     A_1 & A_2 & A_3\\
     B_1 & B_2 & B_3\\
 \end{bmatrix}
-\end{equation}
+\end{equation}}
 
 \subsection{Augmented Matrix Example}
+\small{
 \begin{equation}
 \left\{\begin{split}
 A_1x_1+A_2x_2+A_3x_3=\alpha \\
@@ -232,7 +234,7 @@ B_1x_1+B_2x_2+B_3x_3=\beta \\
     A_1 & A_2 & A_3 & \alpha \\
     B_1 & B_2 & B_3 & \beta \\
  \end{amatrix}
-\end{equation}
+\end{equation}}
 
 \subsection{Elementary Row Operations (EROS)}
 1. \textbf{[Replacement]} Replace one row by sum of itself. \\
@@ -252,14 +254,55 @@ B_1x_1+B_2x_2+B_3x_3=\beta \\
 3. Each leading 1 is the only non-zero entry in its column. \\
 
 \subsection{Vector Operations}
+\small{
 $\begin{pmatrix}A_1\\ A_2\end{pmatrix}+\begin{pmatrix}B_1\\ B_2\end{pmatrix}=\begin{pmatrix}A_1+B_1\\ A_2+B_2\end{pmatrix}\;\;\;\;$
-$C\begin{pmatrix}A_1\\ A_2\end{pmatrix}=\begin{pmatrix}CA_1\\ CA_2\end{pmatrix}, C\in\mathbb{R}$
+$C\begin{pmatrix}A_1\\ A_2\end{pmatrix}=\begin{pmatrix}CA_1\\ CA_2\end{pmatrix}, C\in\mathbb{R}$}
 
 \subsection{Matrix \& Vector Multiplication}
 Let $A_{m\times n}, \vec{x}\in\mathbb{R}^n$. $A\vec{x}=\left[a_1, ...,a_n\right]\begin{pmatrix}x_1\\ \vdots\\ x_n\end{pmatrix}=a_1x_1 + ... + a_nx_n$
 
 
 \section{Matrix Algebra, Determinants, \& Eigenvectors}
+\subsection{Definition}
+\begin{tabular}{ll}
+  Transposes                & Let $A$ be an $m\times n$ matrix. The \textbf{transpose}\\
+                            & of $A$, denoted $A^T$, is the $n\times m$ matrix\\
+                            & whose columns are formed from the\\
+                            & corresponding rows of $A$.\\
+  Diagonal Matrix           & A \textbf{diagonal matrix} is a matrix whose\\
+                            & non-diagonal entries are all 0.
+\end{tabular}
+
+\subsection{Theorems \& Properties}
+\begin{properties}[Addition and Scalar Multiplication]
+  Let $A_{n\times m},B_{n\times m},C_{n\times m}$ and $r,s\in\mathbb{R}$ then:
+  \begin{itemize*}
+    \item $A+B=B+A$
+    \item $A+(B+C)=(A+B)+C$
+    \item $A+0=A$
+    \item $r(A+B)=rA+rB$
+    \item $(r+s)A=rA+sA$
+    \item $r(sA)=(rs)A$
+  \end{itemize*}
+\end{properties}
+
+
+\begin{properties}[Properties of the Transpose]
+  Let $A$ and $B$ be two matrices and let $r$ be a scalar. Then the following properties hold (as long as the sums and products are defined.)
+  \begin{itemize*}
+    \item $(A^T)^T=A$
+    \item $(A+B)^T=A^T+B^T$
+    \item $(rA)^T=rA^T$
+    \item $(AB)^T=A^T+B^T$
+  \end{itemize*}
+\end{properties}
+
+\subsection{matrix operations}
+$A=B$ if and only if their coresponding entries are equal.\\
+Let $A_{n\times m},\;,B_{n\times m}$ then $A+B$ is the $m\times n$ matrix obtained by adding the corresponding entries.\\
+The scalar multiplication $cA$ is  the $m\times n$ matrix obtained by multiplying each entry of $A$ by $c$.\\
+Let $A_{n\times p}, B_{p\times m}$ such that $B=(\vec{b}_1, \vec{b}_2, \dots, \vec{b}_p)$ then $AB=(A\vec{b}_1, A\vec{b}_2, \dots, A\vec{b}_p)$
+
 
 \section{Orthogonality and Diagonalization}
 \subsection{Definition}
