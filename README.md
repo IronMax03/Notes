@@ -13,4 +13,5 @@
 - [PDF](https://github.com/IronMax03/Notes/blob/main/Math/Linear_Algebra.pdf) | [LATEX](https://github.com/IronMax03/Notes/blob/main/Math/Linear_Algebra.tex) · Linear Algebra from Elementary to Advanced 
 
 ## IBM Quantum Learning
-
+- [PDF]() | [LATEX]() · Qiskit
+- [PDF]() | [LATEX]() · Quantum Information
