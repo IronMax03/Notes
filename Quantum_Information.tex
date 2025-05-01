@@ -1,0 +1,47 @@
+\documentclass[5pt]{article}
+\usepackage{multicol,multirow}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=0.75cm]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{physics}
+
+\usepackage{empheq}
+\usepackage{amsfonts}
+
+\definecolor{LightGray}{gray}{0.9}
+
+\usepackage{minted}
+
+
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+
+\begin{document}
+\begin{center}
+     \Large{\textbf{Quantum Information}}\\
+     \small{Class: IBM Quantum Learning}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+     \noindent\rule{20.2cm}{0.4pt}
+\end{center}
+
+
+\begin{multicols}{3}
+\setcounter{secnumdepth}{0}
+
+\subsection{Mathematical Concepts}
+
+\subsubsection{Dirac Notation\footnotesize{(or Bra-Ket Notation)}}
+Let the ordered set $\Sigma=\{1,...,|\Sigma|\}$. Then 
+Note that $\ket{\Psi}$ then $\bra{\Psi}=\ket{\Psi}^T$.
+
+\subsection{Quantum Information Systems}
+
+\subsection{Quantum cirtcuit}
+
+
+
+\end{multicols}
+\end{document}
