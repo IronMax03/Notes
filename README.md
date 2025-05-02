@@ -1,17 +1,17 @@
 # Notes
 ## University of colorado Boulder
-- [PDF](https://github.com/IronMax03/Notes/blob/main/Math/Calculus_1.pdf) | [LATEX](https://github.com/IronMax03/Notes/blob/main/Math/Calculus_1.tex) · [APPM 1350] Calculus 1 for engineers
-- [PDF](https://github.com/IronMax03/Notes/blob/main/Math/Calculus_2.pdf) | [LATEX](https://github.com/IronMax03/Notes/blob/main/Math/Calculus_2.tex) · [APPM 1360] Calculus 2 for engineers
-- [PDF](https://github.com/IronMax03/Notes/blob/main/Math/C%2B%2B.pdf) | [LATEX](https://github.com/IronMax03/Notes/blob/main/Math/C%2B%2B.tex) · [CSCI 1300] Computer Science 1: Starting Computing 
-- [PDF](https://github.com/IronMax03/Notes/blob/main/Math/Discrete_Structures.pdf) | [LATEX](https://github.com/IronMax03/Notes/blob/main/Math/Discrete_Structures.tex) · [CSCI 2824] Discrete Structures 
-- [PDF](https://github.com/IronMax03/Notes/blob/main/Math/Physics_1_CUB.pdf) | [LATEX](https://github.com/IronMax03/Notes/blob/main/Math/Physics_1_CUB.tex) · [PHYS 1110]  General Physics 1
-- [PDF](https://github.com/IronMax03/Notes/blob/main/Math/Physics_2_CUB.pdf) | [LATEX](https://github.com/IronMax03/Notes/blob/main/Math/Physics_2_CUB.tex) · [PHYS 1120]  General Physics 2 
+- [PDF](./Math/Calculus_1.pdf) | [LATEX](./Math/Calculus_1.tex) · [APPM 1350] Calculus 1 for engineers
+- [PDF](./Math/Calculus_2.pdf) | [LATEX](./Math/Calculus_2.tex) · [APPM 1360] Calculus 2 for engineers
+- [PDF](./Math/C%2B%2B.pdf) | [LATEX](./Math/C%2B%2B.tex) · [CSCI 1300] Computer Science 1: Starting Computing 
+- [PDF](./Math/Discrete_Structures.pdf) | [LATEX](./Math/Discrete_Structures.tex) · [CSCI 2824] Discrete Structures 
+- [PDF](./Math/Physics_1_CUB.pdf) | [LATEX](./Math/Physics_1_CUB.tex) · [PHYS 1110]  General Physics 1
+- [PDF](./Math/Physics_2_CUB.pdf) | [LATEX](./Math/Physics_2_CUB.tex) · [PHYS 1120]  General Physics 2 
 
 
 ## Coursera
-- [PDF](https://github.com/IronMax03/Notes/blob/main/Math/Game_Theory.pdf) | [LATEX](https://github.com/IronMax03/Notes/blob/main/Math/Game_Theory.tex) · Game Theory 
-- [PDF](https://github.com/IronMax03/Notes/blob/main/Math/Linear_Algebra.pdf) | [LATEX](https://github.com/IronMax03/Notes/blob/main/Math/Linear_Algebra.tex) · Linear Algebra from Elementary to Advanced 
+- [PDF](./Math/Game_Theory.pdf) | [LATEX](./Math/Game_Theory.tex) · Game Theory 
+- [PDF](./Math/Linear_Algebra.pdf) | [LATEX](./Math/Linear_Algebra.tex) · Linear Algebra from Elementary to Advanced 
 
 ## IBM Quantum Learning
-- [PDF]() | [LATEX]() · Qiskit
-- [PDF]() | [LATEX]() · Quantum Information
+- [PDF](./Programing_Languages/Qiskit.pdf) | [LATEX](./Programing_Languages/Qiskit.tex) · Qiskit
+- [PDF](./Quantum_Information.pdf) | [LATEX](./Quantum_Information.tex) · Quantum Information
