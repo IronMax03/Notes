@@ -40,9 +40,9 @@ and $\bra{A}=(1,0,0)$, $\bra{B}=(0,1,0)$
 Note that $\ket{\Psi}$ then $\bra{\Psi}=\ket{\Psi}^T$.
 
 \subsubsection{Cartesian product}
-Let $y=\{0,1\}$ and  $x=\{a,b\}$. Then,\\
-$x\times y = \{(0,a),(0,b),(1,a),(1,b)\}$\\
-and $y\times x = \{(a,0),(a,1),(b,0),(b,1)\}$\\
+Let $y=\{0,1\}$ and  $x=\{a,b\}$. Then, \\
+$x\times y = \{(0,a),(0,b),(1,a),(1,b)\}$ and \\
+$y\times x = \{(a,0),(a,1),(b,0),(b,1)\}$.
 
 \subsubsection{Tensor Product of vectors}
 $\begin{bmatrix}a_0\\ \vdots\\a_n\ \end{bmatrix}\otimes\begin{bmatrix}b_0\\ \vdots\\b_n\ \end{bmatrix}= \begin{bmatrix}a_0b_0\\ \vdots\\a_nb_n\\ \end{bmatrix}$
@@ -54,7 +54,7 @@ $\begin{bmatrix}a_0\\ \vdots\\a_n\ \end{bmatrix}\otimes\begin{bmatrix}b_0\\ \vdo
 3. $\ket{a}\otimes\ket{b}=\ket{b}\otimes\ket{a}$
 
 \subsection{Quantum Information Systems}
-\subsection{Quantum State Vector}
+\subsection{State Vector}
 Quantum State of a sytem is represented by a complex column vector.
 Let the quantum state vector $v$ be equal to $\begin{bmatrix}a_0\\ \vdots\\a_n\\ \end{bmatrix}$, where $\sum^n_{i=0}\abs{a_i}^2=1$
 The \textbf{euclidean norm} of the $||v||=\sqrt{\sum^n_{i=0}\abs{a_i}^2}$
@@ -67,15 +67,48 @@ The \textbf{euclidean norm} of the $||v||=\sqrt{\sum^n_{i=0}\abs{a_i}^2}$
      Other State    & $\frac{1+2i}{3}\ket{0}-\frac{2}{3}\ket{1}$
 \end{tabular}
 
-\subsubsection{Measurement}
-
-
 \subsection{Standart Basis Measurement}
+Let a quantum system be in the state $\ket{\psi}$, 
+then the probability for the measure outcome to be $a$ is $Pr(\text{outcome} = a)=\abs{\braket{a}{\psi}}^2$
+If $U$ is an unary matrice then the following Propertie hold, $||U\psi||=||\psi||$ 
 
 \subsection{Unary Operations}
+\subsubsection{Unary Matrice}
+A squared matrix $U$ having complex number entries is unitary if it satisfies the equations, 
+$UU^\dagger=U^\dagger U=\mathbb{I}$ where $\mathbb{I}$ is the identity matrix.
+
+\subsubsection{Some unitary operations on qubits}
+Pauli operations:\\
+$\mathbb{I}=\begin{pmatrix}
+     1 & 0 \\
+     0 & 1 \\
+\end{pmatrix}$ 
+$\sigma_x =\begin{pmatrix}
+     0 & 1 \\
+     1 & 0 \\
+\end{pmatrix}$
+$\sigma_y =\begin{pmatrix}
+     0 & -i \\
+     i & 0 \\
+\end{pmatrix}$
+$\sigma_z =\begin{pmatrix}
+    -1 & 0 \\
+     0 & 1 \\
+\end{pmatrix}$ \\
+Hadamard operation: 
+$H =\begin{pmatrix}
+     \frac{1}{\sqrt{2}} & 0 \\
+     0 & \frac{1}{\sqrt{2}} \\
+\end{pmatrix}$ \\
+Phase operations:
+$P_\theta =\begin{pmatrix}
+     1 & 0 \\
+     0 & e^{i\theta} \\
+\end{pmatrix}$ \\
+
+
 
 \subsection{Quantum cirtcuit}
-
 
 
 \end{multicols}
