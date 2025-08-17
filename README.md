@@ -7,6 +7,11 @@
 - [PDF](./Math/Physics_1_CUB.pdf) | [LATEX](./Math/Physics_1_CUB.tex) · [PHYS 1110]  General Physics 1
 - [PDF](./Math/Physics_2_CUB.pdf) | [LATEX](./Math/Physics_2_CUB.tex) · [PHYS 1120]  General Physics 2 
 
+## Webster University
+- [PDF](./Math/Discrete_Mathematics.pdf) | [LATEX](./Math/Discrete_Mathematics.tex) · [MATH 2410] Discrete Mathematics 
+- [PDF](./Math/Computer_Programming_I.pdf) | [LATEX](./Math/Computer_Programming_I.tex) · [COSC 1550] Computer Programming I 
+- [PDF](./Math/Python_Programming.pdf) | [LATEX](./Math/Python_Programming.tex) · [COSC 1800] Python Programming 
+
 
 ## Coursera
 - [PDF](./Math/Game_Theory.pdf) | [LATEX](./Math/Game_Theory.tex) · Game Theory 
