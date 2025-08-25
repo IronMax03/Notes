@@ -3,12 +3,13 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage[margin=0.75cm]{geometry}
 \usepackage{xcolor}
-\usepackage{amsmath}
+\usepackage{amsmath,esint}
 \usepackage{mathtools}
 \usepackage{relsize}
-
-\usepackage[english]{babel}
-\newtheorem{theorem}{Theorem}
+\usepackage{mathtools}
+\usepackage{nccmath}
+\usepackage[inline]{enumitem}
+\usepackage{algpseudocode}
 
 \usepackage{empheq}
 \usepackage{amsfonts}
@@ -20,8 +21,15 @@
 
 \usepackage{minted}
 
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\newcommand{\universalSet}{\mathbb{U}}
 
 \makeatletter
 \let\oldabs\abs
@@ -51,10 +59,6 @@
 \begin{multicols}{2}
 \setcounter{secnumdepth}{0}
 
-%%%%%%%%%%%%%%%%%%%%
-%% CODE %%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%
-
 \subsection{Mathematical Statement}
 \begin{tabular}{ll}
     Statement       & is any declarative sentence which is either true\\
@@ -69,6 +73,8 @@
     Negation        & $\lnot p$ equivalent to "not $p$".\\
     Converse        & \\
     Contrapositive  & \\
+    There is a $x$  & $\exists x$\\
+    For all $x$     & $\forall x$\\
     
     
 \end{tabular}
@@ -76,14 +82,21 @@
 \subsection{Naive Set Theory}
 \subsubsection{Set Notation}
 \begin{tabular}{ll}
-
-
-
-
-
-
-
-    Cartesian Product & $A\times B=\{(x,y)|x\in A\land y \in B\}$
+    Universal set           & $\universalSet$\\
+    Empty set               & $\emptyset=\{\}$\\
+    Power set               & $\mathcal{P}(A)$ is the set of all the subsets of $A$.\\
+    Element of              & $\in$. Example:$2\in\{1,2,3\}$\\
+    Subset of               & $\subseteq$. Example: $\{A, B,C\}\subseteq\{B,C,D\}$\\
+    Proper subset of        & $\subset$. Example: $\{A, B,C\}\subset\{A, B,C,D\}$\\
+    Intersection            & $\bigcap_{i\in I}A_i=\{x\in\universalSet|\forall i\in I, x\in A_i\}$\\
+                            & $A\cap B=\{x\in\universalSet|x\in A\land x\in B\}$\\
+    Union                   & $\bigcup_{i\in I}A_i=\{x\in\universalSet|\exists i\in I, x\in A_i\}$\\
+                            & $A\cup B=\{x\in\universalSet|x\in A\lor x\in B\}$\\
+    Difference              & $A\backslash B=\{x\in A|x\notin B\}$\\
+    Symmetric difference    & $A\Delta B=(A\backslash B)\cup(B\backslash A)$\\
+    Cartesian Product       & $A\times B=\{(x,y)|x\in A\land y \in B\}$\\
+    Complement of           & $\bar{A}=\{x\in\universalSet|x\notin A\}$\\
+    Cardinality             & $|A|$
     
 \end{tabular}
 
@@ -123,6 +136,14 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 \subsection{Sequences}
 
 \subsection{Symbolic Logic}
+\subsubsection{deMorganLaws}
+\begin{itemize*}
+    \item $\lnot\forall xP(x)=\exists xp(x)$
+    \item $\lnot\exists xP(x)=\forall xp(x)$
+    \item $\lnot(a_1\land a_2\land \dots\land a_n)\equiv \lnot a_1\lor \lnot a_2\lor \dots\lor \lnot a_n$
+    \item $\lnot(a_1\lor a_2\lor \dots\lor a_n)\equiv \lnot a_1\land \lnot a_2\land \dots\land \lnot a_n$
+\end{itemize*}
+
 
 \subsection{Proofs}
 
