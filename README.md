@@ -3,7 +3,7 @@
 - [PDF](./Math/Calculus_1.pdf) | [LATEX](./Math/Calculus_1.tex) · [APPM 1350] Calculus 1 for engineers
 - [PDF](./Math/Calculus_2.pdf) | [LATEX](./Math/Calculus_2.tex) · [APPM 1360] Calculus 2 for engineers
 - [PDF](./Math/C%2B%2B.pdf) | [LATEX](./Math/C%2B%2B.tex) · [CSCI 1300] Computer Science 1: Starting Computing 
-- [PDF](./Math/Discrete_Structures.pdf) | [LATEX](./Math/Discrete_Structures.tex) · [CSCI 2824] Discrete Structures 
+- [PDF](./Math/Discrete_Structures_CUB.pdf) | [LATEX](./Math/Discrete_Structures_CUB.tex) · [CSCI 2824] Discrete Structures 
 - [PDF](./Math/Physics_1_CUB.pdf) | [LATEX](./Math/Physics_1_CUB.tex) · [PHYS 1110]  General Physics 1
 - [PDF](./Math/Physics_2_CUB.pdf) | [LATEX](./Math/Physics_2_CUB.tex) · [PHYS 1120]  General Physics 2 
 
