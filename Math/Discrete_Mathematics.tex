@@ -47,6 +47,7 @@
 
 
 \begin{document}
+\newtheorem{theorem}{Theorem}
 
 
 \begin{center}
@@ -83,10 +84,12 @@
 \subsubsection{Set Notation}
 \begin{tabular}{ll}
     Universal set           & $\universalSet$\\
-    Empty set               & $\emptyset=\{\}$\\
+    Empty set               & $\emptyset=\{\}$, Remember: $\forall A (\emptyset\subset A)$\\
     Power set               & $\mathcal{P}(A)$ is the set of all the subsets of $A$.\\
+    Partition of $A$        & A collection of nonempty, pairwise-disjoint subsets whose union is $A$.\\
     Element of              & $\in$. Example:$2\in\{1,2,3\}$\\
     Subset of               & $\subseteq$. Example: $\{A, B,C\}\subseteq\{B,C,D\}$\\
+                            & $A\subseteq B \Leftrightarrow\forall x$\\
     Proper subset of        & $\subset$. Example: $\{A, B,C\}\subset\{A, B,C,D\}$\\
     Intersection            & $\bigcap_{i\in I}A_i=\{x\in\universalSet|\forall i\in I, x\in A_i\}$\\
                             & $A\cap B=\{x\in\universalSet|x\in A\land x\in B\}$\\
@@ -100,18 +103,44 @@
     
 \end{tabular}
 
+\subsubsection{Cardinality}
+\begin{tabular}{ll}
+    finite set      & Let $X$ be a finite set then $|X|\in \mathbb{N}$\\
+    countable set   & A set $S$ is countable if and only if that is finit\\
+                    & or $|S|=|\mathbb{N}|$.\\
+    aleph null.     & $\aleph_0=|\mathbb{N}|$\\
+\end{tabular}
+
+\begin{theorem}
+    Let $A$ and $B$ be sets, then $|A|=|B|$ if and only if there is a one-to-one correspondence from $A$ to $B$.
+\end{theorem}
+
+\begin{theorem}
+    If $A$ and $B$ are countable, then $A\cup B$ is countable. 
+\end{theorem}
+
+\begin{theorem}[Cantor's Theorem]
+    For every set $A$, $|A|<|\mathcal{P}(A)|$.
+\end{theorem}
+
+\begin{theorem}[Schr\"oder--Bernstein]
+     If there are injective function(one-to-one) functions $f\!:A\to B$ and $g\!:B\to A$, then there is a one-to-one correspondence between $A$ and $B$. 
+     In other words If $A$ and $B$ are set with $|A|\neq|B|$ and $|B|\neq|A|$, then $|A|=|B|$.
+\end{theorem}
+
 \subsection{Functions}
 
 \begin{tabular}{ll}
     Functions           & A rule that assigns each input exactly one \\
                         & output.\\
-    Range               & The set of all elements which are assigned to at\\
-                        & least one element of the domain by the function.\\
-    Domain              & The set of all input of a function.\\
-    Codomain            & The set of all allowable output a function.\\
-    $f:x\rightarrow y$   & a function $f$ with a domain $x$ and a codomain $y$.\\
+    Domain              & The set of all input of a function.($X$ in $f:X\rightarrow Y$)\\
+    Codomain            & The set of all output a function.($Y$ in $f:X\rightarrow Y$)\\
+    Range               & Is the subset of Y of elements that have an\\
+                        & antecedent in X by f\\
+    $f:x\rightarrow y$  & a function $f$ with a domain $x$ and a codomain $y$.\\
     Recursive f.        & \\
-    Injectiuve          & every element of the codomain is the image  of \\
+    Injective           & every element of the codomain is the image  of \\
+                        & $f(a)=f(b)\Rightarrow a=b$\\
                         & \textbf{at most} one element from the domain.\\
     Surjective          & every element of the codomain is the image  of \\
                         & \textbf{at least} one element from the domain.\\
