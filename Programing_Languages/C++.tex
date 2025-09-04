@@ -19,29 +19,28 @@
 
 \section{General Reminders}
 \begin{tabular}{ll}
-\emph{code} & \emph{description}\\
-\# include "myfile.h" & Include file.\\
+\emph{code}             & \emph{description}\\
+\# include "myfile.h"   & Include file.\\
 \# include$<$cassert$>$ & Include asssert library.\\
-assert(boolean); & Throw an error if the boolean is true.\\
-rand() & Random int (\# include$<$cstdlib$>$).\\
-abs($x$) & Returns $|x|$ (\# include$<$cstdlib$>$).\\
-int(var) & Convert a primitive data type var to int.\\
-$<<$setprecision(3)$<<$& Set decimal points (\#include$<$iomanip$>$)\\
-int* myInt; & * means myInt work form a pointer.\\
-\&var & Get mem addresse and pass by var by ref.\\
-void myF() const & read only fonction\\
+assert(boolean);        & Throw an error if the boolean is true.\\
+rand()                  & Random int (\# include$<$cstdlib$>$).\\
+abs($x$)                & Returns $|x|$ (\# include$<$cstdlib$>$).\\
+int(var)                & Convert a primitive data type var to int.\\
+int* myInt;             & * means myInt work form a pointer.\\
+\&var                   & Get mem addresse and pass by var by ref.\\
+void myF() const        & read only fonction\\
 \end{tabular}
 
 
 \section{Strings}
 \begin{tabular}{ll}
-\emph{code} & \emph{description}\\
-str$[$i$]$ & Get or set the char at the index i.\\
-str.length() & Return the number of characters.\\
-str.substr(a,b) & Returns the substring from a to b.\\
-str.find(subStr) & Retrun the start index of the substring\\
+\emph{code}         & \emph{description}\\
+str$[$i$]$          & Get or set the char at the index i.\\
+str.length()        & Return the number of characters.\\
+str.substr(a,b)     & Returns the substring from a to b.\\
+str.find(subStr)    & Retrun the start index of the substring\\
 str.replace(i,l,str)& Replace substring from i with str\\
-stoi(str) & Convert a string to int(\# include$<$string$>$).
+stoi(str)           & Convert a string to int(\# include$<$string$>$).
 \end{tabular}
 
 \section{Arrays}
@@ -52,27 +51,27 @@ stoi(str) & Convert a string to int(\# include$<$string$>$).
 \end{tabular}
 This table illustrate the structure of an array of strings. Considering that n is equal to the number of element minus one. Arrays are a static data type.\\[6pt]
 \begin{tabular}{ll}
-\emph{code} & \emph{description}\\
-int arr[4]; & Create a array of int and with 4 element.\\
+\emph{code}         & \emph{description}\\
+int arr[4];         & Create a array of int and with 4 element.\\
 int arr[4]=\{6,3\}; & \\
-arr$[$i$]$ & Get or set the element at the index i.\\
+arr$[$i$]$          & Get or set the element at the index i.\\
 \end{tabular}
 
 
 \section{Vectors}
 \begin{tabular}{ll}
-\emph{code} & \emph{description}\\
-\# include$<$vector$>$ & Include vector library.\\
-vector$<$type$>$ V; & Instantiate a vector.\\
-vector$<$type$>$ V(size); & Instantiate a vector from Array obj.\\
-vector$<$type$>$ V\{6,3,3\}; & Instantiate a vector from Array.\\
-V = vector$<$type$>$(); & Re-instantiate V\\
-V.at(Index) & Returns the element at index i.\\
-V.size() & Return the number of elements.\\
-V.push\_back(Value)  & Add the new element at the end.\\
-V.pop\_back() & Remove the last element.\\
-V.clear() & Empty the vector.\\
-V.insert(Index, Value) & Insert element at i.
+\emph{code}                     & \emph{description}\\
+\# include$<$vector$>$          & Include vector library.\\
+vector$<$type$>$ V;             & Instantiate a vector.\\
+vector$<$type$>$ V(size);       & Instantiate a vector from Array obj.\\
+vector$<$type$>$ V\{6,3,3\};    & Instantiate a vector from Array.\\
+V = vector$<$type$>$();         & Re-instantiate V\\
+V.at(Index)                     & Returns the element at index i.\\
+V.size()                        & Return the number of elements.\\
+V.push\_back(Value)             & Add the new element at the end.\\
+V.pop\_back()                   & Remove the last element.\\
+V.clear()                       & Empty the vector.\\
+V.insert(Index, Value)          & Insert element at i.
 \end{tabular}
 
 
@@ -84,26 +83,29 @@ struct myStruct {
 }s1, s2;            // myStruct instances
 \end{minted}
 \begin{tabular}{ll}
-\emph{code} & \emph{description}\\
-myStruct Obj; & instantiate structure object.\\
-Obj.param1 & Access param1 of Obj.\\
+\emph{code}     & \emph{description}\\
+myStruct Obj;   & instantiate structure object.\\
+Obj.param1      & Access param1 of Obj.\\
 \end{tabular}
 
 
 \section{Streams}
 \begin{tabular}{ll}
-\emph{code} & \emph{description}\\
+\emph{code}             & \emph{description}\\
 \# include$<$fstream$>$ & Include stream library.\\
 \# include$<$sstream$>$ & Include string stream library.\\
-ifstream fin; & Instantiate a input stream.\\
-ofstream fout; & Instantiate a output stream.\\
-stringstream s(myStr); & Instantiate a string stream.\\
-myStream.open("file.txt") & Open txt file whith the stream.\\
-myStream.close() & Close the stream file.\\
-getline(fin, line) & Get the next line from fin.\\
-fout$<<$"hello"$<<$"World" & Output in stream "helloWorld".\\
-fin$>>$var & Input from stream to var.\\
+ifstream fin;           & Instantiate a input stream.\\
+ofstream fout;          & Instantiate a output stream.\\
+stringstream s(myStr);  & Instantiate a string stream.\\
+myS.open("file.txt")    & Open txt file whith the stream.\\
+myS.close()             & Close the stream file.\\
+getline(fin, line)      & Get the next line from fin.\\
+fout$<<$"hello"         & Output in stream "helloWorld".\\
+fin$>>$var              & Input from stream to var.\\
+%% streams manipulators
+$<<$setprecision(n)$<<$ & Set decimal points (\#include$<$iomanip$>$)\\
 \end{tabular}
+
 \subsection{clear buffer}
 The buffer must be cleared after after getting an input from a stream if you input and output in the same file at the same time. 
 \begin{minted}[bgcolor=LightGray]
@@ -142,9 +144,9 @@ class myClasses {
 };
 \end{minted}
 \begin{tabular}{ll}
-\emph{code} & \emph{description}\\
-myClasses myObj(3,5); & Instantiate an myClasses type obj.\\
-myClasses myObj; & Call the default constructor.\\
+\emph{code}             & \emph{description}\\
+myClasses myObj(3,5);   & Instantiate an myClasses type obj.\\
+myClasses myObj;        & Call the default constructor.\\
 \end{tabular}
 \newpage
 \subsection{OOP With header file}
