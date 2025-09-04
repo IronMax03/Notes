@@ -104,6 +104,14 @@ fout$<<$"hello"         & Output in stream "helloWorld".\\
 fin$>>$var              & Input from stream to var.\\
 %% streams manipulators
 $<<$setprecision(n)$<<$ & Set decimal points (\#include$<$iomanip$>$)\\
+$<<$setw(n)$<<$         & Establishes a print field of n spaces.\\
+$<<$fixed$<<$           & Display floating point numbers in fixed.\\
+                        & point notation.\\
+$<<$showpoint$<<$       & Enables or disables the unconditional\\
+$<<$noshowpoint$<<$     & inclusion of the decimal point character\\
+                        & in floating-point output.\\
+$<<$left$<<$            & output the string on the left.\\
+$<<$right$<<$            & output the string on the right.\\
 \end{tabular}
 
 \subsection{clear buffer}
@@ -148,7 +156,7 @@ class myClasses {
 myClasses myObj(3,5);   & Instantiate an myClasses type obj.\\
 myClasses myObj;        & Call the default constructor.\\
 \end{tabular}
-\newpage
+
 \subsection{OOP With header file}
 If you use a header the file wich contain the main function must include the header file.
 \subsubsection{Header file(myHeader.h)}
