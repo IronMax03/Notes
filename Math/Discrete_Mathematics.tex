@@ -86,7 +86,8 @@
     Universal set           & $\universalSet$\\
     Empty set               & $\emptyset=\{\}$, Remember: $\forall A (\emptyset\subset A)$\\
     Power set               & $\mathcal{P}(A)$ is the set of all the subsets of $A$.\\
-    Partition of $A$        & A collection of nonempty, pairwise-disjoint subsets whose union is $A$.\\
+    Partition of $A$        & A collection of nonempty, \small{pairwise-disjoint}\\
+                            & subsets whose union is $A$.\\
     Element of              & $\in$. Example:$2\in\{1,2,3\}$\\
     Subset of               & $\subseteq$. Example: $\{A, B,C\}\subseteq\{B,C,D\}$\\
                             & $A\subseteq B \Leftrightarrow\forall x$\\
@@ -151,6 +152,14 @@
 \end{tabular}
 
 \subsection{Counting}
+
+\begin{tabular}{ll}
+    power set cardinality   & $|\mathcal{P}(A)|=2^{|A|}$\\
+    n-bit string            & \\
+    bit string weight       & the number of \textbf{1} in a bit string.\\
+    $B^n_k$                 & the set of all \textbf{n-bit strings} of weight k.\\
+\end{tabular}
+
 \subsubsection{Additive Principle}
 \textbf{General Definition:} 
 if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoint} ($A$ and $B$ can't apen at the same time.) ways, then $A$ and $B$ can occur in $m+n$ ways.\\   
@@ -161,6 +170,7 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 \textbf{General Definition:} if event $A$ can occur $m$ ways, and each possibility for $A$ allows for exactly $n$ ways for event $B$, then the event "$A$ and $B$" can occur $m\cdot n$ ways.\\
 \textbf{Set Definition:} Given 2 sets $A$ and $B$, we have $|A\times B|=|A|\cdot|B|$.
 
+\subsubsection{Binomial coefficient}
 
 \subsection{Sequences}
 
