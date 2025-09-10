@@ -3,8 +3,13 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage[margin=0.75cm]{geometry}
 \usepackage{xcolor}
-\usepackage{amsmath}
+\usepackage{amsmath,esint}
 \usepackage{mathtools}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usepackage{nccmath}
+\usepackage[inline]{enumitem}
+\usepackage{algpseudocode}
 \usepackage{physics}
 
 \usepackage{empheq}
@@ -21,6 +26,10 @@
 
 
 \begin{document}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{properties}{Properties}
+
 \begin{center}
      \Large{\textbf{Quantum Information}}\\
      \small{Class: IBM Quantum Learning}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
@@ -30,6 +39,62 @@
 
 \begin{multicols}{3}
 \setcounter{secnumdepth}{0}
+
+\subsection{Linear Algebra}
+
+\begin{tabular}{ll}
+     Complexe conjugate  & $(a+ib)^*=a-ib$\\
+                         & $(a-ib)^*=a+ib$\\
+                         & where $a\in\mathbb{R}$, $b\in\mathbb{R}$\\
+\end{tabular}
+
+
+\begin{properties}[Complexe conjugate]
+     \begin{itemize*}
+          \item $(Z^*)^*=Z$
+          \item $(Z+W)^*=Z^*+W^*$
+          \item $(Z-W)^*=Z^*-W^*$
+          \item $(ZW)^*=Z^*W^*$
+          \item $Z^*Z=\abs{Z}^2$
+          \item $(Z^n)^*=(Z^*)^n$, for $n\in\mathbb{Z}$
+          \item $ln(Z^*)=(ln(Z))^*$ if $Z$ is not 0 or a negative  real number.
+     \end{itemize*}
+\end{properties}
+
+\subsubsection{Linear Operator}
+A \textbf{linear operator} between the vector spaces $V$ and $W$ is define to be any function $A:V\rightarrow W$ which is linear in its input.
+\begin{properties}
+     Let $\hat{A}$ be a linear operator on $V\rightarrow W$  and $A$ be the matrix representation of $\hat{A}$.
+     \begin{itemize*}
+          \item $\hat{A}(\sum_ia_i\ket{v_i})=\sum_ia_i\hat{A}\ket{v_i}$\\
+          \item $\hat{A}\ket{v_j}=\sum_iA_{ij}\ket{w_i}$\\
+     \end{itemize*}
+\end{properties}
+
+
+\subsubsection{Inner product}
+
+
+
+
+
+\subsection{Quantum mecanics}
+\subsubsection{Pauli Matrices}
+\begin{itemize*}
+     \item $\sigma_0 = I = \begin{bmatrix}1 & 0 \\ 0 & 1\end{bmatrix}$
+     \item $\sigma_x = X = \begin{bmatrix}0 & 1 \\ 1 & 0\end{bmatrix}$
+     \item $\sigma_y = Y = \begin{bmatrix}0 & -i \\ i & 0\end{bmatrix}$
+     \item $\sigma_z = Z = \begin{bmatrix}1 & 0 \\ 0 & -1\end{bmatrix}$
+\end{itemize*}
+
+
+
+
+\newpage
+
+
+
+
 
 \subsection{Mathematical Concepts}
 
@@ -110,7 +175,6 @@ $P_\theta =\begin{pmatrix}
 
 
 \subsection{Quantum cirtcuit}
-
 
 \end{multicols}
 \end{document}
