@@ -175,6 +175,26 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 \subsection{Sequences}
 
 \subsection{Symbolic Logic}
+\begin{tabular}{lll}
+    \textbf{Name} & \textbf{Symbol} & \textbf{Translate to}\\
+                 & $\land$ & and\\
+                 & $\lor$ & or\\
+   Implication   & $\Rightarrow$ & if\\
+   Biconditional & $\Leftrightarrow$ & if and only if\\
+    
+\end{tabular}
+
+\subsubsection{Important Equivalences}
+\begin{itemize*}
+    \item $p\land T\equiv p$
+    \item $p\land\bot\equiv\bot$
+    \item $p\lor T\equiv T$
+    \item $p\lor\bot\equiv P$
+    \item $p\Rightarrow q\equiv \lnot p\Rightarrow \lnot q$
+    \item $p\Rightarrow q\equiv \lnot p \lor q$
+    \item $p\Leftrightarrow q\equiv (p\Rightarrow q)\land(q\Rightarrow p)$
+\end{itemize*}
+
 \subsubsection{deMorganLaws}
 \begin{itemize*}
     \item $\lnot\forall xP(x)=\exists xp(x)$
