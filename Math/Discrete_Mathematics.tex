@@ -47,7 +47,9 @@
 
 
 \begin{document}
+
 \newtheorem{theorem}{Theorem}
+\newtheorem{properties}{Properties}
 
 
 \begin{center}
@@ -175,36 +177,82 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 \subsection{Sequences}
 
 \subsection{Symbolic Logic}
-\begin{tabular}{lll}
-    \textbf{Name} & \textbf{Symbol} & \textbf{Translate to}\\
-                 & $\land$ & and\\
-                 & $\lor$ & or\\
-   Implication   & $\Rightarrow$ & if\\
-   Biconditional & $\Leftrightarrow$ & if and only if\\
-    
+\begin{tabular}{lcl}
+    \textbf{Name}           & \textbf{Symbol}       & \textbf{Translate to}\\
+    Disjonction             & $A\land B$            & $A$ and $B$.\\
+    Conjunction             & $A\lor B$             & $A$ or $B$.\\
+    Negation                & $\lnot A$             & not $A$.\\
+    Condition/Implication   & $A\Rightarrow B$      & if $A$ then $B$.\\
+    Bicondition             & $A\Leftrightarrow B$  & if and only if $A$ then $B$.\\
+    Exclusive Disjunction   & $A\oplus B$           & Either $A$ or $B$, but not both.\\
+    Universal               & $\forall x$           & For all $x$'s.\\
+    Existential             & $\exists x$           & There is at least one $x$.\\
+    Unique Existential      & $\exists! x$          & There is exactly one $x$.\\
+    Equivalence             & $A\equiv B$           & $A$ is identical to $B$.\\
 \end{tabular}
 
-\subsubsection{Important Equivalences}
+\subsubsection{Important Equivalences \& Properties}
 \begin{itemize*}
+    \item $\lnot(\lnot A)\equiv A$
     \item $p\land T\equiv p$
     \item $p\land\bot\equiv\bot$
     \item $p\lor T\equiv T$
     \item $p\lor\bot\equiv P$
+    \item $A\oplus B\equiv (A\lor B)\land\lnot(A\land B)$
     \item $p\Rightarrow q\equiv \lnot p\Rightarrow \lnot q$
     \item $p\Rightarrow q\equiv \lnot p \lor q$
     \item $p\Leftrightarrow q\equiv (p\Rightarrow q)\land(q\Rightarrow p)$
+    \item $\lnot (p\Leftrightarrow q)\equiv \lnot p \Leftrightarrow q\equiv p \Leftrightarrow \lnot q$
 \end{itemize*}
+
+\begin{properties}
+    \begin{itemize*}
+        \item $A\lor B\equiv B\lor A$
+        \item $A\lor (B\lor C)\equiv C\lor (A\lor B)$
+        \item $A\land B\equiv B\land A$
+        \item $A\land(B\land C)\equiv C\land (A\land B)$
+        \item $A\oplus B\equiv B\oplus A$
+        \item $A\oplus(B\oplus C)\equiv C\oplus (A\oplus B)$
+    \end{itemize*}
+\end{properties}
 
 \subsubsection{deMorganLaws}
 \begin{itemize*}
-    \item $\lnot\forall xP(x)=\exists xp(x)$
-    \item $\lnot\exists xP(x)=\forall xp(x)$
-    \item $\lnot(a_1\land a_2\land \dots\land a_n)\equiv \lnot a_1\lor \lnot a_2\lor \dots\lor \lnot a_n$
-    \item $\lnot(a_1\lor a_2\lor \dots\lor a_n)\equiv \lnot a_1\land \lnot a_2\land \dots\land \lnot a_n$
+    \item $\lnot\forall xP(x)=\exists xP(\lnot x)$
+    \item $\lnot\exists xP(x)=\forall xP(\lnot x)$
+    \item $\lnot\exists x\exists yP(x,y)=\forall x\exists yP(\lnot x,y)$
+    \item $\lnot\left(\bigwedge_{i=0}^na_i\right)\equiv\bigvee_{i=0}^n\lnot a_i$
+    \item $\lnot\left(\bigvee_{i=0}^na_i\right)\equiv\bigwedge_{i=0}^n\lnot a_i$
 \end{itemize*}
 
 
 \subsection{Proofs}
+\subsubsection{Direct Proof}
+\textbf{Goal:} Prove $p\Rightarrow q$.\\
+\textbf{Idea:} Assume $p$ and use definitions/algebra to derive $q$.\\
+\textbf{Template:} Assume $p$. \;\; [derive consequences] \;\; Therefore $q$.\\
+
+\subsubsection{Proof by Contrapositive}
+\textbf{Goal:} Prove $p\Rightarrow q$.\\
+\textbf{Idea:} Instead of proving $p\Rightarrow q$, prove $\lnot q\Rightarrow \lnot p$.\\
+\textbf{Template:} To prove $p\Rightarrow q$, assume $\lnot q$ and derive $\lnot p$; therefore $\lnot q\Rightarrow \lnot p$, so $p\Rightarrow q$.\\
+
+\subsubsection{Proof by Counter Example}
+\textbf{Goal:} Disprove $\forall x\,P(x)$ (show $\exists x\,\lnot P(x)$).\\
+\textbf{Idea:} Exhibit a specific counterexample $x_0$ with $\lnot P(x_0)$.\\
+\textbf{Template:} Identify the claim form (usually $\forall x\,P(x)$). Choose a concrete $x_0$ in the domain and verify $\lnot P(x_0)$ holds by computation or definition checking.\\
+
+\subsubsection{Proof by Cases}
+\textbf{Goal:} Prove the claim.\\
+\textbf{Idea:} Split into exhaustive, mutually exclusive cases and prove the claim in each case.\\
+\textbf{Template:} Partition the domain into cases $C_1,\dots,C_k$ that cover all possibilities. For each $i$, assume $C_i$ and show the statement holds. Conclude it holds in all cases by exhaustion.\\
+
+\subsubsection{Proof by Contradiction}
+\textbf{Goal:} Prove a statement $S$.\\
+\textbf{Idea:} Assume $\lnot S$ and derive a contradiction; conclude $S$.\\
+\textbf{Template:} Suppose $\lnot S$. \;\; [Deduce an impossibility such as $P\land \lnot P$ or a known falsehood.] \;\; Contradiction; therefore $S$.\\
+
+
 
 \subsection{Graph Theory}
 
