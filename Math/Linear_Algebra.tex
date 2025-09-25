@@ -49,7 +49,7 @@
 
 \begin{center}
      \Large{\textbf{Linear Algebra from Elementary to Advanced}}\\
-     \footnotesize{University: Johns Hopkins University}\hfill\footnotesize{\textcopyright Maximilien Notz \the\year{}}
+     \footnotesize{University: Johns Hopkins University}\hfill\footnotesize{\textcopyleft Maximilien Notz \the\year{}}
      \noindent\rule{20.2cm}{0.4pt}
 \end{center}
 
@@ -92,9 +92,13 @@
    Trivial Sol.             & The trivial solution to a homogeneous\\
                             & system is $\vec{x}=\vec{0}$. Any other solutions are\\
                             & called nontrivial solutions.\\
-\small{Linearly Dependent}  & A set of vectors $\{\vec{v}_1, \vec{v}_2, ..., \vec{v}_n\}\in\mathbb{R}^n$ is\\
+
+\small{Linear Dependence}   & A set of vectors $\{\vec{v}_1, \vec{v}_2, ..., \vec{v}_n\}\in\mathbb{R}^n$ is\\
                             & \textbf{linearly dependent} if there exist weights\\
-                            & such that $\vec{c}_1\vec{v}_1 + \vec{c}_2\vec{v}_2 + ... + \vec{c}_p\vec{v}_p=\vec{0}$.\\
+                            & such that $c_1\vec{v}_1 + ... + c_p\vec{v}_p=\vec{0}$ where\\
+                            & where at least one $c\neq 0$.\\
+
+                            
 \small{Surjective}\footnotesize{(onto)}                  & For a \textbf{linear transformation} $T$:\\
                             & for every vector $\vec{w}\in W$, there exist a\\
                             & vector $\vec{v}\in V$ such that $T(v)=W$.\\
@@ -102,11 +106,13 @@
                             & with $V\rightarrow W$, if $T(\vec{v}_1)=T(\vec{v}_2)$, then $\vec{v}_1=\vec{v}_2$\\
                             & meaning that each vector in $V$ maps to a\\
                             & unique vector in $W$.\\
-Standard Vector             & $\vec{e}_j=$\footnotesize{$\begin{pmatrix}0\\ \vdots\\ 1\\ \vdots\\ 0\end{pmatrix}$}\\
+Standard Vector             & $\vec{e}_j=$\footnotesize{$\begin{pmatrix}0\\ \vdots\\ 1\\ \vdots\\ 0\end{pmatrix}$} the 1 is on the jth row.\\
 \end{tabular}
 \begin{tabular}{ll}
-Linearly Independent  & $\{\vec{v}_1, \vec{v}_2, ..., \vec{v}_n\}$ is \textbf{linearly independent}\\
-                      & if the equation $x_1\vec{v}_1 + x_2\vec{v}_2 + ... + x_n\vec{v}_n$\\
+Linear Independence   & A set of vectors $\{v_1, ..., v_k\}$ is \textbf{linearly}\\
+                      & \textbf{independent} if the vector equation\\
+                      & $c_1\vec{v}_1 + ... c_k\vec{v}_k=\vec{0}$ has only the trivial\\
+                      & solution($c_1=...=c_k=0$).\\
 Linear Transformation & is a transformation $T$ that satisfies\\
                       & both the following conditions:\\
                       & $\bullet$ $T(\vec{u}+\vec{v}) = T(\vec{u}) + T(\vec{v})$\\
