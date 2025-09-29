@@ -11,6 +11,7 @@
 \usepackage[inline]{enumitem}
 \usepackage{algpseudocode}
 \usepackage{physics}
+\usepackage[frak=esstix]{mathalpha}
 
 \usepackage{empheq}
 \usepackage{amsfonts}
@@ -32,7 +33,7 @@
 
 \begin{center}
      \Large{\textbf{Quantum Information}}\\
-     \small{Class: IBM Quantum Learning}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+     \small{Class: IBM Quantum Learning}\hfill\small{\textcopyleft Maximilien Notz \the\year{}}
      \noindent\rule{20.2cm}{0.4pt}
 \end{center}
 
@@ -40,12 +41,15 @@
 \begin{multicols}{3}
 \setcounter{secnumdepth}{0}
 
-\subsection{Linear Algebra}
 
+\subsection{Complex Analysis Short recap}
+Let $a\in\mathbb{R}$, $b\in\mathbb{R}$ and $z\in\mathbb{C}$.
 \begin{tabular}{ll}
+     Real part           & $\mathfrak{Re}(a+ib)=a$\\
+     Real part           & $\mathfrak{Im}(a+ib)=b$\\
+     Absolute Values     & $|z|=\sqrt{zz^*}= \norm{(a\;\:b)}_2$\\
      Complexe conjugate  & $(a+ib)^*=a-ib$\\
                          & $(a-ib)^*=a+ib$\\
-                         & where $a\in\mathbb{R}$, $b\in\mathbb{R}$\\
 \end{tabular}
 
 
@@ -61,6 +65,21 @@
      \end{itemize*}
 \end{properties}
 
+
+\begin{properties}[Complexe Absolute Values]
+     \begin{itemize*}
+          \item $|z_1z_2|=|z_1|\:|z_2|$
+          \item The absolute value define the metric of the space $\mathbb{C}$ ($\mathbb{C}$ is complete).
+          \item $|z_1+z_2|^2=|z_1|^2+|z_2|^2+\mathfrak{Re}(z_1z_2^*)$
+          \item $|z_1-z_2|^2=|z_1|^2+|z_2|^2-\mathfrak{Re}(z_1z_2^*)$
+          \item $|z_1+z_2|^2+|z_1-z_2|^2=2(|z_1|^2+|z_2|^2)$
+     \end{itemize*}
+\end{properties}
+
+
+
+\subsection{Linear Algebra}
+
 \subsubsection{Linear Operator}
 A \textbf{linear operator} between the vector spaces $V$ and $W$ is define to be any function $A:V\rightarrow W$ which is linear in its input.
 \begin{properties}
@@ -73,6 +92,15 @@ A \textbf{linear operator} between the vector spaces $V$ and $W$ is define to be
 
 
 \subsubsection{Inner product}
+A Inner Product $\langle.,.\rangle$ is a function that output a complex number and satisfies the following conditions: Let $\vec{v}\in\mathbb{C}^n, \vec{w}\in\mathbb{C}^n$.
+\begin{enumerate}
+     \item $\langle \vec{v},\sum_ia_i\vec{w_i}\rangle=\sum_ia_i\langle \vec{v},\vec{w_i}\rangle$
+     \item $\langle \vec{v},\vec{w}\rangle=(\langle \vec{w},\vec{v}\rangle)^*$
+     \item if $x=0$ and only if $\langle \vec{w},\vec{w}\rangle\geq 0$
+\end{enumerate}
+In quantum mecanics the inner product is generaly noted $\langle.|.\rangle$.
+
+
 \begin{properties}
      $\langle A,A\rangle=\norm{A}^2$\\
 \end{properties}
