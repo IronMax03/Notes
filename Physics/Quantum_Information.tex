@@ -32,8 +32,8 @@
 \newtheorem{properties}{Properties}
 
 \begin{center}
-     \Large{\textbf{Quantum Information}}\\
-     \small{Class: IBM Quantum Learning}\hfill\small{\textcopyleft Maximilien Notz \the\year{}}
+     \Large{\textbf{Quantum Computation \& Quantum Information}}\\
+     \small{Book: Quantum Computation and Quantum Information.  Nielsen, M. A., \& Chuang, I. L. }\hfill\small{\textcopyleft Maximilien Notz \the\year{}}
      \noindent\rule{20.2cm}{0.4pt}
 \end{center}
 
@@ -43,11 +43,12 @@
 
 
 \subsection{Complex Analysis Short recap}
-Let $a\in\mathbb{R}$, $b\in\mathbb{R}$ and $z\in\mathbb{C}$.
+Let $a,b\in\mathbb{R}$ and $z\in\mathbb{C}$ such that $z=a+bi$.
 \begin{tabular}{ll}
      Real part           & $\mathfrak{Re}(a+ib)=a$\\
      Real part           & $\mathfrak{Im}(a+ib)=b$\\
-     Absolute Values     & $|z|=\sqrt{zz^*}= \norm{(a\;\:b)}_2$\\
+     Absolute Values     & $|z|=\sqrt{zz^*}$\\
+                         & $= \norm{(a\;\:b)}_2$\\
      Complexe conjugate  & $(a+ib)^*=a-ib$\\
                          & $(a-ib)^*=a+ib$\\
      Trig. Formulas      & $\sin{z}=\frac{e^{iz}-e^{-iz}}{2i}$\\
@@ -68,7 +69,7 @@ Let $a\in\mathbb{R}$, $b\in\mathbb{R}$ and $z\in\mathbb{C}$.
 \end{properties}
 
 
-\begin{properties}[Complexe Absolute Values]
+\begin{properties}[Absolute Values]
      \begin{itemize*}
           \item $|z_1z_2|=|z_1|\:|z_2|$
           \item The absolute value define the metric of the space $\mathbb{C}$ ($\mathbb{C}$ is complete).
@@ -83,7 +84,8 @@ Let $a\in\mathbb{R}$, $b\in\mathbb{R}$ and $z\in\mathbb{C}$.
 \subsection{Linear Algebra}
 
 \subsubsection{Linear Operator}
-A \textbf{linear operator} between the vector spaces $V$ and $W$ is define to be any function $A:V\rightarrow W$ which is linear in its input.
+A \textbf{linear operator} between the vector spaces $V$ and $W$ is define to be any function $\hat{A}:V\rightarrow W$ which satisfies:\\ $\hat{A}(\alpha\vec{v}+\beta\vec{w})=\alpha\hat{A}\vec{v}+\beta\hat{A}\vec{w}$.
+
 \begin{properties}
      Let $\hat{A}$ be a linear operator on $V\rightarrow W$  and $A$ be the matrix representation of $\hat{A}$.
      \begin{itemize*}
@@ -102,7 +104,6 @@ A Inner Product $\langle.,.\rangle$ is a function that output a complex number a
 \end{enumerate}
 In quantum mecanics the inner product is generaly noted $\langle.|.\rangle$.
 
-
 \begin{properties}
      \begin{itemize*}
           \item $\langle A,A\rangle=\norm{A}^2$
@@ -110,7 +111,61 @@ In quantum mecanics the inner product is generaly noted $\langle.|.\rangle$.
      \end{itemize*}
 \end{properties}
 
+\subsubsection{Inner product Space}
 
+An inner product space is a vector space $V$ equipped with an inner product $\langle\cdot,\cdot\rangle : V \times V \to \mathbb{C}$ (or $\mathbb{R}$).
+
+An Inner product space with an orthonormal basis $\ket{i}$ such that $v=\sum_iv_i\ket{i}$ and $w=\sum_iw_i\ket{i}$, the inner product space of $\langle v,w \rangle$ is define by $(v^*)^Tw$.
+
+ 
+\subsubsection{Hilbert Spaces}
+A Hilbert space is a vector space(generaly complex) equipped with an inner product, 
+meaning every Cauchy sequence of vectors with respect to the induced norm converges to a vector within the space.
+\textbf{In finit dimentions hilbert spaces is exactly the same thing as Inner Product space.}
+
+
+\subsubsection{Dirac Notation \footnotesize{(or Bra-Ket Notation)}}
+Terminology: ket of $A$ is $\ket{A}$ and bra of $A$ is $\bra{A}$. ket is a row vector and bra is a column vector.\\
+Example, let $\Sigma=\{A,B,C\}$ then\\
+$\ket{B}=\begin{bmatrix}0\\1\\0 \end{bmatrix}$ and $\bra{B}=(0,1,0)$\\
+
+\subsubsection{Kronecker delta($\delta_{ij}$)}
+\begin{equation*}
+    \delta_{ij} =
+    \begin{cases}
+        1 & \text{if } i = j, \\
+        0 & \text{if } i \neq j.
+    \end{cases}
+\end{equation*}
+\begin{properties}
+     \begin{itemize*}
+          \item $\langle i|j\rangle=\delta_{ij}$
+          \item $\mathbb{I}_{ij}=\delta_{ij}$
+          \item $\sum_i\delta_{ij}a_i=a_j$ 
+          \item $\sum_k\delta_{ik}\delta_{kj}=\delta_{ij}$ 
+     \end{itemize*}
+\end{properties}
+
+\subsubsection{Gram-Schmidt\footnotesize{(in Dirac Notation)}}
+\begin{equation*}
+     \ket{v_1}=\frac{\ket{w_1}}{\norm{\ket{w_1}}}\\
+\end{equation*}
+\begin{equation*}
+     \ket{v_{k+1}}=\frac{\ket{w_{k+1}}-\sum_{i=1}^k\braket{v_i}{w_{k+1}}\ket{v_i}}{\norm{\ket{w_{k+1}}-\sum_{i=1}^k\braket{v_i}{w_{k+1}}\ket{v_i}}}
+\end{equation*}
+
+\subsubsection{Adjoin \small{(Hermician conjugate)}}
+Let $\hat{A}$ be a linear operator on the hilbert space $V$. 
+$\exists! \hat{A}^\dagger$ on $V$ such that $\langle v, \hat{A}w\rangle=\langle\hat{A}^\dagger v, w\rangle$.
+
+\begin{properties}
+     \begin{itemize*}
+          \item $\ket{v}^\dag=\bra{v}\;$
+          \item $(\hat{A}^\dag)^\dag=\hat{A}$
+          \item $(\hat{A}\hat{B})^\dagger=\hat{A}^\dagger\hat{B}^\dagger\;\:$     
+          \item $(\sum_ia_i\hat{A}_i)^\dag=\sum_i a_i^*\hat{A}_i^\dag$
+     \end{itemize*}
+\end{properties}
 
 
 \subsection{Quantum mecanics}
@@ -125,11 +180,12 @@ In quantum mecanics the inner product is generaly noted $\langle.|.\rangle$.
 
 
 
+
+
+
+
+
 \newpage
-
-
-
-
 
 \subsection{Mathematical Concepts}
 
