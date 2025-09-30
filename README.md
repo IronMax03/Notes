@@ -19,4 +19,6 @@
 
 ## IBM Quantum Learning
 - [PDF](./Programing_Languages/Qiskit.pdf) | [LATEX](./Programing_Languages/Qiskit.tex) · Qiskit
+
+## Book / Self-Study
 - [PDF](./Physics/Quantum_Information.pdf) | [LATEX](./Physics/Quantum_Information.tex) · Quantum Information
