@@ -42,11 +42,11 @@
 \setcounter{secnumdepth}{0}
 
 
-\subsection{Complex Analysis Short recap}
+\subsection{Complex Numbers Short recap}
 Let $a,b\in\mathbb{R}$ and $z\in\mathbb{C}$ such that $z=a+bi$.
 \begin{tabular}{ll}
      Real part           & $\mathfrak{Re}(a+ib)=a$\\
-     Real part           & $\mathfrak{Im}(a+ib)=b$\\
+     Imaginary part      & $\mathfrak{Im}(a+ib)=b$\\
      Absolute Values     & $|z|=\sqrt{zz^*}$\\
                          & $= \norm{(a\;\:b)}_2$\\
      Complexe conjugate  & $(a+ib)^*=a-ib$\\
@@ -83,6 +83,14 @@ Let $a,b\in\mathbb{R}$ and $z\in\mathbb{C}$ such that $z=a+bi$.
 
 \subsection{Linear Algebra}
 
+\subsubsection{Short Definitions}
+\begin{tabular}{ll}
+     Hermitian Operator & $A=A^\dagger$\\
+     Normal Operator & $AA^\dagger=A^\dagger A$\\
+     \small{P Orthogonal Complement} & $Q\equiv \mathbb{I}-P$ 
+\end{tabular}
+
+
 \subsubsection{Linear Operator}
 A \textbf{linear operator} between the vector spaces $V$ and $W$ is define to be any function $\hat{A}:V\rightarrow W$ which satisfies:\\ $\hat{A}(\alpha\vec{v}+\beta\vec{w})=\alpha\hat{A}\vec{v}+\beta\hat{A}\vec{w}$.
 
@@ -100,7 +108,7 @@ A Inner Product $\langle.,.\rangle$ is a function that output a complex number a
 \begin{enumerate}
      \item $\langle \vec{v},\sum_ia_i\vec{w_i}\rangle=\sum_ia_i\langle \vec{v},\vec{w_i}\rangle$
      \item $\langle \vec{v},\vec{w}\rangle=(\langle \vec{w},\vec{v}\rangle)^*$
-     \item if $x=0$ and only if $\langle \vec{w},\vec{w}\rangle\geq 0$
+     \item $\langle \vec{w},\vec{w}\rangle> 0$  if and only if $w\neq0$. Note $\forall \vec{w}(\langle \vec{w},\vec{w}\rangle\geq 0)$.
 \end{enumerate}
 In quantum mecanics the inner product is generaly noted $\langle.|.\rangle$.
 
@@ -154,7 +162,7 @@ $\ket{B}=\begin{bmatrix}0\\1\\0 \end{bmatrix}$ and $\bra{B}=(0,1,0)$\\
      \ket{v_{k+1}}=\frac{\ket{w_{k+1}}-\sum_{i=1}^k\braket{v_i}{w_{k+1}}\ket{v_i}}{\norm{\ket{w_{k+1}}-\sum_{i=1}^k\braket{v_i}{w_{k+1}}\ket{v_i}}}
 \end{equation*}
 
-\subsubsection{Adjoin \small{(Hermician conjugate)}}
+\subsubsection{Adjoin \small{(Hermitian conjugate)}}
 Let $\hat{A}$ be a linear operator on the hilbert space $V$. 
 $\exists! \hat{A}^\dagger$ on $V$ such that $\langle v, \hat{A}w\rangle=\langle\hat{A}^\dagger v, w\rangle$.
 
@@ -167,6 +175,36 @@ $\exists! \hat{A}^\dagger$ on $V$ such that $\langle v, \hat{A}w\rangle=\langle\
      \end{itemize*}
 \end{properties}
 
+\subsubsection{Outer Product}
+Let $\ket{v}\in V, \ket{w}\in W$ where $V$ and $W$ are \textbf{inner product spaces}.
+The \textbf{outer product} is define $\ket{w}\bra{v}$ as to be a linear operator $V\Rightarrow W$ whose define by
+$(\ket{w}\bra{v})(\ket{v'})\equiv\ket{w}\langle v|v'\rangle=\langle v|v'\rangle\ket{w}$\\
+\begin{properties}
+     \begin{itemize*}
+          \item $\sum_i\ket{i}\bra{i}=\mathbb{I}$ (completness relation)
+          \item $\ket{w}\bra{v}=\sum_i\ket{w_i}\bra{v_i}$
+          \item $\ket{w}\bra{v} v'\rangle =\sum_i\ket{w_i}\bra{v_i}v'\rangle$
+     \end{itemize*}
+\end{properties}
+
+\subsubsection{The Cauchy-Schwarz Inequality}
+Let the vectors $\ket{v},\ket{w}$ then $|\langle v|w\rangle|^2\leq \langle v|v\rangle\langle w|w\rangle$
+
+
+\subsubsection{Tensor Product}
+Let $V$ and $W$ be vector spaces of dimension $m$ and $n$ respectively.
+Then $V\otimes W$ is an $mn$-dimension vector spaces. 
+The elements of $V\otimes W$ are a linear combination of the tensor product $\ket{v}\otimes\ket{w}$.
+
+\begin{properties}
+     Let $z$ be a scalar, $\ket{v}\in V, \ket{w}\in W$, where $V$ and $W$ are \textbf{Hilbert spaces}.\\
+     \begin{itemize*}
+          \item $z(\ket{v}\otimes\ket{w})=z\ket{v}\otimes\ket{w}=\ket{v}\otimes z\ket{w}$\\
+          \item $\ket{v}\otimes(\ket{w_1}+\ket{w_2})=\ket{v}\otimes\ket{w_1}+\ket{v}\otimes\ket{w_2}$\\
+          \item $(\ket{v_1}+\ket{v_2})\otimes\ket{w}=\ket{v_1}\otimes\ket{w}+\ket{v_2}\otimes\ket{w}$\\
+          \item $(\ket{w}\otimes\ket{v},\ket{w'}\otimes\ket{v'})=\langle w|w'\rangle\langle v|v'\rangle$
+     \end{itemize*}
+\end{properties}
 
 \subsection{Quantum mecanics}
 \subsubsection{Pauli Matrices}
