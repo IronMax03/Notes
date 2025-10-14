@@ -21,14 +21,12 @@
 \begin{tabular}{ll}
 \emph{code}             & \emph{description}\\
 \# include "myfile.h"   & Include file.\\
-\# include$<$cassert$>$ & Include assert library.\\
-assert(boolean);        & Throw an error if the boolean is true.\\
 rand()                  & Random int (\# include$<$cstdlib$>$).\\
-abs($x$)                & Returns $|x|$ (\# include$<$cstdlib$>$).\\
 int(var)                & Convert a primitive data type var to int.\\
-int* myInt;             & * means myInt work form a pointer.\\
-\&var                   & Get mem addresse and pass by var by ref.\\
-void myF() const        & read only fonction\\
+void myF() const        & read only fonction.\\
+inline                  & the whole code of the inline function is\\
+                        & inserted or substituted at the point of its\\
+                        & call during the compilation.\\
 \end{tabular}
 
 
@@ -40,7 +38,8 @@ str.length()        & Return the number of characters.\\
 str.substr(a,b)     & Returns the substring from a to b.\\
 str.find(subStr)    & Retrun the start index of the substring\\
 str.replace(i,l,str)& Replace substring from i with str\\
-stoi(str)           & Convert a string to int(\# include$<$string$>$).
+stoi(str)           & Convert a string to int(\# include$<$string$>$).\\
+to\_string(var)     & Convert var to a string(\# include$<$string$>$).\\
 \end{tabular}
 
 \section{Arrays}
@@ -136,36 +135,44 @@ abs($x$)                & Absolute value overloads.\\
 floor($x$)              & Greatest integer $\leq x$.\\
 ceil($x$)               & Smallest integer $\geq x$.\\
 fmod($x$, $y$)          & Floating-point remainder of $x/y$.\\
-sin($x$)                & Sine of $x$ in radians.\\
-cos($x$)                & Cosine of $x$ in radians.\\
-tan($x$)                & Tangent of $x$ in radians.\\
 \end{tabular}
 
 
 
+\section{Error Handling}
+\begin{minted}[bgcolor=LightGray]{C++}
+try {
+    // risky operation
+} catch (exceptions) {
+    // runs if an exception of type Ex is thrown
+}
+\end{minted}
+\begin{tabular}{ll}
+\emph{code}                 & \emph{description}\\
+\# include$<$cassert$>$     & Include assert library.\\
+\# include$<$stdexcept$>$   & Common standard exceptions.\\
+throw myException           & Throw an error of type myException.\\
+exception::what()           & Retrieve diagnostic message.\\
+catch (const auto\& e)      & Catch exceptions by const reference.\\
+catch(...)                  & Fallback handler; rethrow if unsure.\\
+exception                   & Parent of all exceptions class.\\
+\end{tabular}
+
 \section{Object Oriented Programing(OOP)}
 \begin{minted}[bgcolor=LightGray]
 {c++}
-class myClasses {
+class myClasses :public parentClass{
     private:
-        int param1;
+        // private methods and variables
     public:
-        int param2;
-        myClasses(int p1, int p2){ // constructor
-            param1 = p1;
-            param2 = p2;
+        // public methods and variables
+
+        myClasses(int p1, int p2){ 
+            // Body of constructor
         }
 
-        myClasses(){ // default constructor
-            param1 = -1;
-        }
-
-        string getParam1() { //getter
-            return param1;
-        }
-
-        void setParam1(int p1) { // setter
-            param1 = p;
+        ~myClasses(){
+            // Body of destructor
         }
 };
 \end{minted}
@@ -173,6 +180,8 @@ class myClasses {
 \emph{code}             & \emph{description}\\
 myClasses myObj(3,5);   & Instantiate an myClasses type obj.\\
 myClasses myObj;        & Call the default constructor.\\
+protected:              & similar to private, but it can also be\\
+                        & accessed in the inherited class.\\
 \end{tabular}
 
 \subsection{OOP With header file}
@@ -198,8 +207,7 @@ class MyClass{
 #endif
 \end{minted}
 \subsubsection{Class file(.cpp)}
-\begin{minted}[bgcolor=LightGray]
-{c++}
+\begin{minted}[bgcolor=LightGray]{c++}
 #include<iostream>
 #include "myHeader.h"
 
@@ -213,7 +221,7 @@ MyClass::MyClass(int p1, int p2){
     privAtribute = p2;
 }
 
-MyClass::void myFunction() const{
+void MyClass::myFunction() const{
     // my code
 }
 \end{minted}
@@ -221,7 +229,6 @@ MyClass::void myFunction() const{
 \section{Switch case}
 \begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]
 {c++}
-int x;
 switch (x){
     case 0:
         /*Code in case 0*/
@@ -234,6 +241,32 @@ switch (x){
         /*Code if no case match*/
 }
 \end{minted}
+
+\section{Pointer \& References}
+\begin{tabular}{ll}
+    \emph{code}             & \emph{description}\\
+    int* myInt;             & * means myInt work form a pointer.\\
+    new                     & dynamically allocate a block of memory.\\
+    delete                  & release dynamically allocated memory.\\
+    NULL                    & Macro that referens to null pointer.\\
+    $*$var                  & Get var value, where var is a pointer.\\
+    \&var                   & Get memory addresse of \textbf{var}.\\
+    void* var               & Pointer with no associated data type.\\
+\end{tabular}
+
+\section{Lambda Expression}
+\begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]{c++}
+    ... = [captureClause] (parameters) -> returnType { 
+    // definition
+    }
+\end{minted}
+\begin{tabular}{ll}
+    \emph{capture clause}   & \emph{description}\\
+    $[\&]$                  & capture all external variables by reference.\\
+    $[=]$                   & capture all external variables by value.\\
+    $[a, \&b]$              & capture 'a' by value and 'b' by reference.\\
+\end{tabular}
+
 \section{Important ASCII Conversions}
 \begin{center}
 \begin{tabular}{|ll|ll|ll|ll|ll|}
