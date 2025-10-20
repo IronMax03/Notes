@@ -50,6 +50,7 @@
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{properties}{Properties}
+\newtheorem{axiom}{Axiom}
 
 
 \begin{center}
@@ -101,18 +102,21 @@
     Difference              & $A\backslash B=\{x\in A|x\notin B\}$\\
     Symmetric difference    & $A\Delta B=(A\backslash B)\cup(B\backslash A)$\\
     Cartesian Product       & $A\times B=\{(x,y)|x\in A\land y \in B\}$\\
-    Complement of           & $\bar{A}=\{x\in\universalSet|x\notin A\}$\\
-    Cardinality             & $|A|$
-    
+    Complement of           & $A^C=\bar{A}=\{x\in\universalSet|x\notin A\}$\\
 \end{tabular}
 
 \subsubsection{Cardinality}
 \begin{tabular}{ll}
-    finite set      & Let $X$ be a finite set then $|X|\in \mathbb{N}$\\
-    countable set   & A set $S$ is countable if and only if that is finit\\
-                    & or $|S|=|\mathbb{N}|$.\\
-    aleph null.     & $\aleph_0=|\mathbb{N}|$\\
+    Cardinality($|A|$)  & The number of elements in a set.\\
+    finite set          & Let $X$ be a finite set then $|X|\in \mathbb{N}$\\
+    countable set       & A set $S$ is countable if and only if that is\\
+                        & finit or $|S|=|\mathbb{N}|$.\\
+    aleph null.         & $\aleph_0=|\mathbb{N}|$\\
 \end{tabular}
+
+\begin{axiom}[Axiom of extensionality]
+    Two sets are equal if and only if they have the same elements.
+\end{axiom}
 
 \begin{theorem}
     Let $A$ and $B$ be sets, then $|A|=|B|$ if and only if there is a one-to-one correspondence from $A$ to $B$.
@@ -130,6 +134,34 @@
      If there are injective function(one-to-one) functions $f\!:A\to B$ and $g\!:B\to A$, then there is a one-to-one correspondence between $A$ and $B$. 
      In other words If $A$ and $B$ are set with $|A|\neq|B|$ and $|B|\neq|A|$, then $|A|=|B|$.
 \end{theorem}
+
+\begin{properties}
+    Let $S$ be the universal set.
+    \begin{itemize*}
+        \item if $A\subseteq B$ and $B\subseteq A$ then  $A=b$.
+        \item $\forall A, A\subseteq A$
+        \item $|\mathcal{P}(A)|=2^{|A|}$
+        \item $A\cup A=A\cap A=A$
+        \item $A\cup\emptyset=A$
+        \item $A\cap\emptyset=\emptyset$
+        \item $A\cup S=S$ 
+        \item $A\cap S=A$
+        \item $(A\cup B)\cup C=A\cup (B\cup C)$
+        \item $(A\cap B)\cap C=A\cap (B\cap C)$
+        \item $A\cup B =B\Leftrightarrow A\subseteq B$
+        \item $A\cup B =A\Leftrightarrow A\subseteq B$
+        \item $A\backslash B \neq B\backslash A$
+        \item $A\backslash\emptyset = A$
+        \item $A\backslash S=\emptyset$
+        \item $A\backslash\emptyset =A\Leftrightarrow A\subseteq B$
+        \item $A\backslash S= A^C$
+        \item $A\times (B\cup C) = (A\times B)\cup (A\times C)$
+        \item $ A\cap (B\cup C)=(A\cap B)\cup(A\cap C)$
+        \item $(A\cup B)^C=A^C\cap B^C$
+        \item $(A\cap B)\backslash C =(A\backslash C)\cap(B\backslash C)=A\cap(B\backslash C)$
+        \item $A\backslash (B\cap C)=(A\backslash B)\cup (A\backslash C)$
+    \end{itemize*}
+\end{properties}
 
 \subsection{Functions}
 
@@ -151,28 +183,42 @@
     Image               & $f(A)=\{f(a)\in Y: a\in A\}$, where $A\subset\text{domain}$.\\
     Inverse Image       & $f^{-1}(B)=\{f(b)\in X: b\in B\}$, where \\
                         & $B\subset\text{codomain}$.\\
+    Function Set        & $B^A$ contains all functions from $A$ to $B$ ($A\rightarrow B$).\\
 \end{tabular}
 
 \subsection{Counting}
 
 \begin{tabular}{ll}
-    power set cardinality   & $|\mathcal{P}(A)|=2^{|A|}$\\
     n-bit string            & \\
     bit string weight       & the number of \textbf{1} in a bit string.\\
-    $B^n_k$                 & the set of all \textbf{n-bit strings} of weight k.\\
+    $\bf{B}^n_k$            & the set of all \textbf{n-bit strings} of weight k.\\
+    Factorial               & $n!=n\cdot(n-1)\cdot(n-2)\cdot...\cdot 1$\\
 \end{tabular}
 
 \subsubsection{Additive Principle}
 \textbf{General Definition:} 
 if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoint} ($A$ and $B$ can't apen at the same time.) ways, then $A$ and $B$ can occur in $m+n$ ways.\\   
-\textbf{Set Definition:} Given 2 sets $A$ and $B$, if $A\cap B =\emptyset$, then $|A\cap B| = |A| + |B|$.
+\textbf{Set Definition:} Given 2 sets $A$ and $B$, then $|A\cup B| = |A| + |B| - |A\cap B|$. Given 3 sets $A$, $B$ and $C$, then $|A\cup B\cup C| = |A| + |B| + |C| - |A\cap B| - |A\cap C|- |C\cap B|+|A\cap B\cap C|$.
 
 
 \subsubsection{Multiplicative Principle}
 \textbf{General Definition:} if event $A$ can occur $m$ ways, and each possibility for $A$ allows for exactly $n$ ways for event $B$, then the event "$A$ and $B$" can occur $m\cdot n$ ways.\\
 \textbf{Set Definition:} Given 2 sets $A$ and $B$, we have $|A\times B|=|A|\cdot|B|$.
 
+
 \subsubsection{Binomial coefficient}
+\textbf{Formula:} $n \text{ choose } k=\binom{n}{k}=C^n_k=\frac{n!}{(n-k)!k!}$
+\begin{theorem}[Binomial Theorem]
+    $(a+b)^n=\sum^n_{k=0}\binom{n}{k}a^{n-k}b^k$
+\end{theorem}
+\begin{properties}
+    \begin{itemize*}
+        \item $\binom{n}{k}$ is the number of subset of size $n$ each of cardinality $k$.
+        \item $\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}$
+        \item $\binom{n}{k}=|\bf{B}^n_k|$
+    \end{itemize*}
+\end{properties}
+
 
 \subsection{Sequences}
 
