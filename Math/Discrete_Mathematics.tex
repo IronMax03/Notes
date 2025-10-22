@@ -63,25 +63,6 @@
 \begin{multicols}{2}
 \setcounter{secnumdepth}{0}
 
-\subsection{Mathematical Statement}
-\begin{tabular}{ll}
-    Statement       & is any declarative sentence which is either true\\
-                    & or false.\\
-    Atomic          & if it cannot be divided into smaller statements.\\
-    Molecular       & if it can be divided into smaller statements.\\
-    conjunction     & $p\land q$ equivalent to "$p$ and $q$".\\
-    disjunction     & $p\lor q$ equivalent to "$p$ or $q$".\\
-                    & where $p$ is the hypothesis and $q$ the conclusion.\\
-    Implication     & $p\rightarrow q$ equivalent to "if $p$ then $q$".\\
-    Biconditional   & $p\leftrightarrow q$ equivalent to "if and only if $p$ then $q$".\\
-    Negation        & $\lnot p$ equivalent to "not $p$".\\
-    Converse        & \\
-    Contrapositive  & \\
-    There is a $x$  & $\exists x$\\
-    For all $x$     & $\forall x$\\
-    
-    
-\end{tabular}
 
 \subsection{Naive Set Theory}
 \subsubsection{Set Notation}
@@ -135,6 +116,10 @@
      In other words If $A$ and $B$ are set with $|A|\neq|B|$ and $|B|\neq|A|$, then $|A|=|B|$.
 \end{theorem}
 
+\begin{theorem}[Well-Ordering Principle]
+    Every nonempty subset of $\mathbb{N}$ has a least element.
+\end{theorem}
+
 \begin{properties}
     Let $S$ be the universal set.
     \begin{itemize*}
@@ -183,7 +168,7 @@
     Image               & $f(A)=\{f(a)\in Y: a\in A\}$, where $A\subset\text{domain}$.\\
     Inverse Image       & $f^{-1}(B)=\{f(b)\in X: b\in B\}$, where \\
                         & $B\subset\text{codomain}$.\\
-    Function Set        & $B^A$ contains all functions from $A$ to $B$ ($A\rightarrow B$).\\
+    Set of Function     & $B^A$ contains all functions from $A$ to $B$ ($A\rightarrow B$).\\
 \end{tabular}
 
 \subsection{Counting}
@@ -205,9 +190,22 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 \textbf{General Definition:} if event $A$ can occur $m$ ways, and each possibility for $A$ allows for exactly $n$ ways for event $B$, then the event "$A$ and $B$" can occur $m\cdot n$ ways.\\
 \textbf{Set Definition:} Given 2 sets $A$ and $B$, we have $|A\times B|=|A|\cdot|B|$.
 
+\subsubsection{Permutations}
+\textbf{Definition:} Ordered selections of $k$ distinct elements drawn from an $n$-element set.\\
+\begin{itemize*}
+    \item Without repetition: $P(n,k)=\dfrac{n!}{(n-k)!}$.
+    \item With repetition of symbols allowed from an alphabet of size $m$: $m^k$ length-$k$ strings.
+\end{itemize*}
+
+\subsubsection{Combinations}
+\textbf{Definition:} Unordered selections of $k$ elements from an $n$-element set.\\
+\begin{itemize*}
+    \item Without repetition: $C(n,k)=\binom{n}{k}$.
+    \item With repetition allowed: $C_{\text{rep}}(n,k)=\binom{n+k-1}{k}$.
+\end{itemize*}
 
 \subsubsection{Binomial coefficient}
-\textbf{Formula:} $n \text{ choose } k=\binom{n}{k}=C^n_k=\frac{n!}{(n-k)!k!}$
+\textbf{Formula:} $n \text{ choose } k=\binom{n}{k}=\frac{n!}{(n-k)!k!}$
 \begin{theorem}[Binomial Theorem]
     $(a+b)^n=\sum^n_{k=0}\binom{n}{k}a^{n-k}b^k$
 \end{theorem}
@@ -216,26 +214,26 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
         \item $\binom{n}{k}$ is the number of subset of size $n$ each of cardinality $k$.
         \item $\binom{n}{k}=\binom{n-1}{k-1}+\binom{n-1}{k}$
         \item $\binom{n}{k}=|\bf{B}^n_k|$
+        \item $\sum_{k=0}^{n}\binom{n}{k}=2^n$
     \end{itemize*}
 \end{properties}
 
-
-\subsection{Sequences}
-
 \subsection{Symbolic Logic}
 \begin{tabular}{lcl}
-    \textbf{Name}           & \textbf{Symbol}       & \textbf{Translate to}\\
-    Disjonction             & $A\land B$            & $A$ and $B$.\\
-    Conjunction             & $A\lor B$             & $A$ or $B$.\\
-    Negation                & $\lnot A$             & not $A$.\\
-    Condition/Implication   & $A\Rightarrow B$      & if $A$ then $B$.\\
-    Bicondition             & $A\Leftrightarrow B$  & if and only if $A$ then $B$.\\
-    Exclusive Disjunction   & $A\oplus B$           & Either $A$ or $B$, but not both.\\
-    Universal               & $\forall x$           & For all $x$'s.\\
-    Existential             & $\exists x$           & There is at least one $x$.\\
-    Unique Existential      & $\exists! x$          & There is exactly one $x$.\\
-    Equivalence             & $A\equiv B$           & $A$ is identical to $B$.\\
+    \textbf{Name}           & \textbf{Symbol}               & \textbf{Translate to}\\
+    Conjunction             & $A\land B$                    & $A$ and $B$.\\
+    Disjonction             & $A\lor B$                     & $A$ or $B$.\\
+    Negation                & $\lnot A$                     & not $A$.\\
+    Condition/Implication   & $A\Rightarrow B$              & if $A$ then $B$.\\
+    Bicondition             & $A\Leftrightarrow B$          & if and only if $A$ then $B$.\\
+    Exclusive Disjunction   & $A\oplus B$                   & Either $A$ or $B$, but not both.\\
+    Universal               & $\forall x$                   & For all $x$'s.\\
+    Existential             & $\exists x$                   & There is at least one $x$.\\
+    Unique Existential      & $\exists! x$                  & There is exactly one $x$.\\
+    Equivalence             & $A\equiv B$                   & $A$ is identical to $B$.\\
 \end{tabular}
+\textbf{Converse:} $B\Rightarrow A$ is the converse of $A\Rightarrow B$.\\
+\textbf{Contrapositive:} $\lnot B\Rightarrow \lnot A$ is the Contrapositive of $A\Rightarrow B$. 
 
 \subsubsection{Important Equivalences \& Properties}
 \begin{itemize*}
@@ -243,12 +241,13 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
     \item $p\land T\equiv p$
     \item $p\land\bot\equiv\bot$
     \item $p\lor T\equiv T$
-    \item $p\lor\bot\equiv P$
+    \item $p\lor\bot\equiv p$
     \item $A\oplus B\equiv (A\lor B)\land\lnot(A\land B)$
-    \item $p\Rightarrow q\equiv \lnot p\Rightarrow \lnot q$
+    \item $p\Rightarrow q\equiv \lnot q\Rightarrow \lnot p$
     \item $p\Rightarrow q\equiv \lnot p \lor q$
     \item $p\Leftrightarrow q\equiv (p\Rightarrow q)\land(q\Rightarrow p)$
     \item $\lnot (p\Leftrightarrow q)\equiv \lnot p \Leftrightarrow q\equiv p \Leftrightarrow \lnot q$
+    \item $\lnot B\Rightarrow \lnot A \equiv A\Rightarrow B$
 \end{itemize*}
 
 \begin{properties}
@@ -273,6 +272,19 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 
 
 \subsection{Proofs}
+\subsubsection{Rules of inference}
+\begin{tabular}{ll}
+    Modus Ponens            &   If $p\Rightarrow q$ and $p$, then $q$.\\
+    Modus Tollens           &   If $p\Rightarrow q$ and $\lnot q$, then $\lnot p$.\\
+    Hypothetical Syllogism  &   If $p\Rightarrow q$ and $q\Rightarrow R$, then $p\Rightarrow r$.\\
+    Disjunctive Syllogism   &   If $p\lor q$ and $\lnot q$, then $p$.\\
+    Addition                &   If $p$, then $p\lor q$.\\
+    Simplification          &   If $p\land q$, then $p$.\\
+    Conjuction              &   If $p$ and $q$, then $p\land q$.\\
+    Absorption              &   If $p\Rightarrow q$, then $p\Rightarrow (p\land q)$.\\
+    Resolution              &   If $P\lor Q$ and $\lnot P\lor R$, then $Q\lor R$.
+\end{tabular}
+
 \subsubsection{Direct Proof}
 \textbf{Goal:} Prove $p\Rightarrow q$.\\
 \textbf{Idea:} Assume $p$ and use definitions/algebra to derive $q$.\\
@@ -298,11 +310,17 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 \textbf{Idea:} Assume $\lnot S$ and derive a contradiction; conclude $S$.\\
 \textbf{Template:} Suppose $\lnot S$. \;\; [Deduce an impossibility such as $P\land \lnot P$ or a known falsehood.] \;\; Contradiction; therefore $S$.\\
 
+\subsubsection{Proof by Mathematical Induction}
+\textbf{Goal:} Prove $\forall n\ge n_0,\;P(n)$.\\
+\textbf{Base Case:} Verify $P(n_0)$ (and additional initial values if required).\\
+\textbf{Inductive Step:} Assume $P(k)$ holds for an arbitrary $k\ge n_0$ (inductive hypothesis) and show $P(k+1)$ holds.\\
+\textbf{Conclusion:} If both steps succeed, the principle of mathematical induction yields $P(n)$ for all $n\ge n_0$.\\
 
-
-\subsection{Graph Theory}
-
-
+\subsubsection{Proof by Strong Induction}
+\textbf{Goal:} Prove $\forall n\ge n_0,\;P(n)$.\\
+\textbf{Base Case(s):} Establish $P(n_0),P(n_0+1),\dots,P(n_0+r)$ as needed.\\
+\textbf{Inductive Step:} Assume $P(n_0),P(n_0+1),\dots,P(k)$ all hold (strong hypothesis) and deduce $P(k+1)$.\\
+\textbf{Conclusion:} By strong induction, $P(n)$ holds for every $n\ge n_0$.\\
 
 \end{multicols}
 \end{document}
