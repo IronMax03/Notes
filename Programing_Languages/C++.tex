@@ -3,6 +3,8 @@
 \usepackage{graphicx} % Required for inserting images
 \usepackage[margin=0.45cm]{geometry}
 \usepackage{xcolor}
+\usepackage{array}
+
 \definecolor{LightGray}{gray}{0.9}
 
 \usepackage{minted}
@@ -18,33 +20,35 @@
 
 
 \subsection{General Reminders}
-\begin{tabular}{ll}
+\begin{tabular}{>{\ttfamily}l l}
 
-\# include "myfile.h"   & Include file.\\
-rand()                  & Random int (\# include$<$cstdlib$>$).\\
-int(var)                & Convert a primitive data type var to int.\\
-float(var)              & Convert a primitive data type var to float.\\
-double(var)             & Convert a primitive data type var to double.\\
-static\_cast$<$t$>$(var)& Convert \textbf{var} to the type \textbf{t}.\\
+\#include "myfile.h"    & Include file.\\
+rand()                  & Random int, \texttt{\#include<cstdlib>}.\\
+int(var)                & Convert a data type var to int.\\
+float(var)              & Convert a data type var to float.\\
+double(var)             & Convert a data type var to double.\\
+static\_cast<t>(var)    & Convert \texttt{var} to the type \texttt{t}.\\
 void myF() const        & read only fonction.\\
 inline                  & the whole code of the inline function is\\
                         & inserted or substituted at the point of its\\
                         & call during the compilation.\\
 sizeof(var)             & return the number of bytes used by the\\
-                        & variable. \textbf{sizeof} is a compile-time operator.\\
+                        & variable. \texttt{sizeof} runs at compile-time.\\
 ternary Opearator       & condition ? ifTrue : ifFalse\\
 \end{tabular}
 
 
 \subsection{Strings}
-\begin{tabular}{ll}
-str$[$i$]$          & Get or set the char at the index i.\\
+\begin{tabular}{>{\ttfamily}l l}
+str$[$i$]$          & Get or set the char at the index \texttt{i}.\\
 str.length()        & Return the number of characters.\\
 str.substr(a,b)     & Returns the substring from a to b.\\
 str.find(subStr)    & Retrun the start index of the substring\\
-str.replace(i,l,str)& Replace substring from i with str\\
-stoi(str)           & Convert a string to int(\# include$<$string$>$).\\
-to\_string(var)     & Convert var to a string(\# include$<$string$>$).\\
+str.replace(i,l,str)& Replace substring from \texttt{i} to \texttt{l} with \texttt{str}\\
+stoi(str)           & Convert a string to int,\\
+                    & \texttt{\#include<string>}.\\
+to\_string(var)     & Convert var to a string,\\
+                    & \texttt{\#include<string>}.\\
 \end{tabular}
 
 \subsection{Arrays}
@@ -54,7 +58,7 @@ to\_string(var)     & Convert var to a string(\# include$<$string$>$).\\
  "Max" & "Tom" & … & arr$[$n$]$
 \end{tabular}
 This table illustrate the structure of an array of strings. Considering that n is equal to the number of element minus one. Arrays are a static data type.\\[6pt]
-\begin{tabular}{ll}
+\begin{tabular}{>{\ttfamily}l l}
 int arr[4];         & Create a array of int and with 4 element.\\
 int arr[4]=\{6,3\}; & \\
 arr$[$i$]$          & Get or set the element at the index i.\\
@@ -62,18 +66,18 @@ arr$[$i$]$          & Get or set the element at the index i.\\
 
 
 \subsection{Vectors}
-\begin{tabular}{ll}
-\# include$<$vector$>$          & Include vector library.\\
-vector$<$type$>$ V;             & Instantiate a vector.\\
-vector$<$type$>$ V(size);       & Instantiate a vector from Array obj.\\
-vector$<$type$>$ V\{6,3,3\};    & Instantiate a vector from Array.\\
-V = vector$<$type$>$();         & Re-instantiate V\\
-V.at(Index)                     & Returns the element at index i.\\
-V.size()                        & Return the number of elements.\\
-V.push\_back(Value)             & Add the new element at the end.\\
-V.pop\_back()                   & Remove the last element.\\
-V.clear()                       & Empty the vector.\\
-V.insert(Index, Value)          & Insert element at i.
+\begin{tabular}{>{\ttfamily}l l}
+\#include<vector>           & Include vector library.\\
+vector<type> V;             & Instantiate a vector.\\
+vector<type> V(size);       & Instantiate a vector from Array \texttt{obj}.\\
+vector<type> V\{6,3,3\};    & Instantiate a vector from Array.\\
+V=vector<type>();           & Re-instantiate \texttt{V}.\\
+V.at(i)                     & Returns the element at index \texttt{i}.\\
+V.size()                    & Return the number of elements.\\
+V.push\_back(Value)         & Add the new element at the end.\\
+V.pop\_back()               & Remove the last element.\\
+V.clear()                   & Empty the vector.\\
+V.insert(i, Value)          & Insert \texttt{Value} at \texttt{i}.
 \end{tabular}
 
 
@@ -84,36 +88,35 @@ struct myStruct {
     double param2;   // atribute 2
 }s1, s2;            // myStruct instances
 \end{minted}
-\begin{tabular}{ll}
-\emph{code}     & \emph{description}\\
+\begin{tabular}{>{\ttfamily}l l}
 myStruct Obj;   & instantiate structure object.\\
-Obj.param1      & Access param1 of Obj.\\
+Obj.param1      & Access param1 of \texttt{Obj}.\\
 \end{tabular}
 
 
 \subsection{Streams}
-\begin{tabular}{ll}
+\begin{tabular}{>{\ttfamily}l l}
 
-\# include$<$fstream$>$ & Include stream library.\\
-\# include$<$sstream$>$ & Include string stream library.\\
+\#include<fstream>      & Include stream library.\\
+\#include<sstream>      & Include string stream library.\\
 ifstream fin;           & Instantiate a input stream.\\
 ofstream fout;          & Instantiate a output stream.\\
-stringstream s(myStr);  & Instantiate a string stream.\\
+stringstream s(str);  & Instantiate a string stream.\\
 myS.open("file.txt")    & Open txt file whith the stream.\\
 myS.close()             & Close the stream file.\\
 getline(fin, line)      & Get the next line from fin.\\
-fout$<<$"hello"         & Output in stream "helloWorld".\\
-fin$>>$var              & Input from stream to var.\\
+fout<<"hello"           & Output in stream "helloWorld".\\
+fin>>var                & Input from stream to var.\\
 %% streams manipulators
-$<<$setprecision(n)$<<$ & Set decimal points (\#include$<$iomanip$>$)\\
-$<<$setw(n)$<<$         & Establishes a print field of n spaces.\\
-$<<$fixed$<<$           & Display floating point numbers in fixed.\\
+<<setprecision(n)<<     & Set decimal points, \texttt{\#include<iomanip>}.\\
+<<setw(n)<<             & Establishes a print field of n spaces.\\
+<<fixed<<               & Display floating point numbers in fixed.\\
                         & point notation.\\
-$<<$showpoint$<<$       & Enables or disables the unconditional\\
-$<<$noshowpoint$<<$     & inclusion of the decimal point character\\
+<<showpoint<<           & Enables or disables the unconditional\\
+<<noshowpoint<<         & inclusion of the decimal point character\\
                         & in floating-point output.\\
-$<<$left$<<$            & output the string on the left.\\
-$<<$right$<<$            & output the string on the right.\\
+<<left<<                & output the string on the left.\\
+<<right<<               & output the string on the right.\\
 \end{tabular}
 
 \subsubsection{clear buffer}
@@ -129,15 +132,14 @@ if(cin.fail() == true) {
 
 
 \subsection{cmath}
-\begin{tabular}{ll}
-
-\# include$<$cmath$>$   & Include cmath library.\\
-sqrt($x$)               & Square root of $x$.\\
-pow($x$, $y$)           & $x$ raised to the power $y$.\\
-abs($x$)                & Absolute value overloads.\\
-floor($x$)              & Greatest integer $\leq x$.\\
-ceil($x$)               & Smallest integer $\geq x$.\\
-fmod($x$, $y$)          & Floating-point remainder of $x/y$.\\
+\begin{tabular}{>{\ttfamily}l l}
+\#include<cmath>        & Include cmath library.\\
+sqrt(x)                 & Square root of \texttt{x}.\\
+pow(x, y)               & \texttt{x} raised to the power \texttt{y}.\\
+abs(x)                  & Absolute value overloads.\\
+floor(x)                & Greatest integer $\leq$ \texttt{x}.\\
+ceil(x)                 & Smallest integer $\geq$ \texttt{x}.\\
+fmod(x, y)              & Floating-point remainder of \texttt{x}$/$\texttt{y}.\\
 \end{tabular}
 
 
@@ -150,9 +152,9 @@ try {
     // runs if an exception of type Ex is thrown
 }
 \end{minted}
-\begin{tabular}{ll}
-\# include$<$cassert$>$     & Include assert library.\\
-\# include$<$stdexcept$>$   & Common standard exceptions.\\
+\begin{tabular}{>{\ttfamily}l l}
+\#include<cassert>          & Include assert library.\\
+\#include<stdexcept>        & Common standard exceptions.\\
 throw myException           & Throw an error of type myException.\\
 exception::what()           & Retrieve diagnostic message.\\
 catch (const auto\& e)      & Catch exceptions by const reference.\\
@@ -178,7 +180,7 @@ class myClasses :public parentClass{
         }
 };
 \end{minted}
-\begin{tabular}{ll}
+\begin{tabular}{>{\ttfamily}l l}
 
 myClasses myObj(3,5);   & Instantiate an myClasses type obj.\\
 myClasses myObj;        & Call the default constructor.\\
@@ -245,8 +247,7 @@ switch (x){
 \end{minted}
 
 \subsection{Pointer \& References}
-\begin{tabular}{ll}
-    
+\begin{tabular}{>{\ttfamily}l l}    
     int* myInt;             & * means myInt work form a pointer.\\
     new                     & dynamically allocate a block of memory.\\
     delete                  & release dynamically allocated memory.\\
@@ -262,7 +263,7 @@ switch (x){
     // definition
     }
 \end{minted}
-\begin{tabular}{ll}
+\begin{tabular}{>{\ttfamily}l l}
     $[\&]$                  & capture all external variables by reference.\\
     $[=]$                   & capture all external variables by value.\\
     $[a, \&b]$              & capture 'a' by value and 'b' by reference.\\
@@ -274,19 +275,19 @@ switch (x){
 \hline
 \tiny{\emph{ASCII}} &  \emph{int} & \tiny{\emph{ASCII}} &  \emph{int} &  \tiny{\emph{ASCII}} &  \emph{int} &  \tiny{\emph{ASCII}} &  \emph{int}&  \tiny{\emph{ASCII}} &  \emph{int}\\
  \hline
-A & 65 & a & 97  & N & 78 & n & 110 & 0 & 48\\
-B & 66 & b & 98  & O & 79 & o & 111 & 1 & 49\\
-C & 67 & c & 99  & P & 80 & p & 112 & 2 & 50\\
-D & 68 & d & 100 & Q & 81 & q & 113 & 3 & 51\\
-E & 69 & e & 101 & R & 82 & n & 114 & 4 & 52\\
-F & 70 & f & 102 & S & 83 & s & 115 & 5 & 53\\
-G & 71 & g & 103 & T & 84 & t & 116 & 6 & 54\\
-H & 72 & h & 104 & U & 85 & u & 117 & 7 & 55\\
-I & 73 & i & 105 & V & 86 & v & 118 & 8 & 56\\
-J & 74 & j & 106 & W & 87 & w & 119 & 9 & 57\\
-K & 75 & k & 107 & X & 88 & x & 120 &   &\\
-L & 76 & l & 108 & Y & 89 & y & 121 &   &\\
-M & 77 & m & 109 & Z & 90 & z & 123 &   &\\
+A & 65 & a & 97  & N & 78 & n & 110 & 0 & 48 \\
+B & 66 & b & 98  & O & 79 & o & 111 & 1 & 49 \\
+C & 67 & c & 99  & P & 80 & p & 112 & 2 & 50 \\
+D & 68 & d & 100 & Q & 81 & q & 113 & 3 & 51 \\
+E & 69 & e & 101 & R & 82 & n & 114 & 4 & 52 \\
+F & 70 & f & 102 & S & 83 & s & 115 & 5 & 53 \\
+G & 71 & g & 103 & T & 84 & t & 116 & 6 & 54 \\
+H & 72 & h & 104 & U & 85 & u & 117 & 7 & 55 \\
+I & 73 & i & 105 & V & 86 & v & 118 & 8 & 56 \\
+J & 74 & j & 106 & W & 87 & w & 119 & 9 & 57 \\
+K & 75 & k & 107 & X & 88 & x & 120 &   &    \\
+L & 76 & l & 108 & Y & 89 & y & 121 &   &    \\
+M & 77 & m & 109 & Z & 90 & z & 123 &   &    \\
 \hline
 \end{tabular}
 \end{center}
