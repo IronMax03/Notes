@@ -288,27 +288,22 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 \subsubsection{Direct Proof}
 \textbf{Goal:} Prove $p\Rightarrow q$.\\
 \textbf{Idea:} Assume $p$ and use definitions/algebra to derive $q$.\\
-\textbf{Template:} Assume $p$. \;\; [derive consequences] \;\; Therefore $q$.\\
 
 \subsubsection{Proof by Contrapositive}
 \textbf{Goal:} Prove $p\Rightarrow q$.\\
 \textbf{Idea:} Instead of proving $p\Rightarrow q$, prove $\lnot q\Rightarrow \lnot p$.\\
-\textbf{Template:} To prove $p\Rightarrow q$, assume $\lnot q$ and derive $\lnot p$; therefore $\lnot q\Rightarrow \lnot p$, so $p\Rightarrow q$.\\
 
 \subsubsection{Proof by Counter Example}
 \textbf{Goal:} Disprove $\forall x\,P(x)$ (show $\exists x\,\lnot P(x)$).\\
 \textbf{Idea:} Exhibit a specific counterexample $x_0$ with $\lnot P(x_0)$.\\
-\textbf{Template:} Identify the claim form (usually $\forall x\,P(x)$). Choose a concrete $x_0$ in the domain and verify $\lnot P(x_0)$ holds by computation or definition checking.\\
 
 \subsubsection{Proof by Cases}
 \textbf{Goal:} Prove the claim.\\
 \textbf{Idea:} Split into exhaustive, mutually exclusive cases and prove the claim in each case.\\
-\textbf{Template:} Partition the domain into cases $C_1,\dots,C_k$ that cover all possibilities. For each $i$, assume $C_i$ and show the statement holds. Conclude it holds in all cases by exhaustion.\\
 
 \subsubsection{Proof by Contradiction}
 \textbf{Goal:} Prove a statement $S$.\\
 \textbf{Idea:} Assume $\lnot S$ and derive a contradiction; conclude $S$.\\
-\textbf{Template:} Suppose $\lnot S$. \;\; [Deduce an impossibility such as $P\land \lnot P$ or a known falsehood.] \;\; Contradiction; therefore $S$.\\
 
 \subsubsection{Proof by Mathematical Induction}
 \textbf{Goal:} Prove $\forall n\ge n_0,\;P(n)$.\\
@@ -321,6 +316,17 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 \textbf{Base Case(s):} Establish $P(n_0),P(n_0+1),\dots,P(n_0+r)$ as needed.\\
 \textbf{Inductive Step:} Assume $P(n_0),P(n_0+1),\dots,P(k)$ all hold (strong hypothesis) and deduce $P(k+1)$.\\
 \textbf{Conclusion:} By strong induction, $P(n)$ holds for every $n\ge n_0$.\\
+
+\subsection{Graphs}
+A \textbf{graph} is an ordered pair \boxed{$G=(V,E)$}, where $V$ is a nonempty set of \textbf{vertices} and $E$ is a nonempty set of \textbf{edges}.\\
+\begin{tabular}{ll}
+    Vertices & \\
+    edges    & \\
+    adjacent & if 2 edges are connected by a vertice.\\
+    isomorphism & \\
+    isomorphic  & if there is an isomorphism between 2 graphs.\\
+    
+\end{tabular}
 
 \end{multicols}
 \end{document}
