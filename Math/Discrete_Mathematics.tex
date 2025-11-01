@@ -49,6 +49,7 @@
 \begin{document}
 
 \newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
 \newtheorem{properties}{Properties}
 \newtheorem{axiom}{Axiom}
 
@@ -320,13 +321,51 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 \subsection{Graphs}
 A \textbf{graph} is an ordered pair \boxed{$G=(V,E)$}, where $V$ is a nonempty set of \textbf{vertices} and $E$ is a nonempty set of \textbf{edges}.\\
 \begin{tabular}{ll}
-    Vertices & \\
-    edges    & \\
-    adjacent & if 2 edges are connected by a vertice.\\
-    isomorphism & \\
-    isomorphic  & if there is an isomorphism between 2 graphs.\\
-    
+    Vertices            & elements of set $V$ in a graph. The dots in\\
+                        & the drawing.\\
+    edges               & connections between vertices (elements\\
+                        & of set $E$). The lines in the drawing.\\
+    adjacent            & if 2 edges are connected by a vertice.\\
+    morphism            & a mapping from the vertices and edges of one graph\\
+                        & to the vertices and edges of another graph that\\
+                        & preserves incidence.\\
+    isomorphism         & a bijective morphism.\\
+    isomorphic          & if there is an isomorphism between 2 graphs.\\
+    automorphism        & is an isomorphism from a graph to itself.\\
+    Degree of a vertex  & is the number of edges incident to the vertex.\\
+    incoming degree     & number of edges coming into a vertex.\\
+    outgoing degree     & number of edges going out of a vertex.\\
+    adjacency matrix    & is the a matrix representation of a graph.\\
+                        & $A=[a_{ij}]$ where $a_{ij}$ equals $1$ if $\{i,j\}\in E$ and\\
+                        & $0$ otherwise, $i\in V, j\in V$ for $G={V,E}$.\\
+    path                & an ordered sequence of successive edges\\
+    connected           & if there is a path between every pair of vertices.\\
+    cycle               & a path that starts and ends at the same vertex.\\
+    acyclic             & a graph with no cycles.\\
+    tree                & a connected acyclic graph.\\
+    subgraph            & a graph $H=(V_H,E_H)$ is a subgraph of \\
+                        & $G=(V_G,E_G)$ if $V_H\subseteq V_G$ and $E_H\subseteq E_G$.\\
+    partial graph       & a subgraph that contains all the vertices of $G$.\\
+    Induced subgraph    & a subgraph $H$ of $G$ such that if $u,v\in V_H$ and $\{u,v\}\in E_G$,\\
+                        & then $\{u,v\}\in E_H$.\\
+    bipaetite graph     & a graph whose vertices form 2 disjoint sets where each\\
+                        & edge connects vertices from different sets. Thos graphs are bi colorable\\
+
+
 \end{tabular}
+
+\subsection{Directed Vs Undirected Graphs}
+In a \textbf{directed graph}, edges have a direction. Such that $E=\{(\dots), \dots\}$ for \textbf{directed graph} and $E=\{\{\dots\}, \dots\}$ for \textbf{undirected graph}.\\
+
+
+
+\begin{lemma}[Handshaking Lemma]
+    Let $G=(V,E)$ be a finite undirected graph, then:
+    \[
+    \sum_{v \in V} \text{deg}(v) = 2|E|
+    \]
+    
+\end{lemma}
 
 \end{multicols}
 \end{document}
