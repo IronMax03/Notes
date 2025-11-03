@@ -56,54 +56,25 @@
 \subsection{General Reminder}
 \begin{tabular}{>{\ttfamily}l l}
     r.randint(x,y)      & Generate a random integer between \textbf{x}\\
-                        & and \textbf{y}(import random as r).\\
-    input(msg)          & Prompt the user with \textbf{msg} and take the\\
-                        & user input.\\
-    type(var)           & Returns the type of var.\\
-    type(n, b, d,)      & Dynamicaly create a class named \textbf{n}.\\
-                        & This class inerits all classes in \textbf{b} (tuple).\\
-                        & \textbf{d} is a dictionary containing attributes\\
-                        & and member method.\\
-    int(var)            & Convert \texttt{var} to a integer.\\
-    float(var)          & Convert \texttt{var} to a float.\\
-    str(var)            & Convert \texttt{var} to a string.\\
-    len(var)            & Returns the length of a string or a list.\\
-    pass                & Used to keep an indentention empty\\
-                        & avoiding \texttt{IndentationError}.\\
-    .copy(obj)          & \\
-    .deepcopy(obj)      & \\
-\end{tabular}
-
-\subsection{Basic Syntax}
-\begin{minted}[bgcolor=LightGray]{Python}
-    if conditon_1:
-        # code if conditon_1 is true
-    elif conditon_2:
-        # code if conditon_2 is true and conditon_1 
-        # is false
-    else:
-        # code
-\end{minted}
-
-\subsection{Lists}
-\begin{minted}[bgcolor=LightGray]{Python}
-    lst1 = [e_1, e_2, e_3] # [e_1, e_2, e_3]
-    lst2 = 5 * [a] # [a, a, a, a, a]
-    lst3 = [a for i in range(3)] # [a, a, a]
-    print([1,3,5,7]) # [1, 3, 5, 7]
-\end{minted}
-\begin{tabular}{>{\ttfamily}l l}
-    list(var)       & Convert a set or tuple to a list.\\
-    lst[i]          & Access the \texttt{i}th element in the list.\\
-    .apend(a)       & Adds \texttt{a} to the end of the list.\\
-    .insert(i,e)    & Insert element \texttt{e} at index \texttt{i}.\\
-    .pop()          & Remove the last element, return the \\
-                    & removed value.\\
-    .pop(i)         & Remove element at index \texttt{i}, return the \\
-                    & removed value.\\
-    range(i)        & \\
-\end{tabular}
-
+                            & and \textbf{y}(import random as r).\\
+        input(msg)          & Prompt the user with \textbf{msg} and take the\\
+                            & user input.\\
+        type(var)           & Returns the type of var.\\
+        type(n, b, d,)      & Dynamicaly create a class named \textbf{n}.\\
+                            & This class inerits all classes in \textbf{b} (tuple).\\
+                            & \textbf{d} is a dictionary containing attributes\\
+                            & and member method.\\
+        int(var)            & Convert \texttt{var} to a integer.\\
+        float(var)          & Convert \texttt{var} to a float.\\
+        str(var)            & Convert \texttt{var} to a string.\\
+        len(var)            & Returns the length of a string or a list.\\
+        pass                & Used to keep an indentention empty\\
+                            & avoiding \texttt{IndentationError}.\\
+        .copy()             & Creates a new object but nested objects\\
+                            & still reference the original.\\
+        .deepcopy()         & Creates a new object with completely new\\
+                            & copies of all nested objects.\\
+    \end{tabular}
 
 \subsection{Operators}
 \begin{tabular}{|>{\ttfamily}l|l|l|}
@@ -111,7 +82,7 @@
     Symbol  &   Name                    & Type       \\
     \hline
     +       & addition                  & Arithmetic \\
-    -       & substraction              & Arithmetic \\
+    -       & subtraction               & Arithmetic \\
     *       & multiplication            & Arithmetic \\
     /       & division                  & Arithmetic \\
     \%      & modulo                    & Arithmetic \\
@@ -157,9 +128,94 @@ BaseException           & Base class for exception. \\
                         & member function of \texttt{BaseException}. \\
 \end{tabular}
 
+\subsection{Data Structures}
+\begin{tabular}{l>{\ttfamily}lll}
+    list          & [e\_1, $\dots$]         & ordered, changeable, duplicates.\\
+    tuple         & (e\_1, $\dots$)         & ordered, unchangeable, duplicates.\\
+    set           & \{e\_1, $\dots$\}       & unordered, unchangeable,\\
+                  &                         & no duplicates, unindexed.\\
+    dictionary    & \{a\_1:b\_1, $\dots$\}  & ordered, changeable, no duplicates.\\
+\end{tabular}
+
+\subsubsection{Typing}
+\begin{tabular}{>{\ttfamily}l l}
+    Sequence      & ordered container supporting indexing and slicing.\\
+    List          & mutable ordered sequence, supports indexing and append.\\
+    Tuple         & immutable ordered sequence, fixed-size.\\
+    Set           & unordered collection of unique elements.\\
+    Dict          & mapping of keys to values.\\
+    Mapping       & abstract read-only mapping interface.\\
+    MutableMapping& mapping that supports mutation.\\
+    Iterable      & can be iterated with for-loops.\\
+    Iterator      & yields items on demand.\\
+    Sized         & supports len().\\
+    Hashable      & can be used as dict key or set element.\\
+    Optional[T]   & either T or None.\\
+    Union[A,B]    & value may be of type A or B.\\
+    Any           & accepts any type.\\
+\end{tabular}
+
+\subsubsection{sets Methods}
+\begin{tabular}{>{\ttfamily}l l}
+    .add(e)                     & Add \texttt{e} in the set.\\
+    .update(lst)                & Add all elements from \texttt{lst} in the set.\\
+    .remove(e)                  & Remove \texttt{e} in the set.\\
+    .union(lst)                 & add all elements form \texttt{lst}\\
+    .intersection(lst)          & keep only the elements that are both in itself and \texttt{lst}\\
+    .difference(lst)            & remove all element of \texttt{lst} in the set\\
+\end{tabular}
+\begin{tabular}{>{\ttfamily}l l}
+    .symetric\_differencelst()  & \\
+\end{tabular}
+
+
+\subsubsection{lists Methods}
+\begin{minted}[bgcolor=LightGray]{Python}
+    lst1 = [e_1, e_2, e_3] # [e_1, e_2, e_3]
+    lst2 = 5 * [a] # [a, a, a, a, a]
+    lst3 = [a for i in range(3)] # [a, a, a]
+\end{minted}
+\begin{tabular}{>{\ttfamily}l l}
+    list(var)       & Convert a set or tuple to a list.\\
+    lst[i]          & Access the \texttt{i}th element in the list.\\
+    .apend(a)       & Adds \texttt{a} to the end of the list.\\
+    .insert(i,e)    & Insert element \texttt{e} at index \texttt{i}.\\
+    .pop()          & Remove the last element, return the \\
+                    & removed value.\\
+    .pop(i)         & Remove element at index \texttt{i}, return the \\
+                    & removed value.\\
+    range(n)        & Create a list with all integers from \texttt{0} to \texttt{n}.\\
+\end{tabular}
+
+\subsubsection{dictionary Methods}
+\begin{minted}[bgcolor=LightGray]{Python}
+    dic = {"max":22, "ugo":40, "cyp":21}
+    dic["max"] # -> 22
+\end{minted}
+\begin{tabular}{>{\ttfamily}l l}
+ 
+\end{tabular}
+
+
+
 \subsection{Object Oriented Programing(OOP)}
 
 \subsection{Performence Tips}
+
+\subsection{Basic Syntax}
+\begin{minted}[bgcolor=LightGray]{Python}
+    if conditon_1:
+        # code if conditon_1 is true
+    elif conditon_2:
+        # code if conditon_2 is true and conditon_1 
+        # is false
+    else:
+        # code
+
+    def function(a:type, b:type = value, ...) -> rType:
+        # code
+\end{minted}
+
 
 
 \end{multicols}
