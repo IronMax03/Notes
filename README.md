@@ -17,6 +17,7 @@
 - [PDF](./Math/Game_Theory.pdf) | [LATEX](./Math/Game_Theory.tex) · Game Theory 
 - [PDF](./Math/Linear_Algebra.pdf) | [LATEX](./Math/Linear_Algebra.tex) · Linear Algebra from Elementary to Advanced 
 
-## Books / Self-Study
+## Other
 - [PDF](./Physics/Quantum_Information.pdf) | [LATEX](./Physics/Quantum_Information.tex) · Quantum Information
+- [PDF](./Programing_Languages/git/git.pdf) | [LATEX](./Programing_Languages/git/git.tex) · git
 - [PDF](./Programing_Languages/Qiskit.pdf) | [LATEX](./Programing_Languages/Qiskit.tex) · Qiskit
