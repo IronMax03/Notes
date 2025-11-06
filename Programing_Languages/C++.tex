@@ -6,7 +6,7 @@
 \usepackage{array}
 
 \definecolor{LightGray}{gray}{0.9}
-
+\usepackage[inline]{enumitem}
 \usepackage{minted}
 
 \begin{document}
@@ -20,7 +20,7 @@
 
 
 \subsection{General Reminders}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{>{\small\ttfamily}l l}
 
 \#include "myfile.h"    & Include file.\\
 rand()                  & Random int, \texttt{\#include<cstdlib>}.\\
@@ -36,6 +36,9 @@ constexpr               & that specify that an expression must be\\
                         & evaluated at compile time.\\
 sizeof(var)             & return the number of bytes used by the\\
                         & variable. \texttt{sizeof} runs at compile-time.\\
+move(obj)               & During assignation move the already\\
+                        & existing object instead of creating a\\
+                        & copy of it (memory optimizations).\\      
 ternary Opearator       & condition ? ifTrue : ifFalse\\
 \end{tabular}
 
@@ -43,10 +46,12 @@ ternary Opearator       & condition ? ifTrue : ifFalse\\
 \subsection{Strings}
 \begin{tabular}{>{\ttfamily}l l}
 str$[$i$]$          & Get or set the char at the index \texttt{i}.\\
-str.length()        & Return the number of characters.\\
-str.substr(a,b)     & Returns the substring starting at index \texttt{a} with length \texttt{b}.\\
-str.find(subStr)    & Return the start index of the substring\\
-str.replace(i,l,str)& Replace $l$ characters starting at index \texttt{i} with \texttt{str}\\
+.length()           & Return the number of characters.\\
+.substr(a,b)        & Returns the substring starting at index \texttt{a}\\
+                    & with length \texttt{b}.\\
+.find(subStr)       & Return the start index of the substring\\
+.replace(i,l,str)   & Replace $l$ characters starting at index \texttt{i}\\
+                    & with \texttt{str}\\
 \#include <string>  & \textbf{all the above must include string.}\\
 stoi(str)           & Convert a string to int.\\
 stof(str)           & Convert a string to float,\\
@@ -75,12 +80,12 @@ vector<type> V;             & Instantiate a vector.\\
 vector<type> V(size);       & Instantiate a vector from Array \texttt{obj}.\\
 vector<type> V\{6,3,3\};    & Instantiate a vector from Array.\\
 V=vector<type>();           & Re-instantiate \texttt{V}.\\
-V.at(i)                     & Returns the element at index \texttt{i}.\\
-V.size()                    & Return the number of elements.\\
-V.push\_back(Value)         & Add the new element at the end.\\
-V.pop\_back()               & Remove the last element.\\
-V.clear()                   & Empty the vector.\\
-V.insert(i, Value)          & Insert \texttt{Value} at \texttt{i}.
+.at(i)                     & Returns the element at index \texttt{i}.\\
+.size()                    & Return the number of elements.\\
+.push\_back(Value)         & Add the new element at the end.\\
+.pop\_back()               & Remove the last element.\\
+.clear()                   & Empty the vector.\\
+.insert(i, Value)          & Insert \texttt{Value} at \texttt{i}.
 \end{tabular}
 
 
@@ -127,7 +132,6 @@ The buffer must be cleared after after getting an input from a stream if you inp
 \begin{minted}[bgcolor=LightGray]
 {c++}
 if(cin.fail() == true) {
-    cout << "cin failed state";
     cin.clear(); 
     cin.ignore(1000, '\n'); 
 }
@@ -217,7 +221,6 @@ class MyClass{
 \end{minted}
 \subsubsection{Class file(.cpp)}
 \begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]{c++}
-#include<iostream>
 #include "myHeader.h"
 
 MyClass::MyClass(int p1, §$\dots$§){
@@ -268,8 +271,7 @@ switch (x){
 \subsection{Lambda Expression}
 \begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]{c++}
     ... = [captureClause] (parameters) -> returnType { 
-    // definition
-    }
+    // definition}
 \end{minted}
 \begin{tabular}{>{\ttfamily}l l}
     $[\&]$                  & capture all external variables by reference.\\
@@ -309,11 +311,43 @@ uint\_least8\_t & uint\_least16\_t  & uint\_least32\_t  & uint\_least64\_t  \\
 \#else               & Alternative case for ifdef/ifndef.\\
 \#endif              & End conditional directive.\\
 \#include            & Include a file.\\
-\#pragma             & Implementation-specific instruction.\\
 \_\_FILE\_\_         & Current file name.\\
 \_\_LINE\_\_         & Current line number.\\
 \_\_DATE\_\_         & Compilation date.\\
 \_\_TIME\_\_         & Compilation time.\\
+\#pragma             & Implementation-specific instruction.\\
+\end{tabular}
+\begin{itemize*}
+    \item \texttt{once} — simple include guard for header files.
+    \item \texttt{pack(push, n)} / \texttt{\#pragma pack(pop)} — set and restore struct packing/alignment to n bytes.
+    \item \texttt{pack(n)} — set struct member alignment to n.
+    \item \texttt{GCC optimize("...")} — enable compiler-specific optimizations (GCC/Clang).
+    \item \texttt{\#pragma warning(push)} / \texttt{\#pragma warning(pop)} / \texttt{\#pragma warning(disable:NNNN)} — control MSVC warnings.
+    \item \texttt{\#pragma message("text")} — emit a compile-time message.
+    \item \texttt{\#pragma comment(lib, "name.lib")} — instruct MSVC linker to link a library.
+    \item \texttt{\#pragma omp parallel} — OpenMP parallel region (requires OpenMP enabled by compiler flags).
+    \item \texttt{\#pragma intrinsic(func)} — request compiler intrinsic (MSVC).
+\end{itemize*}
+
+\subsection{Compiler Commends}
+\begin{tabular}{>{\small\ttfamily}ll}
+    clang++ filesName   & commend to compile c++ code with \textbf{clang},\\
+                        & clang is a LLVM compiler.\\
+    -o name             & define the name of the compiled object.\\ 
+    -v                  & Makes the compiler print detailed\\
+                        & information. "v" stands for "Verbose".\\
+    -E                  & Prints the preprocessor output.\\
+    -Wall               & activates all warnings\\
+    -Wextra             & Enable extra warnings beyond \texttt{-Wall}.\\
+    -c filesName        & generate an object file. To add \texttt{.o} filse to\\
+                        & the compilation simply add those like a\\
+                        & regular file.\\  
+    -g                  & Include debug symbols for gdb/lldb.\\ 
+    -gline-tables-only  & Minimal debug info for profilers.\\
+    -O0, -O1,           & Optimizations levels, where \texttt{-O0} is no\\
+    -O2, -O3,           & optimization\\
+    -Ofast
+
 \end{tabular}
 
 \end{multicols}
