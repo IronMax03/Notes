@@ -1,0 +1,83 @@
+\documentclass[5pt]{article}
+\usepackage{multicol,multirow}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=0.75cm]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath,esint}
+\usepackage{mathtools}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usepackage{nccmath}
+\usepackage[inline]{enumitem}
+\usepackage{algpseudocode}
+
+\usepackage{empheq}
+\usepackage{amsfonts}
+
+\usepackage{tkz-euclide}
+\usepackage{tikz}
+
+\definecolor{LightGray}{gray}{0.9}
+
+\usepackage{minted}
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+\newcommand{\universalSet}{\mathbb{U}}
+
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+\newcommand{\tr}[3]{
+\begin{tikzpicture}[scale=0.40]
+    \coordinate [] (A) at (-1.5cm,-1.cm);
+    \coordinate [] (C) at (1.5cm,-1.0cm);
+    \coordinate [] (B) at (1.5cm,1.0cm);
+    \draw (A) -- node[above] {$a$} (B) -- node[right] {$b$} (C) -- node[below] {$c$} (A);
+    \draw (1.25cm,-1.0cm) rectangle (1.5cm,-0.75cm);
+\end{tikzpicture}
+}
+
+
+\begin{document}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{properties}{Properties}
+\newtheorem{axiom}{Axiom}
+
+
+\begin{center}
+     \Large{\textbf{The Art Of Integration}}\\
+     \hfill\small{\textcopyright Maximilien Notz \the\year{}}
+     \noindent\rule{20.2cm}{0.4pt}
+\end{center}
+
+
+\begin{multicols}{2}
+\setcounter{secnumdepth}{0}
+
+
+\subsection{King's Propertie}
+\begin{equation}
+    \int_a^b f(x)dx=\int_a^b f(a+b-x)dx
+\end{equation}
+\subsection{Queen's Propertie}
+\subsection{Feynman's Trick}
+\subsection{Real \& Imaginary Trick}
+\subsection{Ramanujan Master Theorem}
+
+
+
+
+
+
+
+\end{multicols}
+\end{document}
