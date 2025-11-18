@@ -80,12 +80,14 @@ vector<type> V;             & Instantiate a vector.\\
 vector<type> V(size);       & Instantiate a vector from Array \texttt{obj}.\\
 vector<type> V\{6,3,3\};    & Instantiate a vector from Array.\\
 V=vector<type>();           & Re-instantiate \texttt{V}.\\
-.at(i)                     & Returns the element at index \texttt{i}.\\
-.size()                    & Return the number of elements.\\
-.push\_back(Value)         & Add the new element at the end.\\
-.pop\_back()               & Remove the last element.\\
-.clear()                   & Empty the vector.\\
-.insert(i, Value)          & Insert \texttt{Value} at \texttt{i}.
+.at(i)                      & Returns the element at index \texttt{i}.\\
+.size()                     & Return the number of elements.\\
+.push\_back(Value)          & Add the new element at the end.\\
+.pop\_back()                & Remove the last element.\\
+.clear()                    & Empty the vector.\\
+.insert(i, Value)           & Insert \texttt{Value} at \texttt{i}.\\
+.reserve(int)               & Pre-allocate memory for performance\\
+                            & when the max size is known\\
 \end{tabular}
 
 
