@@ -61,20 +61,21 @@
         input(msg)          & Prompt the user with \textbf{msg} and take the\\
                             & user input.\\
         type(var)           & Returns the type of var.\\
-        type(n, b, d,)      & Dynamicaly create a class named \textbf{n}.\\
-                            & This class inerits all classes in \textbf{b} (tuple).\\
+        type(n, b, d,)      & Dynamically create a class named \textbf{n}.\\
+                            & This class inherits all classes in \textbf{b} (tuple).\\
                             & \textbf{d} is a dictionary containing attributes\\
                             & and member method.\\
         int(var)            & Convert \texttt{var} to a integer.\\
         float(var)          & Convert \texttt{var} to a float.\\
         str(var)            & Convert \texttt{var} to a string.\\
         len(var)            & Returns the length of a string or a list.\\
-        pass                & Used to keep an indentention empty\\
+        pass                & Used to keep an indentation empty\\
                             & avoiding \texttt{IndentationError}.\\
         .copy()             & Creates a new object but nested objects\\
                             & still reference the original.\\
         .deepcopy()         & Creates a new object with completely new\\
                             & copies of all nested objects.\\
+        del var             & Deletes \texttt{var} from memory.\\
     \end{tabular}
 
 \subsection{Operators}
@@ -114,20 +115,6 @@ else:
 finally: 
     # Runs regardless of what happens
 \end{minted}
-\begin{minted}[bgcolor=LightGray]{Python}
-for i in lst:
-    # for each element in lst
-while condition:
-    # runs while condition is true
-\end{minted}
-\begin{tabular}{>{\ttfamily}l l}
-raise exception         & Throw an error of type \texttt{exception}. \\
-assert c, msg           & Throw and error with the message \texttt{msg}\\
-                        & if the condition \texttt{c} is false.\\
-BaseException           & Base class for exception. \\
-.add\_note(note)        & add a note to an exeption, it is a \\
-                        & member function of \texttt{BaseException}. \\
-\end{tabular}
 
 \subsection{Data Structures}
 \begin{tabular}{l>{\ttfamily}lll}
@@ -139,9 +126,12 @@ BaseException           & Base class for exception. \\
 \end{tabular}
 
 \subsubsection{Typing}
-\begin{tabular}{>{\ttfamily}l l}
-    Sequence      & ordered container supporting indexing and slicing.\\
-    List          & mutable ordered sequence, supports indexing and append.\\
+\texttt{import typing} to use type hints.\\
+\begin{tabular}{>{\small\ttfamily}l l}
+    Sequence      & ordered container supporting indexing and\\
+                  & slicing.\\
+    List          & mutable ordered sequence, supports indexing\\
+                  & and append.\\
     Tuple         & immutable ordered sequence, fixed-size.\\
     Set           & unordered collection of unique elements.\\
     Dict          & mapping of keys to values.\\
@@ -161,12 +151,12 @@ BaseException           & Base class for exception. \\
     .add(e)                     & Add \texttt{e} in the set.\\
     .update(lst)                & Add all elements from \texttt{lst} in the set.\\
     .remove(e)                  & Remove \texttt{e} in the set.\\
-    .union(lst)                 & add all elements form \texttt{lst}\\
+    .union(lst)                 & add all elements from \texttt{lst}\\
     .intersection(lst)          & keep only the elements that are both in itself and \texttt{lst}\\
     .difference(lst)            & remove all element of \texttt{lst} in the set\\
 \end{tabular}
 \begin{tabular}{>{\ttfamily}l l}
-    .symetric\_differencelst()  & \\
+    .symmetric\_difference(lst) & \\
 \end{tabular}
 
 
@@ -179,7 +169,7 @@ BaseException           & Base class for exception. \\
 \begin{tabular}{>{\ttfamily}l l}
     list(var)       & Convert a set or tuple to a list.\\
     lst[i]          & Access the \texttt{i}th element in the list.\\
-    .apend(a)       & Adds \texttt{a} to the end of the list.\\
+    .append(a)      & Adds \texttt{a} to the end of the list.\\
     .insert(i,e)    & Insert element \texttt{e} at index \texttt{i}.\\
     .pop()          & Remove the last element, return the \\
                     & removed value.\\
@@ -199,7 +189,7 @@ BaseException           & Base class for exception. \\
 
 \subsection{Regular Expressions(REGEX)}
 \subsubsection{Functions}
-Let \texttt{e} be regular expresion and \texttt{s} and \texttt{s2} be a strings.
+Let \texttt{e} be a regular expression and \texttt{s} and \texttt{s2} be strings.
 \begin{tabular}{>{\small\ttfamily}l l}
     import re               & include python REGEX library.\\
     .findall(e, s)          & Returns a list containing all matches of \texttt{e} in \texttt{s}.\\
@@ -211,7 +201,7 @@ Let \texttt{e} be regular expresion and \texttt{s} and \texttt{s2} be a strings.
                             & \texttt{s}, \small{optional parameter: number of replacements.}\\
     Match Object            & A Match Object is an object containing\\
                             & information about the search and the result.\\
-                            & \small{Can acte as a boolean that is true if not empty.}\\
+                            & \small{Can act as a boolean that is true if not empty.}\\
 \end{tabular}
 \subsubsection{REGEX Syntax}
 
@@ -252,32 +242,109 @@ Let \texttt{e} be regular expresion and \texttt{s} and \texttt{s2} be a strings.
 \subsubsection{REGEX Backreferences}
 Refer to earlier capturing groups in the pattern or in replacements. Prefer raw strings (e.g., \texttt{r"..."}) to avoid double escaping.
 \begin{tabular}{>{\small\ttfamily}l l}
-	\textbackslash 1, \textbackslash 2, ... & Backreference to the nth capturing group in the\\
-                                            & pattern.\\
-(?P<name>...) & Named capturing group.\\
-(?P=name) & Backreference to the named group in the pattern.\\
-	\texttt{\textbackslash 1}, \texttt{\textbackslash 2} & In replacement: refer to groups 1, 2 (works in \texttt{re.sub}).\\
-	\texttt{\textbackslash g<name>} & In replacement: recommended form for numeric/named groups.\\
+\textbackslash 1, \textbackslash 2, ...                 & Backreference to the nth capturing group in the\\
+                                                        & pattern.\\
+(?P<name>...)                                           & Named capturing group.\\
+(?P=name)                                               & Backreference to the named group in the pattern.\\
+\texttt{\textbackslash 1}, \texttt{\textbackslash 2}    & In replacement: refer to groups 1, 2 (works in\\
+                                                        & \texttt{re.sub}).\\
+\texttt{\textbackslash g<name>}                         & In replacement: recommended form for\\
+                                                        & numeric/named groups.\\
 \end{tabular}
 
-\subsection{Object Oriented Programing(OOP)}
+\subsection{File Handling}
+\begin{tabular}{>{\small\ttfamily}l l}
+    open(s, arg)    & returns a a file object from a file at path \texttt{s}.\\
+                    & file object can be iterated line by line.\\
+    .read()         & returns a string version of a file.\\
+    .read(n)        & returns a string version of a \texttt{n} first characters\\
+                    & in file.\\
+    .readline()     & returns return the next line of the file as a\\
+                    & string.\\
+    .close()        & Manually close a file.\\
+    .write(s)       & writes string \texttt{s} to the file.\\
+    .writelines(s)  & writes a list of strings \texttt{s} to the file.\\
+\end{tabular}
 
-\subsection{Performence Tips}
+\textbf{arguments for open():}
+\begin{itemize*}
+    \item \textbf{r:} read only (default).
+    \item \textbf{w:} write only, creates or overwrites a file.
+    \item \textbf{a:} append only, creates file if not existing.
+    \item \textbf{b:} binary mode.
+    \item \textbf{t:} text mode (default).
+    \item \textbf{x:} create, fails if file exists.
+    \item \textbf{+:} read and write.
+\end{itemize*}
+
+\subsubsection{with statement}
+The \texttt{with} statement manages resources  resource management by automatically handling setup and cleanup tasks. 
+For file handling, it ensures that files are properly closed when the block exits, even if an exception occurs.
+\begin{minted}[bgcolor=LightGray]{Python}
+with open("myFile.txt") as f:
+  myString = f.read()
+\end{minted}
+
+\subsection{Object Oriented Programming(OOP)}
+\begin{minted}[bgcolor=LightGray]{Python}
+class ClassName(parent1, parent2, ...):
+    var = value # class attribute with default value
+    def __init__(self, arg1, ...): # constructor
+        self.attr1 = arg1
+        ...
+    def method1(self, ...):
+        # code
+\end{minted}
+\begin{tabular}{>{\small\ttfamily}l l}
+    self        & reference to the current instance of the class.\\
+    \_\_init\_\_  & constructor method called when an object is created.\\
+    \_\_del\_\_ & destructor method called when an object is deleted.\\
+\end{tabular}
+\subsubsection{Operator Overloading}
+\begin{tabular}{>{\small\ttfamily}l l}
+    \_\_str\_\_()               & method that defines the string\\
+                                & representation of the object (used by\\
+                                & \texttt{print()}).\\
+    \_\_add\_\_(self, o)        & + addition\\
+    \_\_sub\_\_(self, o)        & - subtraction\\
+    \_\_mul\_\_(self, o)        & * multiplication\\
+    \_\_truediv\_\_(self, o)    & / division\\
+    \_\_floordiv\_\_(self, o)   & // floor division\\
+    \_\_mod\_\_(self, o)        & \% modulo\\
+    \_\_pow\_\_(self, o)        & ** power\\
+    \_\_neg\_\_(self)           & unary -\\
+    \_\_pos\_\_(self)           & unary +\\
+    \_\_abs\_\_(self)           & abs()\\
+    \_\_eq\_\_(self, o)         & == equality\\ 
+    \_\_ne\_\_(self, o)         & != inequality\\
+    \_\_lt\_\_(self, o)         & $<$ less than\\
+    \_\_le\_\_(self, o)         & $<=$ less or equal\\
+    \_\_gt\_\_(self, o)         & $>$ greater than\\
+    \_\_ge\_\_(self, o)         & $>=$ greater or equal\\
+\end{tabular}
 
 \subsection{Basic Syntax}
 \begin{minted}[bgcolor=LightGray]{Python}
-    if conditon_1:
-        # code if conditon_1 is true
-    elif conditon_2:
-        # code if conditon_2 is true and conditon_1 
-        # is false
-    else:
-        # code
+if condition_1:
+    # code if condition_1 is true
+elif condition_2:
+    # code if condition_2 is true and condition_1 
+    # is false
+else:
+    # code
 
-    def function(a:type, b:type = value, ...) -> rType:
-        # code
+def function(a:type1, b:type2 = value, ...) -> rType:
+    # code
+    return # value of type rType
+
+for i in lst:
+    # for each element in lst
+
+while condition:
+    # runs while condition is true
 \end{minted}
 
+\subsection{Performance Tips}
 
 
 \end{multicols}
