@@ -9,7 +9,7 @@
 
 ## Webster University
 - [PDF](./Math/Discrete%20Math/Discrete_Mathematics.pdf) | [LATEX](./Math/Discrete%20Math/Discrete_Mathematics.tex) · MATH 2410 Discrete Mathematics 
-- [PDF](./Programing/C%2B%2B/C%2B%2B.pdf) | [LATEX](./Programing/C%2B%2B/C%2B%2B.tex) · COSC 1550 Computer Programming I 
+- [PDF](./Programing/C%2B%2B/C%2B%2B.pdf) | [LATEX](./Programing/C%2B%2B/C%2B%2B.tex) · COSC 1550 Computer Programming I (C++)
 - [PDF](./Programing/Python/Python_Programming.pdf) | [LATEX](./Programing/Python/Python_Programming.tex) · COSC 1800 Python Programming 
 
 
