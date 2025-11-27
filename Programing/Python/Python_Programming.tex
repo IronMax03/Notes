@@ -14,6 +14,7 @@
 \usepackage{amsfonts}
 
 \usepackage{array}
+\usepackage[inline]{enumitem}
 
 \usepackage{tkz-euclide}
 \usepackage{tikz}
@@ -196,7 +197,68 @@ BaseException           & Base class for exception. \\
  
 \end{tabular}
 
+\subsection{Regular Expressions(REGEX)}
+\subsubsection{Functions}
+Let \texttt{e} be regular expresion and \texttt{s} and \texttt{s2} be a strings.
+\begin{tabular}{>{\small\ttfamily}l l}
+    import re               & include python REGEX library.\\
+    .findall(e, s)          & Returns a list containing all matches of \texttt{e} in \texttt{s}.\\
+    .search(e, s)           & Returns a Match object if there is a match of\\
+                            & \texttt{e}  anywhere in \texttt{s}.\\
+    .split(e, s)            & Returns a list where \texttt{s} has been split at each\\
+                            & match of \texttt{e}.\\
+    .sub(e, s2, s)          & Replaces one or many matches of \texttt{e} with \texttt{s2} in\\
+                            & \texttt{s}, \small{optional parameter: number of replacements.}\\
+    Match Object            & A Match Object is an object containing\\
+                            & information about the search and the result.\\
+                            & \small{Can acte as a boolean that is true if not empty.}\\
+\end{tabular}
+\subsubsection{REGEX Syntax}
 
+
+\textbf{Metacharacters:}\\
+\begin{tabular}{>{\small\ttfamily}l l|>{\small\ttfamily}l l}
+    \hline
+    []                  & A set of chars                    & *     & Zero or more occurrences\\
+    $\backslash$        & special sequence and              & +     & One or more occurrences\\
+                        & escape special char               & ?     & Zero or one occurrences\\
+    .                   & Any character except \texttt{$\backslash$n}  & {}    & Specify number of\\
+    \textasciicircum    & Starts with                      &       & occurrences\\
+    \$                  & Ends with                        & ()    & Capture and group\\
+    |                   & Either or\\
+    \hline
+\end{tabular}
+
+\textbf{Set Syntax by example:}\\
+\begin{itemize*}
+    \item \texttt{[aBc]} matches a single character: a, B, or c.
+    \item \texttt{[\textasciicircum aBc]} matches any single character except a, B, or c.
+    \item \texttt{[a-z]} matches any lowercase letter a through z.
+    \item \texttt{[a-zA-Z]} matches any letter (uppercase or lowercase).
+    \item \texttt{[0-9][0-9]} matches two consecutive digits (00-99).
+\end{itemize*}
+
+\textbf{Special Sequences:}\\
+\begin{tabular}{>{\small\ttfamily}l l|>{\small\ttfamily}l l}
+    \hline
+    \textbackslash A & Match at start of string & \textbackslash d & Any digit [0-9]\\
+    \textbackslash b & Word boundary            & \textbackslash D & Any non-digit\\
+    \textbackslash B & Not a word boundary      & \textbackslash s & Any whitespace\\
+    \textbackslash Z & Match at end of string   & \textbackslash S & Any non-whitespace\\
+    \textbackslash w & Any word character       & \textbackslash W & Any non-word character\\
+    \hline
+\end{tabular}
+
+\subsubsection{REGEX Backreferences}
+Refer to earlier capturing groups in the pattern or in replacements. Prefer raw strings (e.g., \texttt{r"..."}) to avoid double escaping.
+\begin{tabular}{>{\small\ttfamily}l l}
+	\textbackslash 1, \textbackslash 2, ... & Backreference to the nth capturing group in the\\
+                                            & pattern.\\
+(?P<name>...) & Named capturing group.\\
+(?P=name) & Backreference to the named group in the pattern.\\
+	\texttt{\textbackslash 1}, \texttt{\textbackslash 2} & In replacement: refer to groups 1, 2 (works in \texttt{re.sub}).\\
+	\texttt{\textbackslash g<name>} & In replacement: recommended form for numeric/named groups.\\
+\end{tabular}
 
 \subsection{Object Oriented Programing(OOP)}
 
