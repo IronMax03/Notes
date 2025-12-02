@@ -93,7 +93,7 @@
     finite set          & Let $X$ be a finite set then $|X|\in \mathbb{N}$\\
     countable set       & A set $S$ is countable if and only if that is\\
                         & finit or $|S|=|\mathbb{N}|$.\\
-    aleph null.         & $\aleph_0=|\mathbb{N}|$\\
+    aleph null.         & $\aleph_0=|\mathbb{N}|$ by definition.\\
 \end{tabular}
 
 \begin{axiom}[Axiom of extensionality]
@@ -319,53 +319,187 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 \textbf{Conclusion:} By strong induction, $P(n)$ holds for every $n\ge n_0$.\\
 
 \subsection{Graphs}
-A \textbf{graph} is an ordered pair \boxed{$G=(V,E)$}, where $V$ is a nonempty set of \textbf{vertices} and $E$ is a nonempty set of \textbf{edges}.\\
+A \textbf{graph} is an ordered pair \boxed{$G=(V,E)$}, where $V$ is a nonempty set of \textbf{vertices} and $E$ is a
+nonempty set of \textbf{edges}.\\
+\textbf{Named Graphs:}\\
+\begin{tabular}{ll}
+    $K_n$       & complete graph on $n$ vertices.\\
+                & (every pair of distinct vertices is adjacent)\\
+    $K_{m,n}$   & complete bipartite graph with parts of sizes $m$ and $n$.\\
+                & (all possible edges between the first and second sets)\\
+    $C_n$       & an $n$-vertex cycle.\\
+    $P_n$       & an $n$-vertex path.\\
+\end{tabular}
+
+\subsubsection{Directed Vs Undirected Graphs}
+In a \textbf{directed graph}, edges have a direction. Such that $E=\{(\dots), \dots\}$ for \textbf{directed graph} and $E=\{\{\dots\}, \dots\}$ for \textbf{undirected graph}.\\
+
+\subsubsection{Computing adjacency matrix}
+Let a graph $G$ with $n$ vertices and the adjacency matrix $A_{n\times n}$. 
+The entry $a_{ij}$ is $1$ if there is an edge from vertex $i$ to vertex $j$, and $0$ otherwise.
+
+\subsubsection{Basic Definitions}
 \begin{tabular}{ll}
     Vertices            & elements of set $V$ in a graph. The dots in\\
                         & the drawing.\\
-    edges               & connections between vertices (elements\\
-                        & of set $E$). The lines in the drawing.\\
+    edges               & connections between vertices (elements of\\
+                        & set $E$). The lines in the drawing.\\
     adjacent            & if 2 edges are connected by a vertice.\\
-    morphism            & a mapping from the vertices and edges of one graph\\
-                        & to the vertices and edges of another graph that\\
-                        & preserves incidence.\\
+    loop                & an edge that connects a vertex to itself.\\
+    morphism            & a mapping from the vertices and edges of \\
+                        & one graph to the vertices and edges of\\
+                        & another graph that preserves incidence.\\
     isomorphism         & a bijective morphism.\\
     isomorphic          & if there is an isomorphism between 2 graphs.\\
     automorphism        & is an isomorphism from a graph to itself.\\
-    Degree of a vertex  & is the number of edges incident to the vertex.\\
+    Degree              & is the number of edges incident to the vertex.\\
+                        & Denoted $\text{deg}(v)$, the biggest degree of any\\
+                        & vertex is denoted $\Delta(G)$.\\
     incoming degree     & number of edges coming into a vertex.\\
     outgoing degree     & number of edges going out of a vertex.\\
     adjacency matrix    & is the a matrix representation of a graph.\\
-                        & $A=[a_{ij}]$ where $a_{ij}$ equals $1$ if $\{i,j\}\in E$ and\\
-                        & $0$ otherwise, $i\in V, j\in V$ for $G={V,E}$.\\
+                        & $A=[a_{ij}]$ where $a_{ij}$ equals $1$ if $\{i,j\}\in E$\\
+                        & and $0$ otherwise, $i\in V, j\in V$ for $G={V,E}$.\\
     path                & an ordered sequence of successive edges\\
-    connected           & if there is a path between every pair of vertices.\\
-    cycle               & a path that starts and ends at the same vertex.\\
+    connected           & if there is a path between every pair of\\
+                        & vertices.\\
+    cycle               & a path that starts and ends at the same\\
+                        & vertex.\\
+    clique              & a subset of vertices such that every 2 \\
+                        & distinct vertices are adjacent (special \\
+                        & induced subgraph).\\
+    clique number       & the size of the largest clique in a graph $G$.\\
+    complete graph      & a graph in which every pair of distinct\\
+                        & vertices is connected by a unique edge.\\
+    \end{tabular}
+    \begin{lemma}[Handshaking Lemma]
+        Let $G=(V,E)$ be a finite undirected graph, then:
+        \[
+        \sum_{v \in V} \text{deg}(v) = 2|E|
+        \]
+    \end{lemma}
+
+    \subsubsection{Special Graphs}
+    \begin{tabular}{ll}
+    simple              & a graph with no loops or multiple edges.\\
+    multigraph          & a graph that is not simple.\\
     acyclic             & a graph with no cycles.\\
-    tree                & a connected acyclic graph.\\
-    subgraph            & a graph $H=(V_H,E_H)$ is a subgraph of \\
+    tree                & a connected graph whith no cycles (acyclic).\\
+    forest              & an acyclic graph.\\
+    spanning tree       & a subgraph of a connected graph that is a\\
+                        & tree containing all the vertices of $G$.\\
+    subgraph            & a graph $H=(V_H,E_H)$ is a subgraph of\\
                         & $G=(V_G,E_G)$ if $V_H\subseteq V_G$ and $E_H\subseteq E_G$.\\
-    partial graph       & a subgraph that contains all the vertices of $G$.\\
-    Induced subgraph    & a subgraph $H$ of $G$ such that if $u,v\in V_H$ and $\{u,v\}\in E_G$,\\
-                        & then $\{u,v\}\in E_H$.\\
-    bipaetite graph     & a graph whose vertices form 2 disjoint sets where each\\
-                        & edge connects vertices from different sets. Thos graphs are bi colorable\\
+    partial graph       & a subgraph that contains all the vertices of\\
+                        & $G$.\\
+    Induced subgraph    & a subgraph $H$ of $G$ such that if $u,v\in V_H$\\
+                        & and $\{u,v\}\in E_G$, then $\{u,v\}\in E_H$.\\
+    bipartite graph     & a graph whose vertices form 2 disjoint sets\\
+                        & where each edge connects vertices from\\
+                        & different sets.\\
+    planar graph        & a graph that can be drawn without any\\
+                        & edges crossing.\\
+    faces               & the regions bounded by edges in a planar\\
+                        & graph. Example: \begin{tikzpicture}[scale=0.55, baseline={(current bounding box.center)}]
+                                        \coordinate (A) at (0 + 1,0);
+                                        \coordinate (B) at (2 + 1,0);
+                                        \coordinate (C) at (2 + 1,1.5);
+                                        \coordinate (D) at (0.5 + 1,1.2);
+                                        \coordinate (E) at (-0.5,1.5);
 
+                                        % shaded inner faces
+                                        \fill[gray!20] (D)--(A)--(B)--cycle;
+                                        \fill[gray!35] (D)--(C)--(B)--cycle;
+                                        % graph edges
+                                        \draw (A)--(B)--(C)--(D)--cycle;
+                                        \draw (D)--(B);
+                                        \draw (A)--(E)--(C);
 
+                                        % vertices as dots
+                                        \foreach \v in {A,B,C,D} \filldraw[black] (\v) circle (2pt);
+                                        % face labels
+                                        \node at (0.7 + 1,0.4) {$f_1$};
+                                        \node at (1.4 + 1,1.0) {$f_2$};
+                                        \node at (0.7,1) {$f_3$};
+                                    \end{tikzpicture}\\
+Euler's Formula         & Consider a planar graph with $v$ vertices, $e$\\
+                        & edges, and $f$ faces, then this graph\\
+                        & satisfies: \boxed{$v-e+f=2$}.\\
+\end{tabular}
+\begin{properties}[Tree and Forest]
+    \begin{itemize*}
+        \item A graph $T$ is a tree if and only if there is a unique path between any 2 vertices of $T$.
+        \item A graph $F$ is a forest if and oxnly if for every pair of vertices in $F$, there is at most one path between them.
+        \item Every connected graph has a spanning tree.
+        \item $K_5$ is the smallest non planar complete graph.
+    \end{itemize*}
+\end{properties}
+
+\subsubsection{Graph Coloring}
+\begin{tabular}{ll}
+    vertex coloring     & an assignment of colors to the vertices of a $G$. \\
+    edges coloring      & an assignment of colors to the edges of a $G$. \\
+    proper coloring     & a coloring of a graph such that no 2 adjacent\\
+                        & vertices or edges share the same color. \\
+    k- colorable        & a graph that can be colored with $k$ colors. \\
+    chromatic number    & the minimum number of colors needed to\\
+                        & color the vertices of a graph $G$. \small{Denoted $\chi(G)$}. \\
+    chromatic index     & the minimum number of colors needed to\\
+                        & color the edges of a graph $G$. Denoted $\chi'(G)$. \\
 \end{tabular}
 
-\subsection{Directed Vs Undirected Graphs}
-In a \textbf{directed graph}, edges have a direction. Such that $E=\{(\dots), \dots\}$ for \textbf{directed graph} and $E=\{\{\dots\}, \dots\}$ for \textbf{undirected graph}.\\
+\begin{properties}
+    \begin{itemize*}
+        \item A graph is 2-colorable if and only if it is bipartite.
+        \item A clique of size n cannot be colored with less than n colors.
+        \item The chromatic number of a complete graph $K_n$ is $n$.
+    \end{itemize*}
+\end{properties}
 
+\begin{theorem}[Four Color Theorem]
+    If G is a planar graph, then its chromatic number is
+    less or equal to 4.
+\end{theorem}
 
+\begin{theorem}[brook's Theorem]
+    Any graph $G$ satisfies $\chi(G)\leq \Delta(G)+1$.
+\end{theorem}
 
-\begin{lemma}[Handshaking Lemma]
-    Let $G=(V,E)$ be a finite undirected graph, then:
-    \[
-    \sum_{v \in V} \text{deg}(v) = 2|E|
-    \]
-    
-\end{lemma}
+\begin{theorem}[vizing's Theorem]
+    For any simple graph G, the chromatic index $\chi'(G)$ is either $\Delta(G)$ or $\Delta(G)+1$.
+\end{theorem}
+
+\begin{theorem}
+    The chromatic number of a graph G $\geq$ the clique number of G.
+\end{theorem}
+
+\subsubsection{Euler and Hamiltonian Graphs}
+\begin{tabular}{ll}
+    Euler path          & a walk through the graph which uses every\\
+                        & edge.\\
+    Euler circuit       & an Euler path that starts and ends at the\\
+                        & same vertex.\\
+    Hamiltonian path    & a path that visits every vertex exactly once.\\
+    Hamiltonian cycle   & a Hamiltonian path that starts and ends at\\
+                        & the same vertex.\\
+\end{tabular}
+
+\begin{properties}
+    \begin{itemize*}
+        \item A graph has an Euler circuit iff the degree of every vertex is even.
+        \item A graph has an Euler path if and only if there are at most two vertices with odd degrees.
+    \end{itemize*}
+\end{properties}
+
+\begin{theorem}[Dirac Thm]
+    If $G$ is a simple graph with $n\ge 3$ vertices such that the degree of every vertex in $G$ is at least $n/2$,
+     then $G$ has a \textbf{Hamiltonian circuit}.
+\end{theorem}
+
+\begin{theorem}[Ore Thm]
+    If $G$ is a simple graph with $n\ge 3$ vertices such that for every pair of non-adjacent vertices $u$ and $v$,
+     $\deg(u)+\deg(v)\ge n$, then $G$ has a \textbf{Hamiltonian circuit}.
+\end{theorem}
 
 \end{multicols}
 \end{document}
