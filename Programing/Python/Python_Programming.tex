@@ -302,8 +302,8 @@ class ClassName(parent1, parent2, ...):
 \end{tabular}
 \subsubsection{Operator Overloading}
 \begin{tabular}{>{\small\ttfamily}l l}
-    \_\_str\_\_()               & method that defines the string\\
-                                & representation of the object (used by\\
+    \_\_str\_\_(self)           & Overload \texttt{str()}.\\
+    \_\_repr\_\_(self)          & Overload \texttt{repr()} (used by\\
                                 & \texttt{print()}).\\
     \_\_add\_\_(self, o)        & + addition\\
     \_\_sub\_\_(self, o)        & - subtraction\\
@@ -321,6 +321,20 @@ class ClassName(parent1, parent2, ...):
     \_\_le\_\_(self, o)         & $<=$ less or equal\\
     \_\_gt\_\_(self, o)         & $>$ greater than\\
     \_\_ge\_\_(self, o)         & $>=$ greater or equal\\
+\end{tabular}
+
+\subsection{Strings}
+\begin{tabular}{>{\small\ttfamily}l l}
+    str(var)        & Convert \texttt{var} to a string.\\
+    .lower()        & Returns the string in lowercase.\\
+    .upper()        & Returns the string in uppercase.\\
+    .strip()        & Removes whitespace from the beginning\\
+                    & and end of the string.\\
+    .join(lst)      & Joins all elements in \texttt{lst} into a single\\
+                    & string, separated by the original string.\\
+    r"..."          & Raw string, ignores escape sequences.\\
+    f"...\{var\}..."& Formatted string literal, inserts \texttt{var} inside the\\
+                    & string.\\
 \end{tabular}
 
 \subsection{Basic Syntax}
