@@ -18,6 +18,7 @@
 
 \usepackage{tkz-euclide}
 \usepackage{tikz}
+\usepackage{rotating}
 
 \definecolor{LightGray}{gray}{0.9}
 
@@ -361,6 +362,44 @@ while condition:
 \end{minted}
 
 \subsection{Performance Tips}
+\subsubsection{Numba}
+\textbf{Numba} is a Just-in-Time (JIT) compiler that translates a subset of Python and NumPy code into fast machine code at runtime.
+\begin{minted}[bgcolor=LightGray]{Python}
+from numba import jit   
+@jit()
+def my_function(...):
+    # code
+\end{minted}
+\textbf{jit settings:}\\
+\begin{tabular}{>{\small\ttfamily}l l}
+    nopython=True       & Disable the use of the Python interpreter\\
+                        & within the compiled function for maximum\\
+                        & performance.\\
+    forceobj=True       & Force the use of object mode, allowing\\
+                        & compilation of a wider range of Python\\
+                        & constructs at the cost of performance.\\
+    looplift=True       & Enable loop lifting optimizations to\\
+                        & improve performance of loops.\\
+    parallel=True       & Enable automatic parallelization of\\
+                        & loops within the function.\\
+    cache=True          & Cache the compiled machine code to disk\\
+                        & for reuse in future runs.\\
+\end{tabular}
+
+\subsubsection{Data Structures Performance Comparison}
+\begin{tabular}{|>{\small\bfseries}c|>{\small}c|>{\small}c|>{\small}c|>{\small}c|}
+    \hline
+    Name   & \begin{sideways}Element access\end{sideways} & \begin{sideways}Membership checks\end{sideways} & \begin{sideways}Middle insert/delete\end{sideways} & \begin{sideways}Append if reserved\end{sideways} \\
+    \hline
+    list        & $O(1)$ & $O(n) $ & $O(n)$ & $O(1)$ \\
+    tuple       & $O(1)$ & $O(n) $ & $O(n)$ & N/A    \\
+    dictionary  & $O(1)$ & $O(1) $ & $O(n)$ & $O(1)$ \\
+    set         & N/A    & $O(1) $ & N/A    & $O(1)$ \\
+    \hline
+\end{tabular}
+
+
+
 
 
 \end{multicols}
