@@ -219,6 +219,10 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
     \end{itemize*}
 \end{properties}
 
+\begin{theorem}[Pigeonhole Principle]
+    If $n$ items are put into $m$ containers, then at least one container must contain at least $\lceil \frac{n}{m} \rceil$ items.
+\end{theorem}
+
 \subsection{Symbolic Logic}
 \begin{tabular}{lcl}
     \textbf{Name}           & \textbf{Symbol}               & \textbf{Translate to}\\
@@ -311,12 +315,11 @@ if event $A$ can occur in $m$ ways, and even $B$ can occur in $n$ \textbf{disjoi
 \textbf{Base Case:} Verify $P(n_0)$ (and additional initial values if required).\\
 \textbf{Inductive Step:} Assume $P(k)$ holds for an arbitrary $k\ge n_0$ (inductive hypothesis) and show $P(k+1)$ holds.\\
 \textbf{Conclusion:} If both steps succeed, the principle of mathematical induction yields $P(n)$ for all $n\ge n_0$.\\
+\textbf{Strong induction}: In the inductive step, assume $P(n_0),P(n_0+1),\dots,P(k)$ to show $P(k+1)$.\\
 
-\subsubsection{Proof by Strong Induction}
-\textbf{Goal:} Prove $\forall n\ge n_0,\;P(n)$.\\
-\textbf{Base Case(s):} Establish $P(n_0),P(n_0+1),\dots,P(n_0+r)$ as needed.\\
-\textbf{Inductive Step:} Assume $P(n_0),P(n_0+1),\dots,P(k)$ all hold (strong hypothesis) and deduce $P(k+1)$.\\
-\textbf{Conclusion:} By strong induction, $P(n)$ holds for every $n\ge n_0$.\\
+\begin{theorem}
+    There are infinitely many prime numbers.
+\end{theorem}
 
 \subsection{Graphs}
 A \textbf{graph} is an ordered pair \boxed{$G=(V,E)$}, where $V$ is a nonempty set of \textbf{vertices} and $E$ is a
@@ -506,5 +509,10 @@ Euler's Formula         & Consider a planar graph with $v$ vertices, $e$\\
     \item $\sqrt{x^2}=|x|,x\in\mathbb{R}$
     \item $(\sqrt{x})^2=x, x\geq 0$
     \item $\sum_{i=1}^{n}i=\frac{n(n+1)}{2}$
+    \item $\sum_{i=1}^{n}i^2=\frac{n(n+1)(2n+1)}{6}$\\
+    \item $(a+b)^3=a^3+b^3+3ab(a+b)$
+    \item $(a-b)^3=a^3-b^3-3ab(a-b)$
+    \item $a^3+b^3=(a+b)(a^2-ab+b^2)$
+    \item $a^3-b^3=(a-b)(a^2+ab+b^2)$
 \end{itemize*}
 \end{document}
