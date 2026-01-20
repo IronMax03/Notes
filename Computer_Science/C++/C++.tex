@@ -51,12 +51,30 @@ str$[$i$]$          & Get or set the char at the index \texttt{i}.\\
                     & with length \texttt{b}.\\
 .find(subStr)       & Return the start index of the substring\\
 .replace(i,l,str)   & Replace $l$ characters starting at index \texttt{i}\\
-                    & with \texttt{str}\\
-\#include <string>  & \textbf{all the above must include string.}\\
+                    & with \texttt{str}.\\
+\#include <string>  & all the above must include string.\\
 stoi(str)           & Convert a string to int.\\
 stof(str)           & Convert a string to float,\\
 stod(str)           & Convert a string to double,\\
 to\_string(var)     & Convert var to a string,\\
+\end{tabular}
+
+\subsection{Vectors}
+\begin{tabular}{>{\ttfamily}l l}
+\#include<vector>           & Include vector library. \\
+vector<type> V;             & Instantiate a vector. \\
+vector<type> V(s);          & Instantiate a vector of size \texttt{s}. \\
+vector<type> V\{6,3,3\};    & Instantiate a vector from Array. \\
+vector<type> V(s, var);     & Instantiate a vector of size \texttt{s} with \\
+                            & all elements initialized to \texttt{var}. \\
+.at(i)                      & Returns the element at index \texttt{i}. \\
+.size()                     & Return the number of elements. \\
+.push\_back(Value)          & Add the new element at the end. \\
+.pop\_back()                & Remove the last element. \\
+.clear()                    & Empty the vector. \\
+.insert(i, Value)           & Insert \texttt{Value} at \texttt{i}. \\
+.reserve(int)               & Pre-allocate memory for perf. \\
+                            & when the max size is known. \\
 \end{tabular}
 
 \subsection{Arrays}
@@ -73,24 +91,6 @@ arr$[$i$]$          & Get or set the element at the index i.\\
 \end{tabular}
 
 
-\subsection{Vectors}
-\begin{tabular}{>{\ttfamily}l l}
-\#include<vector>           & Include vector library.\\
-vector<type> V;             & Instantiate a vector.\\
-vector<type> V(size);       & Instantiate a vector from Array \texttt{obj}.\\
-vector<type> V\{6,3,3\};    & Instantiate a vector from Array.\\
-V=vector<type>();           & Re-instantiate \texttt{V}.\\
-.at(i)                      & Returns the element at index \texttt{i}.\\
-.size()                     & Return the number of elements.\\
-.push\_back(Value)          & Add the new element at the end.\\
-.pop\_back()                & Remove the last element.\\
-.clear()                    & Empty the vector.\\
-.insert(i, Value)           & Insert \texttt{Value} at \texttt{i}.\\
-.reserve(int)               & Pre-allocate memory for performance\\
-                            & when the max size is known\\
-\end{tabular}
-
-
 \subsection{Structures}
 \begin{minted}[bgcolor=LightGray]{C++}
 struct myStruct {
@@ -99,34 +99,34 @@ struct myStruct {
 }s1, s2;            // myStruct instances
 \end{minted}
 \begin{tabular}{>{\ttfamily}l l}
-myStruct Obj;   & instantiate structure object.\\
-Obj.param1      & Access param1 of \texttt{Obj}.\\
+myStruct Obj;   & instantiate structure object. \\
+Obj.param1      & Access param1 of \texttt{Obj}. \\
 \end{tabular}
 
 
 \subsection{Streams}
 \begin{tabular}{>{\ttfamily}l l}
 
-\#include<fstream>      & Include stream library.\\
-\#include<sstream>      & Include string stream library.\\
-ifstream fin;           & Instantiate a input stream.\\
-ofstream fout;          & Instantiate a output stream.\\
-stringstream s(str);  & Instantiate a string stream.\\
-myS.open("file.txt")    & Open txt file whith the stream.\\
-myS.close()             & Close the stream file.\\
-getline(fin, line)      & Get the next line from fin.\\
-fout<<"hello"           & Output in stream "helloWorld".\\
-fin>>var                & Input from stream to var.\\
+\#include<fstream>      & Include stream library. \\
+\#include<sstream>      & Include string stream library. \\
+ifstream fin;           & Instantiate a input stream. \\
+ofstream fout;          & Instantiate a output stream. \\
+stringstream s(str);  & Instantiate a string stream. \\
+myS.open("file.txt")    & Open txt file whith the stream. \\
+myS.close()             & Close the stream file. \\
+getline(fin, line)      & Get the next line from fin. \\
+fout<<"hello"           & Output in stream "helloWorld". \\
+fin>>var                & Input from stream to var. \\
 %% streams manipulators
-<<setprecision(n)<<     & Set decimal points, \texttt{\#include<iomanip>}.\\
-<<setw(n)<<             & Establishes a print field of n spaces.\\
-<<fixed<<               & Display floating point numbers in fixed.\\
-                        & point notation.\\
-<<showpoint<<           & Enables or disables the unconditional\\
-<<noshowpoint<<         & inclusion of the decimal point character\\
-                        & in floating-point output.\\
-<<left<<                & output the string on the left.\\
-<<right<<               & output the string on the right.\\
+<<setprecision(n)<<     & Set decimal points, \texttt{\#include<iomanip>}. \\
+<<setw(n)<<             & Establishes a print field of n spaces. \\
+<<fixed<<               & Display floating point numbers in fixed. \\
+                        & point notation. \\
+<<showpoint<<           & Enables or disables the unconditional \\
+<<noshowpoint<<         & inclusion of the decimal point character \\
+                        & in floating-point output. \\
+<<left<<                & output the string on the left. \\
+<<right<<               & output the string on the right. \\
 \end{tabular}
 
 \subsubsection{clear buffer}
@@ -139,19 +139,16 @@ if(cin.fail() == true) {
 }
 \end{minted}
 
-
 \subsection{cmath}
 \begin{tabular}{>{\ttfamily}l l}
-\#include<cmath>        & Include cmath library.\\
-sqrt(x)                 & Square root of \texttt{x}.\\
-pow(x, y)               & \texttt{x} raised to the power \texttt{y}.\\
-abs(x)                  & Absolute value overloads.\\
-floor(x)                & Greatest integer $\leq$ \texttt{x}.\\
-ceil(x)                 & Smallest integer $\geq$ \texttt{x}.\\
-fmod(x, y)              & Floating-point remainder of \texttt{x}$/$\texttt{y}.\\
+\#include<cmath>        & Include cmath library. \\
+sqrt(x)                 & Square root of \texttt{x}. \\
+pow(x, y)               & \texttt{x} raised to the power \texttt{y}. \\
+abs(x)                  & Absolute value overloads. \\
+floor(x)                & Greatest integer $\leq$ \texttt{x}. \\
+ceil(x)                 & Smallest integer $\geq$ \texttt{x}. \\
+fmod(x, y)              & Floating-point remainder of \texttt{x}$/$\texttt{y}. \\
 \end{tabular}
-
-
 
 \subsection{Error Handling}
 \begin{minted}[bgcolor=LightGray]{C++}
@@ -270,16 +267,12 @@ switch (x){
     void* var               & Pointer with no associated data type.\\
 \end{tabular}
 
-\subsection{Lambda Expression}
-\begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]{c++}
-    ... = [captureClause] (parameters) -> returnType { 
-    // definition}
-\end{minted}
-\begin{tabular}{>{\ttfamily}l l}
-    $[\&]$                  & capture all external variables by reference.\\
-    $[=]$                   & capture all external variables by value.\\
-    $[a, \&b]$              & capture 'a' by value and 'b' by reference.\\
+\subsection{Bitwise Operators}
+\begin{tabular}{>{\ttfamily}l l | >{\ttfamily}l l |  >{\ttfamily}l l }
+\&           & Bitwise AND. & \textasciitilde  & Bitwise NOT. & \textasciicircum & Bitwise XOR.\\
+$|$          & Bitwise OR. & $<<$         & Left shift. &  $>>$         & Right shift.\\\
 \end{tabular}
+
 
 \subsection{Namespaces}
 \begin{tabular}{>{\small\ttfamily}l l}
@@ -295,6 +288,16 @@ namespace alias = NS;     & Create an alias for a namespace.\\
 ::globalVar                 & Access global namespace explicitly.\\
 \end{tabular}
 
+\subsection{Lambda Expression}
+\begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]{c++}
+    ... = [captureClause] (parameters) -> returnType { 
+    // definition}
+\end{minted}
+\begin{tabular}{>{\ttfamily}l l}
+    $[\&]$                  & capture all external variables by reference.\\
+    $[=]$                   & capture all external variables by value.\\
+    $[a, \&b]$              & capture 'a' by value and 'b' by reference.\\
+\end{tabular}
 
 \subsection{Special Ints}
 \textbf{signed fixed width integer types}\\
@@ -343,8 +346,6 @@ uint\_least8\_t & uint\_least16\_t  & uint\_least32\_t  & uint\_least64\_t  \\
     \item \texttt{\#pragma warning(push)} / \texttt{\#pragma warning(pop)} / \texttt{\#pragma warning(disable:NNNN)} — control MSVC warnings.
     \item \texttt{\#pragma message("text")} — emit a compile-time message.
     \item \texttt{\#pragma comment(lib, "name.lib")} — instruct MSVC linker to link a library.
-    \item \texttt{\#pragma omp parallel} — OpenMP parallel region (requires OpenMP enabled by compiler flags).
-    \item \texttt{\#pragma intrinsic(func)} — request compiler intrinsic (MSVC).
 \end{itemize*}
 
 \subsection{Compiler Commends}
@@ -360,12 +361,9 @@ uint\_least8\_t & uint\_least16\_t  & uint\_least32\_t  & uint\_least64\_t  \\
     -c filesName        & generate an object file. To add \texttt{.o} filse to\\
                         & the compilation simply add those like a\\
                         & regular file.\\  
-    -g                  & Include debug symbols for gdb/lldb.\\ 
-    -gline-tables-only  & Minimal debug info for profilers.\\
-    -O0, -O1,           & Optimizations levels, where \texttt{-O0} is no\\
+    -O0, -O1,           & Optimizations levels, where \texttt{-O0} is not\\
     -O2, -O3,           & optimization\\
     -Ofast
-
 \end{tabular}
 
 \end{multicols}

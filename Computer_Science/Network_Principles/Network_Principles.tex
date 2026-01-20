@@ -1,0 +1,69 @@
+\documentclass[5pt]{article}
+\usepackage{multicol,multirow}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=0.75cm]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath,esint}
+\usepackage{mathtools}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usepackage{nccmath}
+\usepackage[inline]{enumitem}
+\usepackage{algpseudocode}
+\usepackage{physics}
+\usepackage[frak=esstix]{mathalpha}
+\usepackage{array}
+
+\usepackage{empheq}
+\usepackage{amsfonts}
+
+\definecolor{LightGray}{gray}{0.9}
+
+\usepackage{minted}
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+\newtheorem{postulates}{Postulates}
+\newtheorem{theorem}{Theorem}
+\newtheorem{properties}{Properties}
+
+\newcolumntype{L}{>{\footnotesize}l}
+\newcolumntype{C}{>{\ttfamily\footnotesize}l}
+
+\begin{document}
+
+\begin{center}
+     \Large{\textbf{Network Principles}}\\
+     \footnotesize{Class: COSC 2670}\hfill\footnotesize{Maximilien Notz}
+     \noindent\rule{20.2cm}{0.4pt}
+\end{center}
+
+
+\begin{multicols}{2}
+\setcounter{secnumdepth}{0}
+
+\subsection{Definitions}
+\begin{tabular}{LL}
+  IP Address  & A 32-bit (IPv4) number used to identify a device on a network.\\
+  DNS         & Domain Name System, translates domain names to IP addresses. \\
+\end{tabular}
+
+\subsection{Linux Networking Commands}
+\begin{tabular}{CL}
+  ifconfig   & Displays or configures network interfaces.\\
+  ping      & Returns packet loss.\\
+  traceroute & Traces the path packets take to a destination.\\
+  nslookup   & Returns IP address information for a domain name.\\
+\end{tabular}
+
+\end{multicols}
+\end{document}

@@ -12,6 +12,7 @@
 \usepackage{algpseudocode}
 \usepackage{physics}
 \usepackage[frak=esstix]{mathalpha}
+\usepackage{array}
 
 \usepackage{empheq}
 \usepackage{amsfonts}
@@ -28,8 +29,11 @@
 
 \begin{document}
 
+\newtheorem{postulates}{Postulates}
 \newtheorem{theorem}{Theorem}
 \newtheorem{properties}{Properties}
+
+\newcolumntype{L}{>{\footnotesize}l}
 
 \begin{center}
      \Large{\textbf{Quantum Computation \& Quantum Information}}\\
@@ -44,7 +48,7 @@
 
 \subsection{Complex Numbers Short recap}
 Let $a,b\in\mathbb{R}$ and $z\in\mathbb{C}$ such that $z=a+bi$.
-\begin{tabular}{ll}
+\begin{tabular}{L L}
      Real part           & $\mathfrak{Re}(a+ib)=a$\\
      Imaginary part      & $\mathfrak{Im}(a+ib)=b$\\
      Absolute Values     & $|z|=\sqrt{zz^*}$\\
@@ -84,10 +88,13 @@ Let $a,b\in\mathbb{R}$ and $z\in\mathbb{C}$ such that $z=a+bi$.
 \subsection{Linear Algebra}
 
 \subsubsection{Short Definitions}
-\begin{tabular}{ll}
-     Hermitian Operator & $A=A^\dagger$\\
-     Normal Operator & $AA^\dagger=A^\dagger A$\\
-     \small{P Orthogonal Complement} & $Q\equiv \mathbb{I}-P$ 
+\begin{tabular}{L L}
+     Hermitian Operator                 & $A=A^\dagger$\\
+     Normal Operator                    & $AA^\dagger=A^\dagger A$\\
+     Unitary Operator                   & $A^\dagger=A^{-1}$\\
+     Identity Operator                  & $\mathbb{I}$ such that:\\
+                                        & $\forall \ket{v}, \mathbb{I}\ket{v}=\ket{v}$\\
+     P Orthogonal Complement    & $Q\equiv \mathbb{I}-P$ 
 \end{tabular}
 
 
@@ -164,7 +171,7 @@ $\ket{B}=\begin{bmatrix}0\\1\\0 \end{bmatrix}$ and $\bra{B}=(0,1,0)$\\
 
 \subsubsection{Adjoin \small{(Hermitian conjugate)}}
 Let $\hat{A}$ be a linear operator on the hilbert space $V$. 
-$\exists! \hat{A}^\dagger$ on $V$ such that $\langle v, \hat{A}w\rangle=\langle\hat{A}^\dagger v, w\rangle$.
+Then $\exists! \hat{A}^\dagger$ on $V$ such that $\langle v, \hat{A}w\rangle=\langle\hat{A}^\dagger v, w\rangle$.
 
 \begin{properties}
      \begin{itemize*}
@@ -191,13 +198,13 @@ $(\ket{w}\bra{v})(\ket{v'})\equiv\ket{w}\langle v|v'\rangle=\langle v|v'\rangle\
 Let the vectors $\ket{v},\ket{w}$ then $|\langle v|w\rangle|^2\leq \langle v|v\rangle\langle w|w\rangle$
 
 
-\subsubsection{Tensor Product}
+\subsection{Tensor Product}
 Let $V$ and $W$ be vector spaces of dimension $m$ and $n$ respectively.
 Then $V\otimes W$ is an $mn$-dimension vector spaces. 
 The elements of $V\otimes W$ are a linear combination of the tensor product $\ket{v}\otimes\ket{w}$.
 
 \begin{properties}
-     Let $z$ be a scalar, $\ket{v}\in V, \ket{w}\in W$, where $V$ and $W$ are \textbf{Hilbert spaces}.\\
+     Let $z$ be a scalar, $\ket{v}\in V, \ket{w}\in W$, where $V$ and $W$ are \textbf{Hilbert spaces}, then the following must be satisfied.\\
      \begin{itemize*}
           \item $z(\ket{v}\otimes\ket{w})=z\ket{v}\otimes\ket{w}=\ket{v}\otimes z\ket{w}$\\
           \item $\ket{v}\otimes(\ket{w_1}+\ket{w_2})=\ket{v}\otimes\ket{w_1}+\ket{v}\otimes\ket{w_2}$\\
@@ -206,7 +213,65 @@ The elements of $V\otimes W$ are a linear combination of the tensor product $\ke
      \end{itemize*}
 \end{properties}
 
-\subsection{Quantum mecanics}
+\subsubsection{Kronecker Product}
+The \textbf{Kronecker product} is the matrix representation of the tensor product.\\
+Let $A$ be a $m\times n$ matrix and $B$ be a $p\times q$ matrix. 
+The \textbf{Kronecker product} $A\otimes B$ is a $mp\times nq$ matrix defined as:
+\small{$A\otimes B = 
+     \begin{bmatrix}
+          a_{11}B & a_{12}B & \cdots & a_{1n}B \\
+          a_{21}B & a_{22}B & \cdots & a_{2n}B \\
+          \vdots  & \vdots  & \ddots & \vdots  \\
+          a_{m1}B & a_{m2}B & \cdots & a_{mn}B
+     \end{bmatrix}$}
+
+
+\subsection{Comutator and Anticomutator}
+\begin{tabular}{L L}
+     Comutator                               & $[\hat{A},\hat{B}]=\hat{A}\hat{B}-\hat{B}\hat{A}$\\
+     Anticomutator                           & $\{\hat{A},\hat{B}\}=\hat{A}\hat{B}+\hat{B}\hat{A}$\\
+     $\hat{A}$ comutes with $\hat{B}$        & $[\hat{A},\hat{B}]=0$, then $\hat{A}\hat{B}=\hat{B}\hat{A}$\\
+     $\hat{A}$ anticomutes with $\hat{B}$    & $\{\hat{A},\hat{B}\}=0$, then\\
+                                             & $\hat{A}\hat{B}=-\hat{B}\hat{A}$\\
+\end{tabular}
+
+\begin{theorem}[Simultaneous Diagonalization]
+     Two hermitian operators $\hat{A}$ and $\hat{B}$ can be diagonalized in the same basis if and only if they comute.
+     
+\end{theorem}
+
+
+
+
+
+
+
+\subsection{Quantum mechanics}
+\subsubsection{Short Definitions}
+\newcolumntype{S}{>{\footnotesize}l}
+\begin{tabular}{S S}
+     $h$                      & Planck constant\\
+     $\hbar=\frac{h}{2\pi}$   & Reduced Planck constant\\
+     ground state             & Lowest energy state of a quantum\\
+                              & system.\\
+     eigenstate               & State $\ket{E}$ such that $\hat{A}\ket{E}=E\ket{E}$\\
+                              & where $E$ is the eigenvalue.\\
+\end{tabular}
+
+\subsubsection{Long Definitions}
+\textbf{Hamiltonian operator} corresponding to the total energy of the system.
+$\boxed{\hat{H}=\hat{V}+\hat{K}}$, potential energy operator: $\hat{V}$, kinetic energy operator: $\hat{K}$.\\
+\textbf{Hamiltonian Spectral Decomposition} $\hat{H}=\sum_iE_i\ket{E_i}\bra{E_i}$, where $\ket{E_i}$ are the eigenvectors (eigenstates) and $E_i$ are the eigenvalues.
+
+\begin{postulates}
+Every isolated physical system is associated with a Hilbert space, known as the \textbf{state space} of the system.
+The system is completely described by its state vector, which is a unit vector in the \textbf{state space}.
+\end{postulates}
+
+\begin{postulates}
+The evolution of a closed quantum system is described by a unitary transformation. Then $\ket{\psi_2}=U\ket{\psi_1}$ for \textbf{discrete time evolution} and $i\hbar \frac{d\ket{\psi}}{dt}=\hat{H}\ket{\psi}$ for \textbf{continuous time evolution}.
+\end{postulates}
+
 \subsubsection{Pauli Matrices}
 \begin{itemize*}
      \item $\sigma_0 = I = \begin{bmatrix}1 & 0 \\ 0 & 1\end{bmatrix}$
@@ -214,6 +279,9 @@ The elements of $V\otimes W$ are a linear combination of the tensor product $\ke
      \item $\sigma_y = Y = \begin{bmatrix}0 & -i \\ i & 0\end{bmatrix}$
      \item $\sigma_z = Z = \begin{bmatrix}1 & 0 \\ 0 & -1\end{bmatrix}$
 \end{itemize*}
+
+\subsubsection{Hadamard Transform}
+The Hadamard transform $H$ is a linear operator defined by its action on the computational basis states $\ket{0}$ and $\ket{1}$ as follows:
 
 
 \end{multicols}

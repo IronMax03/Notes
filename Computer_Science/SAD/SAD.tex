@@ -1,0 +1,92 @@
+\documentclass[5pt]{article}
+\usepackage{multicol,multirow}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=0.75cm]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath,esint}
+\usepackage{mathtools}
+\usepackage{relsize}
+\usepackage{mathtools}
+\usepackage{nccmath}
+\usepackage[inline]{enumitem}
+\usepackage{algpseudocode}
+\usepackage{physics}
+\usepackage[frak=esstix]{mathalpha}
+\usepackage{array}
+
+\usepackage{empheq}
+\usepackage{amsfonts}
+
+\definecolor{LightGray}{gray}{0.9}
+
+\usepackage{minted}
+
+\newenvironment{amatrix}[1]{%
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{%
+  \end{array}\right]
+}
+
+
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+\newtheorem{postulates}{Postulates}
+\newtheorem{theorem}{Theorem}
+\newtheorem{properties}{Properties}
+
+\newcolumntype{L}{>{\footnotesize}l}
+
+\begin{document}
+
+\begin{center}
+     \Large{\textbf{Systems Analysis \& Design}}\\
+     \footnotesize{Class: COSC 2710}\hfill\footnotesize{Maximilien Notz}
+     \noindent\rule{20.2cm}{0.4pt}
+\end{center}
+
+
+\begin{multicols}{2}
+\setcounter{secnumdepth}{0}
+
+\subsection{Basic Definitions}
+\begin{tabular}{LL}
+    Stake Holder        & \\
+    Automated Testing   & \\
+    System Analysis     & Process of studying an existing system to understand\\
+                        & its requirements, identify problems, and define what\\
+                        & the new system must work.\\
+    System Design       & Takes requirements from analysis phase and creates\\
+                        & a technical plan for building the software, including\\
+                        & the architecture, databases, and user interfaces.\\
+    Systems             & Group of interrelated components working together\\
+                        & toward a common goal.\\
+    Process             & logic and workflows that govern how data is moved\\
+                        & and transformed within the system.\\
+    Tecnology           & tools used to implement the solution.\\
+                        & Examples: languages, servers, databases.\\
+\end{tabular}
+
+\subsection{Software Crisis}
+\subsubsection{Causes}
+\begin{tabular}{LL}
+    Intangibility & Software cannot be seen, touched, or measured. \\
+    Complexity & Software systems are inherently more complex then building bridges. \\
+\end{tabular}
+
+
+\subsubsection{Symptoms(four horsemen)}
+\begin{tabular}{LL}
+    Cost            & Overruns. \\
+    Time            & First 90\% of code takes 10\% of time, last 10\% takes\\
+                    & another 90\%. \\
+    Quality         & Bugs, failures, poor performance. \\
+    Expectations    & The final product often do what the user wants. \\
+\end{tabular}
+
+
+
+
+\end{multicols}
+\end{document}
