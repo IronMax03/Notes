@@ -53,13 +53,35 @@
 
 \subsection{Definitions}
 \begin{tabular}{LL}
-  IP Address  & A 32-bit (IPv4) number used to identify a device on a network.\\
-  DNS         & Domain Name System, translates domain names to IP addresses. \\
+  IPv4                & The most used internet protocol, created in 1981. \\
+  IPv6                & The newest internet protocol characterised by 128 bits \\
+                      & IP adresse. \\
+  IP Address          & A 32-bit (IPv4) number used to identify a device on \\
+                      & a network. To make it readable the IP is represented. \\
+  Domain Name         & Human readable string of character that map to a IP address. \\
+                      & as 4 octet converted to decimals. Example: \texttt{8.10.255.1} \\
+  DNS                 & The DNS (Domain Name System) translates domain names to IP addresses. \\
+  ISP                 & Internet Service Provider. Company that provides internet access. \\
+  External IP Address & Assigned to a Router by the ISP. This address is unique across internet. \\
+  Internal IP Address & Assigned to a device by the Router. Unique within the network. \\
+  NAT                 & Network Address Translation, Allows 2 device to share the same external IP address. \\
+  RJ45                & Ethernet cable, stand for Registered Jack-45.\\
+  Switch              & Switchs connect multiple computers by RJ45. \\
+  LAN                 & Local Area Network, . \\
+  IP                  & Internet Protocol, responsible for exchanging data between devices on the network. \\
 \end{tabular}
+
+
+\subsubsection{Network Address Translation (NAT)}
+  The router takes the requests of the devices whithin the network and send it to the internet. 
+  When the answer comes back the Router redistribute the packet to the devices.
+  \textbf{Security Benefit:} Devices with internal IPs are hidden from public internet.
+
+\subsection{Network Diagrams}
 
 \subsection{Linux Networking Commands}
 \begin{tabular}{CL}
-  ifconfig   & Displays or configures network interfaces.\\
+  ifconfig   & Displays IP address.\\
   ping      & Returns packet loss.\\
   traceroute & Traces the path packets take to a destination.\\
   nslookup   & Returns IP address information for a domain name.\\
