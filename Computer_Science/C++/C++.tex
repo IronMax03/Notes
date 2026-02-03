@@ -63,7 +63,6 @@ to\_string(var)     & Convert var to a string,\\
 \begin{tabular}{>{\ttfamily}l l}
 \#include<vector>           & Include vector library. \\
 vector<type> V;             & Instantiate a vector. \\
-vector<type> V(s);          & Instantiate a vector of size \texttt{s}. \\
 vector<type> V\{6,3,3\};    & Instantiate a vector from Array. \\
 vector<type> V(s, var);     & Instantiate a vector of size \texttt{s} with \\
                             & all elements initialized to \texttt{var}. \\
@@ -75,6 +74,10 @@ vector<type> V(s, var);     & Instantiate a vector of size \texttt{s} with \\
 .insert(i, Value)           & Insert \texttt{Value} at \texttt{i}. \\
 .reserve(int)               & Pre-allocate memory for perf. \\
                             & when the max size is known. \\
+.front()                    & Returns the first element. \\
+.back()                     & Returns the last element. \\
+.empty()                    & Returns true if vector is empty. \\
+.erase(it)                  & Erase element at iterator \texttt{it}. \\
 \end{tabular}
 
 \subsection{Arrays}
@@ -365,6 +368,40 @@ uint\_least8\_t & uint\_least16\_t  & uint\_least32\_t  & uint\_least64\_t  \\
     -O2, -O3,           & optimization\\
     -Ofast
 \end{tabular}
+
+\subsection{Basic syntax}
+\subsubsection{Loops}
+\begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]
+{c++}
+if (myBoolean){
+        §\vdots§
+
+}
+\end{minted}
+
+\begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]
+{c++}
+while(myBoolean){
+    §\vdots§
+}
+\end{minted}
+
+\begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]
+{c++}
+for (size_t i = 0; i < n; i++){
+    §\vdots§
+}
+\end{minted}
+
+\begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]
+{c++}
+for (auto Obj: Lst){
+    §\vdots§
+}
+\end{minted}
+
+
+
 
 \end{multicols}
 \end{document}
