@@ -12,7 +12,7 @@
 - [[PDF](./Computer_Science/C%2B%2B/C%2B%2B.pdf)] COSC 1550 Computer Programming I (C++)
 - [[PDF](./Computer_Science/Python/Python_Programming.pdf)] COSC 1800 Python Programming 
 - [[PDF](./Computer_Science/Network_Principles/Network_Principles.pdf)] COSC 2670 Network Principles
-- [[PDF](./Computer_Science/SAD/SAD.pdf)] COSC 2710 Network Principles
+- [[PDF](./Computer_Science/SAD/SAD.pdf)] COSC 2810 Systems Analysis and Design
 
 
 
