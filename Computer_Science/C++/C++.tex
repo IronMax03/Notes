@@ -9,6 +9,9 @@
 \usepackage[inline]{enumitem}
 \usepackage{minted}
 
+\newcolumntype{L}{>{\footnotesize}l}
+\newcolumntype{C}{>{\ttfamily\footnotesize}l}
+
 \begin{document}
 \begin{center}
      \Large{\textbf{C\texttt{++} Cheat Sheet}}\\
@@ -20,7 +23,7 @@
 
 
 \subsection{General Reminders}
-\begin{tabular}{>{\small\ttfamily}l l}
+\begin{tabular}{C L}
 
 \#include "myfile.h"    & Include file.\\
 rand()                  & Random int, \texttt{\#include<cstdlib>}.\\
@@ -44,36 +47,36 @@ ternary Opearator       & condition ? ifTrue : ifFalse\\
 
 
 \subsection{Strings}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
 str$[$i$]$          & Get or set the char at the index \texttt{i}.\\
 .length()           & Return the number of characters.\\
-.substr(a,b)        & Returns the substring starting at index \texttt{a}\\
-                    & with length \texttt{b}.\\
+.substr(a,b)        & Returns the substring starting at index \texttt{a} with length \texttt{b}.\\
 .find(subStr)       & Return the start index of the substring\\
-.replace(i,l,str)   & Replace $l$ characters starting at index \texttt{i}\\
-                    & with \texttt{str}.\\
+.replace(i,l,str)   & Replace $l$ characters starting at index \texttt{i} with \texttt{str}.\\
 \#include <string>  & all the above must include string.\\
 stoi(str)           & Convert a string to int.\\
 stof(str)           & Convert a string to float,\\
 stod(str)           & Convert a string to double,\\
-to\_string(var)     & Convert var to a string,\\
+to\_string(var)     & Convert \texttt{var} to a string,\\
 \end{tabular}
 
 \subsection{Vectors}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
 \#include<vector>           & Include vector library. \\
 vector<type> V;             & Instantiate a vector. \\
 vector<type> V\{6,3,3\};    & Instantiate a vector from Array. \\
 vector<type> V(s, var);     & Instantiate a vector of size \texttt{s} with \\
                             & all elements initialized to \texttt{var}. \\
-.at(i)                      & Returns the element at index \texttt{i}. \\
+v[i]                        & Get or set the element at index \texttt{i}.\\    
+.at(i)                      & Returns the element at index \texttt{i} and performs a\\
+                            & bound check. \\
 .size()                     & Return the number of elements. \\
 .push\_back(Value)          & Add the new element at the end. \\
 .pop\_back()                & Remove the last element. \\
 .clear()                    & Empty the vector. \\
 .insert(i, Value)           & Insert \texttt{Value} at \texttt{i}. \\
-.reserve(int)               & Pre-allocate memory for perf. \\
-                            & when the max size is known. \\
+.reserve(size)              & Pre-allocate memory for performance, \\
+                            & Use it when the maximum size is known. \\
 .front()                    & Returns the first element. \\
 .back()                     & Returns the last element. \\
 .empty()                    & Returns true if vector is empty. \\
@@ -87,7 +90,7 @@ vector<type> V(s, var);     & Instantiate a vector of size \texttt{s} with \\
  "Max" & "Tom" & … & arr$[$n$]$
 \end{tabular}
 This table illustrate the structure of an array of strings. Considering that n is equal to the number of element minus one. Arrays are a static data type.\\[6pt]
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
 int arr[4];         & Create a array of int and with 4 element.\\
 int arr[4]=\{6,3\}; & \\
 arr$[$i$]$          & Get or set the element at the index i.\\
@@ -101,33 +104,59 @@ struct myStruct {
     double param2;   // atribute 2
 }s1, s2;            // myStruct instances
 \end{minted}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
 myStruct Obj;   & instantiate structure object. \\
 Obj.param1      & Access param1 of \texttt{Obj}. \\
 \end{tabular}
 
 
 \subsection{Streams}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
 
 \#include<fstream>      & Include stream library. \\
 \#include<sstream>      & Include string stream library. \\
 ifstream fin;           & Instantiate a input stream. \\
 ofstream fout;          & Instantiate a output stream. \\
-stringstream s(str);  & Instantiate a string stream. \\
-myS.open("file.txt")    & Open txt file whith the stream. \\
-myS.close()             & Close the stream file. \\
-getline(fin, line)      & Get the next line from fin. \\
+fstream f(fileMode);    & Instantiate a input/output stream. \\
+stringstream s(str);    & Instantiate a string stream. \\
 fout<<"hello"           & Output in stream "helloWorld". \\
 fin>>var                & Input from stream to var. \\
-%% streams manipulators
+\end{tabular}
+
+\subsubsection{fstream functions}
+\begin{tabular}{C L}
+getline(fin, line)      & Get the next line from \texttt{fin} and assign it to \texttt{line}. \\
+.open("file.txt")    & Open txt file whith the stream. \\
+.is\_open()          & Return true if the file is open. \\
+.close()             & Close the stream file. \\
+
+\end{tabular}
+
+
+\subsubsection{File modes}
+\begin{tabular}{C L}
+ios::in        & Open for reading.\\
+ios::out       & Open for writing.\\
+ios::app       & Open for appending (writing at end).\\
+ios::trunc     & Truncate file to zero length if it exists.\\
+ios::ate       & Open and start at the end of the file.\\
+ios::binary    & Open in binary mode (no text processing).\\
+\end{tabular}
+
+\footnotesize{File modes can be combined using the bitwise OR operator \texttt{|}.}
+
+
+\subsubsection{manipulators}
+\begin{tabular}{C L}
+<<dec<<                 & Set number base to decimal.\\
+<<hex<<                 & Set number base to hexadecimal.\\
+<<oct<<                 & Set number base to octal.\\
+<<scientific<<          & Display floating-point numbers in scientific notation.\\
 <<setprecision(n)<<     & Set decimal points, \texttt{\#include<iomanip>}. \\
 <<setw(n)<<             & Establishes a print field of n spaces. \\
-<<fixed<<               & Display floating point numbers in fixed. \\
-                        & point notation. \\
-<<showpoint<<           & Enables or disables the unconditional \\
-<<noshowpoint<<         & inclusion of the decimal point character \\
-                        & in floating-point output. \\
+<<fixed<<               & Display floating point numbers in fixed point notation. \\
+<<showpoint<<           & Enables or disables the unconditional inclusion of the \\
+<<noshowpoint<<         & decimal point character in floating-point output. \\
 <<left<<                & output the string on the left. \\
 <<right<<               & output the string on the right. \\
 \end{tabular}
@@ -150,7 +179,7 @@ try {
     // runs if an exception of type Ex is thrown
 }
 \end{minted}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
 \#include<cassert>          & Include assert library.\\
 \#include<stdexcept>        & Common standard exceptions.\\
 throw myException           & Throw an error of type myException.\\
@@ -182,7 +211,7 @@ class myClasses :public parentClass{
         }
 };
 \end{minted}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
 
 myClasses myObj(3,5);   & Instantiate an myClasses type obj.\\
 myClasses myObj;        & Call the default constructor.\\
@@ -249,7 +278,7 @@ switch (x){
 \end{minted}
 
 \subsection{Pointer \& References}
-\begin{tabular}{>{\ttfamily}l l}    
+\begin{tabular}{C L}    
     int* myInt;             & * means myInt work form a pointer.\\
     new                     & dynamically allocate a block of memory.\\
     delete                  & release dynamically allocated memory.\\
@@ -260,14 +289,14 @@ switch (x){
 \end{tabular}
 
 \subsection{Bitwise Operators}
-\begin{tabular}{>{\ttfamily}l l | >{\ttfamily}l l |  >{\ttfamily}l l }
+\begin{tabular}{C L | C L |  C L }
 \&           & Bitwise AND. & \textasciitilde  & Bitwise NOT. & \textasciicircum & Bitwise XOR.\\
 $|$          & Bitwise OR. & $<<$         & Left shift. &  $>>$         & Right shift.\\\
 \end{tabular}
 
 
 \subsection{Namespaces}
-\begin{tabular}{>{\small\ttfamily}l l}
+\begin{tabular}{C L}
 namespace NS \{...\}      & Define a namespace.\\
 NS::func()                & Access member of namespace.\\
 using namespace NS;       & Import all names from namespace.\\
@@ -285,14 +314,14 @@ namespace alias = NS;     & Create an alias for a namespace.\\
     ... = [captureClause] (parameters) -> returnType { 
     // definition}
 \end{minted}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
     $[\&]$                  & capture all external variables by reference.\\
     $[=]$                   & capture all external variables by value.\\
     $[a, \&b]$              & capture 'a' by value and 'b' by reference.\\
 \end{tabular}
 
 \subsection{cmath}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
 \#include<cmath>        & Include cmath library. \\
 sqrt(x)                 & Square root of \texttt{x}. \\
 pow(x, y)               & \texttt{x} raised to the power \texttt{y}. \\
@@ -302,6 +331,7 @@ ceil(x)                 & Smallest integer $\geq$ \texttt{x}. \\
 fmod(x, y)              & Floating-point remainder of \texttt{x}$/$\texttt{y}. \\
 \end{tabular}
 
+\newpage
 \subsection{Special Ints}
 \textbf{signed fixed width integer types}\\
 \begin{tabular}{>{\small\ttfamily}l >{\small\ttfamily}l >{\small\ttfamily}l >{\small\ttfamily}l}
@@ -327,7 +357,7 @@ uint\_least8\_t & uint\_least16\_t  & uint\_least32\_t  & uint\_least64\_t  \\
 \end{tabular}  
 
 \subsection{Preprocessing}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
 \#define NAME value    & Define a macro.\\
 \#define F(x) x*x      & Define a function-like macro.\\
 \#ifdef NAME          & If the macro \texttt{NAME} is defined.\\
@@ -370,12 +400,10 @@ uint\_least8\_t & uint\_least16\_t  & uint\_least32\_t  & uint\_least64\_t  \\
 \end{tabular}
 
 \subsection{Basic syntax}
-\subsubsection{Loops}
 \begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]
 {c++}
 if (myBoolean){
         §\vdots§
-
 }
 \end{minted}
 
@@ -400,7 +428,13 @@ for (auto Obj: Lst){
 }
 \end{minted}
 
-
+\begin{minted}[escapeinside=§§, mathescape=true, bgcolor=LightGray]
+{c++}
+void function (TYPE1 var, TYPE2 defaultVar = value){
+    §\vdots§
+    return something;
+}
+\end{minted}
 
 
 \end{multicols}
