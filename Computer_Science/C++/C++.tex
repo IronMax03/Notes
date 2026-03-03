@@ -41,7 +41,8 @@ sizeof(var)             & return the number of bytes used by the\\
                         & variable. \texttt{sizeof} runs at compile-time.\\
 move(obj)               & During assignation move the already\\
                         & existing object instead of creating a\\
-                        & copy of it (memory optimizations).\\      
+                        & copy of it (memory optimizations).\\    
+typedef T A             & Create an alias that refers to the type \texttt{T}. \\  
 ternary Opearator       & condition ? ifTrue : ifFalse\\
 \end{tabular}
 
@@ -138,7 +139,7 @@ getline(fin, line)      & Get the next line from \texttt{fin} and assign it to \
 ios::in        & Open for reading.\\
 ios::out       & Open for writing.\\
 ios::app       & Open for appending (writing at end).\\
-ios::trunc     & Truncate file to zero length if it exists.\\
+ios::trunc     & Empty the file if it exists.\\
 ios::ate       & Open and start at the end of the file.\\
 ios::binary    & Open in binary mode (no text processing).\\
 \end{tabular}
@@ -286,6 +287,25 @@ switch (x){
     $*$var                  & Get var value, where var is a pointer.\\
     \&var                   & Get memory addresse of \textbf{var}.\\
     void* var               & Pointer with no associated data type.\\
+\end{tabular}
+
+\subsection{Smart Pointers}
+\begin{tabular}{C L}   
+    \#include<memory> & Include memory library.\\
+    unique\_ptr<T> uptr       & Unique ownership smart pointer, only one\\
+                              & pointer can point at the variable.\\
+    make\_unique<T>(args)     & Create a unique\_ptr instance.\\
+    shared\_ptr<T> sptr       & Shared ownership smart pointer, multiple \\
+                              & pointers can point at the variable.\\
+    make\_shared<T>(args)     & Create a shared\_ptr instance.\\
+    .use\_count()             & Get the number of shared\_ptr instances managing \\
+                              & the same object.\\
+
+    weak\_ptr<T> wptr         & Non-owning smart pointer (observe only), used to break\\
+                              & circular references with shared\_ptr.\\
+    .lock()                   & Get a shared\_ptr from a weak\_ptr. Returns an empty\\
+                              & shared\_ptr if the managed object has been destroyed.\\
+    wptr.expired()            & Check if the managed object has been destroyed.\\
 \end{tabular}
 
 \subsection{Bitwise Operators}
