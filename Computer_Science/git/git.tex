@@ -9,6 +9,9 @@
 
 \usepackage{minted}
 
+\newcolumntype{L}{>{\footnotesize}l}
+\newcolumntype{C}{>{\ttfamily\footnotesize}l}
+
 \begin{document}
 \begin{center}
   \begin{picture}(0,0)
@@ -24,7 +27,7 @@
 \subsection{Terminal Commands}
 
 All the following commands are to be run in a terminal, the keywords \texttt{git} must be prefixed to each of them.
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
     clone url           & Clone a repository from \texttt{url} into a new\\
                         & directory.\\
     status              & Display the state of the working directory.\\
@@ -34,18 +37,22 @@ All the following commands are to be run in a terminal, the keywords \texttt{git
     add -A              & Add all changes to the staging area. \\
     commit -m "msg"     & Commit the staged changes with message \\
                         & \texttt{msgg}. \\
+    commit -am "msg"    & Add all changes and commit with message \\
+                        & \texttt{msgg}. \\
+    commit --amend -m "msg" & change the last commit message to \texttt{msgg}. \\
     reset               & delete all local changes. \\
-    push origin branch  & Push the commits to remote \texttt{origin} on \\
-                        & \texttt{branch}. \\
+    push origin branch  & Push the commits to remote \texttt{origin} on \texttt{branch}. \\
     push                & Push the commits to the default remote \\
                         & and branch. \\
+    pull                & Fetch changes to the local repository. \\
+    pull -rebase        & Fetch changes and rebase the local commits. \\
     rm fileName         & remove a file from the repo.\\
 \end{tabular}
 
 \subsection{GitHub}
-
+\textbf{USEFUL TIP:} On the git hub page of the repository, press "." button to launch a online vscode. \\
 \subsection{Open-Source Licenses}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
   Copyleft Strength      & Determines how strongly the license requires\\
               & derivative works to use the same license.\\
   Commercial Use        & Whether the code can be used in commercial\\
