@@ -1,0 +1,189 @@
+\documentclass[10pt]{article}
+\usepackage{multicol,multirow}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=0.45cm]{geometry}
+\usepackage{xcolor}
+\usepackage{array}
+
+\definecolor{LightGray}{gray}{0.9}
+
+\usepackage{minted}
+
+\newcolumntype{L}{>{\footnotesize}l}
+\newcolumntype{C}{>{\ttfamily\footnotesize}l}
+
+\begin{document}
+\begin{center}
+  \begin{picture}(0,0)
+    \put(-35, -10){\includegraphics[height=1cm]{linux_logo.png}} % adjust coordinates here
+  \end{picture}
+    \Large{\textbf{Linux Cheat Sheet}}\\
+     \small{Last Updated: \today}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+     \noindent\rule{20cm}{0.4pt}
+\end{center}
+\begin{multicols}{2}
+\setcounter{secnumdepth}{0}
+
+\subsection{Linux Terminal}
+\subsubsection{General Commands}
+\begin{tabular}{C L}
+    clear   & Clear the terminal screen. \\
+    history & Display the command history. \\
+    date    & Display the current date and time. \\
+    cal     & Display a calendar. \\
+    uptime  & Display how long the system has been running. \\
+\end{tabular}
+
+
+
+\subsubsection{File Management Commands}
+\begin{tabular}{C L}
+    man     & Display the manual for a command. (Tap q to quit the manual)\\
+    cd      & Change directory. \\
+    cd ..   & Move to the previous directory. \\
+    cd \~    & Move to the home directory. \\
+    cd /    & Move to the root directory. \\
+    ls      & List files in the current directory. \\
+    ls -l   & List files with detailed information. \\
+    ls -a   & List all files, including hidden ones. \\
+    pwd     & Print the current working directory. \\
+    open    & Open a file with the default application. \\
+    mkdir   & Create a new directory. \\
+    rm      & Remove a file. \\
+    rm -r   & Remove a directory and its contents. \\
+    cp      & Copy a file or directory. \\
+    mv      & Move or rename a file or directory. \\
+    touch   & Create a new empty file. \\
+    cat     & Display the contents of a file. \\
+    tail    & Display the last few lines of a file. \\
+    tail -f & Continuously display new lines added to a file. \\
+    head    & Display the first few lines of a file. \\
+    stat    & Display detailed information about a file. \\
+\end{tabular}
+
+
+\subsubsection{OS Commands}
+\begin{tabular}{C L}
+    sudo                    & Execute a command with superuser privileges. \\
+    sudo -l                 & List permitted commands. \\
+    whoami                  & Display the current user. \\
+    who                     & Display all logged-in users. \\
+    id                      & Display user ID and group ID information. \\
+    id -u                   & Display the user ID. \\
+    id -g                   & Display the group ID. \\
+    ps                      & Display currently running processes. \\
+    kill                    & Terminate a process by its PID. \\
+    kill -9                 & Forcefully terminate a process by its PID. \\
+    reboot                  & Restart the system. \\
+    poweroff                & Shut down the system. \\
+    useradd                 & Add a new user. \\
+    userdel                 & Delete a user. \\
+    passwd                  & Change a user's password. \\
+    su - user               & Switch to another user. \\
+    chown user file         & Change the owner of a file to \texttt{user}. \\
+    chown user:group file   & Change the owner and group of a file. \\
+    chmod flag file -u tom  & Change the permissions of a file for user \texttt{tom}. \\
+    chmod +x file           & Add execute permission to a file. \\
+    chmod +r file           & Add read permission to a file. \\
+    chmod +w file           & Add write permission to a file. \\
+    chmod -x file           & Remove execute permission from a file. \\
+    chmod -r file           & Remove read permission from a file. \\
+    chmod -w file           & Remove write permission from a file. \\
+\end{tabular}
+
+\subsubsection{Systemd Services}
+\begin{tabular}{C L}
+    systemctl start service     & Start a service. \\
+    systemctl stop service      & Stop a service. \\
+    systemctl restart service   & Restart a service. \\
+    systemctl status service    & Check the status of a service. \\
+    systemctl enable service    & Enable a service to start on boot. \\
+    systemctl disable service   & Disable a service from starting on boot. \\
+    systemctl daemon-reload     & Reload the systemd manager configuration. \\
+    systemctl reset-failed service     & Reset the failed state of a service. \\
+
+    journalctl -u service       & View logs for a specific service. \\
+    journalctl -n 100 -u service & View the last 100 log entries for a specific service. \\
+    --no-pager                    & Disable paging of log output. \\
+    
+\end{tabular}
+
+
+\subsection{Shell Scripting}
+\subsubsection{operators}
+\begin{tabular}{C L}
+    $>$       & Redirect output to a file, overwriting the file if it exists. \\
+    $>>$      & Redirect output to a file, appending to the file if it exists. \\
+    $<$       & Redirect input from a file. \\
+    $|$       & Pipe the output of one command to another command. \\
+    \&\&      & Execute the next command only if the previous command succeeded. \\
+\end{tabular}
+
+\subsubsection{Basic Syntax}
+\begin{tabular}{C L}
+    \#!/bin/bash    & Shebang line to specify the script interpreter. \\
+    echo            & Print text to the terminal. \\
+    read            & Read input from the user. \\
+    if              & Start of a conditional statement. \\
+    elif            & Else if condition in a conditional statement. \\
+    else            & Else condition in a conditional statement. \\
+    fi              & End of a conditional statement. \\
+    for             & Start of a for loop. \\
+    while           & Start of a while loop. \\
+    do              & Start of the loop body. \\
+    done            & End of a loop. \\
+    \$0             & The name of the script. \\
+    \$1, \$2, ...   & Positional parameters for script arguments. \\
+    grep            & Search for a pattern in a file or input. \\
+    exec            & Execute a command. \\
+    exit            & Exit the script. \\
+\end{tabular}
+
+\subsubsection{Networking Commands}
+The below commands requires the \texttt{net-tools} package to be installed on the system.\\
+\begin{tabular}{C L}
+ifconfig            & Displays IP address.\\
+ping                & Returns packet loss between two the device and a\\
+                    & destination.\\
+traceroute          & Traces the path packets take to a destination.\\
+nslookup            & Returns IP address information for a domain name.\\
+arp -a              & Displays the ARP table, which maps IP addresses to\\
+                    & MAC addresses.\\
+arp myIPa           & Displays the ARP table for the specific IP address.\\
+curl                & Transfers data from or to a server, using various\\
+                    & protocols.\\
+curl ifconfig.me    & Display machine's public IPv4 address.\\
+\end{tabular}
+
+\subsection{package managers}
+\begin{tabular}{C L}
+    apt     & Debian-based(include ubuntu) package manager. \\
+    apk     & Alpine Linux package manager. \\
+    yum     & Red Hat-based package manager. \\
+    dnf     & Fedora-based package manager. \\
+    pacman  & Arch Linux package manager. \\
+    brew    & Alternative package manager for macOS and many Linux\\
+            & distributions. \\
+\end{tabular}
+
+\subsubsection{apt}
+\begin{tabular}{C L}
+    update              & Update the package list. \\
+    upgrade             & Upgrade all installed packages to their latest versions. \\
+    list                & List all available packages. \\
+    list --upgradable   & List all packages that can be upgraded. \\
+    install pkg         & Install a package named \texttt{pkg}. \\
+    remove pkg          & Remove a package named \texttt{pkg}. \\
+    search pkg          & Search for a package named \texttt{pkg}. \\
+\end{tabular}
+
+\subsection{SSH connection}
+\begin{tabular}{C L}
+    ssh -i \~/.ssh/myKey user@ipv4   & Connect to a remote host via SSH. \\
+    exit            & Exit the SSH session. \\
+    Ctrl + D        & Exit the SSH session. \\
+\end{tabular}
+
+\end{multicols}
+
+\end{document}
