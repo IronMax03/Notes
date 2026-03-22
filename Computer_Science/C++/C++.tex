@@ -39,7 +39,7 @@ constexpr               & that specify that an expression must be\\
                         & evaluated at compile time.\\
 sizeof(var)             & return the number of bytes used by the\\
                         & variable. \texttt{sizeof} runs at compile-time.\\
-move(obj)               & During assignation move the already\\
+std::move(obj)          & During assignation move the already\\
                         & existing object instead of creating a\\
                         & copy of it (memory optimizations).\\    
 typedef T A             & Create an alias that refers to the type \texttt{T}. \\  
@@ -352,6 +352,14 @@ fmod(x, y)              & Floating-point remainder of \texttt{x}$/$\texttt{y}. \
 \end{tabular}
 
 \newpage
+\subsubsection{Advanced Memory Management}
+\begin{tabular}{C L}
+    malloc(size)              & Allocate \texttt{size} bytes of memory.\\
+    calloc(n, size)           & Allocate memory for an array of \texttt{n} elements of \texttt{size} bytes each, initialized to zero.\\
+    realloc(ptr, size)        & Reallocate memory to a new size.\\
+    free(obj)                 & dynamically de-allocate the memory allocated with \texttt{malloc}.\\
+\end{tabular}
+
 \subsection{Special Ints}
 \textbf{signed fixed width integer types}\\
 \begin{tabular}{>{\small\ttfamily}l >{\small\ttfamily}l >{\small\ttfamily}l >{\small\ttfamily}l}
