@@ -355,9 +355,11 @@ fmod(x, y)              & Floating-point remainder of \texttt{x}$/$\texttt{y}. \
 \subsubsection{Advanced Memory Management}
 \begin{tabular}{C L}
     malloc(size)              & Allocate \texttt{size} bytes of memory.\\
-    calloc(n, size)           & Allocate memory for an array of \texttt{n} elements of \texttt{size} bytes each, initialized to zero.\\
+    calloc(n, size)           & Allocate memory for an array of \texttt{n} elements of \texttt{size}\\
+                              & bytes each, initialized to zero.\\
     realloc(ptr, size)        & Reallocate memory to a new size.\\
-    free(obj)                 & dynamically de-allocate the memory allocated with \texttt{malloc}.\\
+    free(obj)                 & dynamically de-allocate the memory allocated with\\
+                              & \texttt{malloc}.\\
 \end{tabular}
 
 \subsection{Special Ints}
