@@ -53,22 +53,33 @@
 
 \subsection{Definitions}
 \begin{tabular}{LL}
-  IPv4                & The most used internet protocol, created in 1981. \\
-  IPv6                & The newest internet protocol characterised by 128 bits \\
-                      & IP adresse. \\
-  IP Address          & A 32-bit (IPv4) number used to identify a device on \\
+  IPv4                & The most used internet protocol, 32-bit binary value. \\
+  IPv6                & The newest internet protocol, 128 bits IP adresse. \\
+  IP Address          & A unique number identifier for a device on a \\
+                      & network. Represented as 4 octets separated by dots. \\
+                      & Example: \texttt{8.10.255.1} \\
+  MAC Address         & \\
                       & a network. To make it readable the IP is represented. \\
-  Domain Name         & Human readable string of character that map to a IP address. \\
-                      & as 4 octet converted to decimals. Example: \texttt{8.10.255.1} \\
-  DNS                 & The DNS (Domain Name System) translates domain names to IP addresses. \\
-  ISP                 & Internet Service Provider. Company that provides internet access. \\
-  External IP Address & Assigned to a Router by the ISP. This address is unique across internet. \\
-  Internal IP Address & Assigned to a device by the Router. Unique within the network. \\
-  NAT                 & Network Address Translation, Allows 2 device to share the same external IP address. \\
+  Domain Name         & Human readable string of character that map to a\\
+                      & IP address. \\
+  DNS                 & The DNS (Domain Name System) translates domain\\
+                      & names to IP addresses. \\
+  ISP                 & Internet Service Provider. Company that provides\\
+                      & internet access. \\
+  External IP Address & Assigned to a Router by the ISP. This address is\\
+                      & unique across internet. \\
+  Internal IP Address & Assigned to a device by the Router. Unique within\\
+                      & the network. \\
+  NAT                 & Network Address Translation, Allows 2 device to\\
+                      & share the same external IP address. \\
+  RJ11                & Telephone cable, stand for Registered Jack-11.\\
   RJ45                & Ethernet cable, stand for Registered Jack-45.\\
   Switch              & Switchs connect multiple computers by RJ45. \\
   LAN                 & Local Area Network, . \\
-  IP                  & Internet Protocol, responsible for exchanging data between devices on the network. \\
+  Router              & Connects a LAN to the internet. More generally,\\
+                      & connects different networks together. \\
+  network diagram     & A visual representation of a network's structure and\\
+                      & components. \\
 \end{tabular}
 
 
@@ -78,13 +89,37 @@
   \textbf{Security Benefit:} Devices with internal IPs are hidden from public internet.
 
 \subsection{Network Diagrams}
+\subsubsection{Golden rules}
+\begin{itemize}
+  \item Never set up a network installation without first creating a network diagram.
+  \item Never modify your network without first consulting and updating your network diagram.
+  \item You should always have your network diagram at hand.
+\end{itemize}
+
+\subsection{Internet Protocol (IP)}
+Internet Protocol, responsible for exchanging data between devices on the network.
+\subsubsection{IP Packets}
+The data exchanged between machines is split into packets of generally 1500 bytes. To be sent over the network sequentially. 
+The data is rebuilt at the receiving end machine. 
+\textbf{Packet Header contains:} A source IP Address, A destination IP Address, The data being sent, the size of the packet and other information depending on the protocol.
+
+
+\subsection{Routing}
+
+
 
 \subsection{Linux Networking Commands}
-\begin{tabular}{CL}
-  ifconfig   & Displays IP address.\\
-  ping      & Returns packet loss.\\
-  traceroute & Traces the path packets take to a destination.\\
-  nslookup   & Returns IP address information for a domain name.\\
+\begin{tabular}{C L}
+  ifconfig    & Displays IP address.\\
+  ping        & Returns packet loss.\\
+  traceroute  & Traces the path packets take to a destination.\\
+  nslookup    & Returns IP address information for a domain name.\\
+  arp -a      & Displays the ARP table, which maps IP addresses to\\
+              & MAC addresses.\\
+  arp myIPa   & Displays the ARP table for the specific IP address .\\
+  curl        & Transfers data from or to a server, using various\\
+              & protocols.\\
+  curl ifconfig.me    & Display machine's public IPv4 address.\\
 \end{tabular}
 
 \end{multicols}
