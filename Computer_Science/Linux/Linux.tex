@@ -29,16 +29,20 @@
 \begin{tabular}{C L}
     clear   & Clear the terminal screen. \\
     history & Display the command history. \\
-    date    & Display the current date and time. \\
     cal     & Display a calendar. \\
     uptime  & Display how long the system has been running. \\
+    man     & Display the manual for a command. (Tap q to quit the manual)\\
+    date    & Display the current date and time. \\
 \end{tabular}
+\begin{tabular}{C L}
+date "+Y-m-d 00:00:00" & set the date and time. \\
+\end{tabular}
+
 
 
 
 \subsubsection{File Management Commands}
 \begin{tabular}{C L}
-    man     & Display the manual for a command. (Tap q to quit the manual)\\
     cd      & Change directory. \\
     cd ..   & Move to the previous directory. \\
     cd \~    & Move to the home directory. \\
@@ -82,7 +86,7 @@
     su - user               & Switch to another user. \\
     chown user file         & Change the owner of a file to \texttt{user}. \\
     chown user:group file   & Change the owner and group of a file. \\
-    chmod flag file -u tom  & Change the permissions of a file for user \texttt{tom}. \\
+    chmod flag file -u tom  & Change the permissions of \texttt{file} for user \texttt{tom}. \\
     chmod +x file           & Add execute permission to a file. \\
     chmod +r file           & Add read permission to a file. \\
     chmod +w file           & Add write permission to a file. \\
@@ -102,9 +106,10 @@
     systemctl daemon-reload     & Reload the systemd manager configuration. \\
     systemctl reset-failed service     & Reset the failed state of a service. \\
 
-    journalctl -u service       & View logs for a specific service. \\
-    journalctl -n 100 -u service & View the last 100 log entries for a specific service. \\
-    --no-pager                    & Disable paging of log output. \\
+    journalctl -u service        & View logs for a specific service. \\
+    journalctl -n 100 -u service & View the last 100 log entries for a\\
+                                 & specific service. \\
+    --no-pager                   & Disable paging of log output. \\
     
 \end{tabular}
 
@@ -155,6 +160,15 @@ curl                & Transfers data from or to a server, using various\\
 curl ifconfig.me    & Display machine's public IPv4 address.\\
 \end{tabular}
 
+\subsection{SSH connection}
+\begin{tabular}{C L}
+    ssh -i \~/.ssh/myKey user@ipv4   & Connect to a remote host via SSH. \\
+    exit            & Exit the SSH session. \\
+    Ctrl + D        & Exit the SSH session. \\
+\end{tabular}
+
+\newpage
+
 \subsection{package managers}
 \begin{tabular}{C L}
     apt     & Debian-based(include ubuntu) package manager. \\
@@ -166,6 +180,17 @@ curl ifconfig.me    & Display machine's public IPv4 address.\\
             & distributions. \\
 \end{tabular}
 
+\subsubsection{apk}
+\begin{tabular}{C L}
+    update              & Update repository indexes. \\
+    upgrade             & Install upgrades available from repositories . \\
+    list                & List all available packages. \\
+    add pkg             & Install a package named \texttt{pkg}. \\
+    del pkg             & Remove a package named \texttt{pkg}. \\
+    search pkg          & Search for a package named \texttt{pkg}. \\
+    info pkg            & Display detailed information about a package named \texttt{pkg}. \\
+\end{tabular}
+
 \subsubsection{apt}
 \begin{tabular}{C L}
     update              & Update the package list. \\
@@ -175,13 +200,6 @@ curl ifconfig.me    & Display machine's public IPv4 address.\\
     install pkg         & Install a package named \texttt{pkg}. \\
     remove pkg          & Remove a package named \texttt{pkg}. \\
     search pkg          & Search for a package named \texttt{pkg}. \\
-\end{tabular}
-
-\subsection{SSH connection}
-\begin{tabular}{C L}
-    ssh -i \~/.ssh/myKey user@ipv4   & Connect to a remote host via SSH. \\
-    exit            & Exit the SSH session. \\
-    Ctrl + D        & Exit the SSH session. \\
 \end{tabular}
 
 \end{multicols}
