@@ -1,0 +1,74 @@
+\documentclass[5pt]{article}
+\usepackage{multicol,multirow}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=0.45cm]{geometry}
+\usepackage{xcolor}
+\usepackage{array}
+
+\definecolor{LightGray}{gray}{0.9}
+\usepackage[inline]{enumitem}
+\usepackage{minted}
+
+\newcolumntype{L}{>{\footnotesize}l}
+\newcolumntype{C}{>{\ttfamily\footnotesize}l}
+
+\begin{document}
+\begin{center}
+    \Large{\textbf{Rust Cheat Sheet}}\\
+    \small{Last Updated: \today}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+    \hspace*{-\dimexpr\oddsidemargin+1in\relax}\rule{\paperwidth}{0.4pt}
+\end{center}
+
+
+% content 
+\begin{multicols}{2}
+\setcounter{secnumdepth}{0}
+
+\subsection{Cargo Commands}
+Cargo is the default: package manager, builder for rust projects and version control via git. All of the following commend should be preced by \texttt{cargo}.\\
+\begin{tabular}{C L}
+    new new\_p  & Create a new project directory called \texttt{new\_p}.\\
+    run         & Build and run the project.\\
+    build       & Build the project.\\
+    clean       & Remove the target directory.\\
+    test        & Run the tests.\\
+    update      & Update dependencies.\\
+    doc         & Build documentation for the project.\\
+\end{tabular}
+
+\subsection{General Reminders}
+\begin{tabular}{C L}
+    use module::submodule & Import a module or submodule.\\
+    println!("hello") & Print \texttt{hello} to the console.\\
+\end{tabular}
+
+\subsection{Strings}
+\begin{tabular}{C L}
+    String::new()     & Create a new empty string.\\
+    String::from("s") & Create a new string with the value \texttt{"s"}.\\
+    \{var\}           & Insert the value of \texttt{var} into the string.\\
+\end{tabular}
+
+\subsection{Input/Output}
+For using input and output: the \texttt{std::io} module must be imported.\\
+\begin{tabular}{C L}
+    io::stdin()       & Get a handle to the standard input.\\
+    io::stdout()      & Get a handle to the standard output.\\
+\end{tabular}
+
+
+\subsection{Basic syntax}
+\subsubsection{Hello World}
+\begin{minted}[bgcolor=LightGray]{rust}
+fn main() {
+    println!("Hello, world!");
+}
+\end{minted}
+
+\begin{minted}[bgcolor=LightGray]{rust}
+let mut s; // create a mutable variable s
+let s1; // create a constant string s1
+\end{minted}
+
+\end{multicols}
+\end{document}
