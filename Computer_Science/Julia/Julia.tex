@@ -7,24 +7,64 @@
 
 \definecolor{LightGray}{gray}{0.9}
 
+\newcolumntype{L}{>{\footnotesize}l}
+\newcolumntype{C}{>{\ttfamily\footnotesize}l}
+
 \usepackage{minted}
 
 \begin{document}
 \begin{center}
-     \Large{\textbf{C\texttt{++} Cheat Sheet}}\\
-     \small{Class: CSCI 1300}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+     \Large{\textbf{Julia Cheat Sheet}}\\
+     \small{Book: Practical Julia: A hands-on introduction for scientific minds }\hfill\small{\textcopyright Maximilien Notz \the\year{}}
      \noindent\rule{20cm}{0.4pt}
 \end{center}
 \begin{multicols}{2}
 \setcounter{secnumdepth}{0}
 
 
-\subsection{Basics}
+\section{Types and Variables}
+Julia is a dynamically typed language, but it is possible to specify the type of a variable with the `::` operator.
 
-\subsection{Constructors}
-\begin{tabular}{>{\ttfamily}ll}
-    struct & keyword to begin
-    
+\subsection{Lowlevel types}
+\begin{tabular}{C L C L}
+Int64 & 64-bit signed integer. & UInt64 & 64-bit unsigned integer.\\
+Int32 & 32-bit signed integer. & UInt32 & 32-bit unsigned integer.\\
+Int16 & 16-bit signed integer. & UInt16 & 16-bit unsigned integer.\\
+Int8  & 8-bit signed integer. & UInt8  & 8-bit unsigned integer.\\
+Float64 & 64-bit floating point. & Float32 & 32-bit floating point.\\
+Float16 & 16-bit floating point. & Float8 & 8-bit floating point.\\
+bool & Boolean type. & Char & Character type.\\
+\end{tabular}
+
+\subsection{Mathematical types}
+The following types are abstract types, which means that they cannot be instantiated directly, but they can be used to define other types.
+\begin{tabular}{C L}
+    isequal(x,y) & Check if 2 different types variables are equal.\\
+    abs(x) & Get the absolute value of \texttt{x}.\\
+    abs2(x) & Get the absolute value of \texttt{x} squared.\\
+    inf & Positive infinity constant.\\
+\end{tabular}
+
+\subsubsection{Reals}
+\begin{tabular}{C L}
+    Real\{T\} & Real number with type \texttt{T}.\\
+\end{tabular}
+
+\subsubsection{Complexes}
+\begin{tabular}{C L}
+    Complex\{T\} & Complex number with type \texttt{T} real and imaginary parts.\\
+    im & Imaginary unit, e.g., \texttt{1.0im}.\\
+    imag(z) & Get the imaginary part of the complex number \texttt{z}.\\
+    real(z) & Get the real part of the complex number \texttt{z}.\\
+    conj(z) & Get the complex conjugate of the complex number \texttt{z}.\\
+    angle(z) & Get the phaseangle of the complex number \texttt{z}.\\
+\end{tabular}
+
+\subsubsection{Rationals}
+\begin{tabular}{C L}
+    Rational\{T\} & Rational number with type \texttt{T} numerator and denominator.\\    
+    numerator(r) & Get the numerator of the rational number \texttt{r}.\\
+    denominator(r) & Get the denominator of the rational number \texttt{r}.\\
 \end{tabular}
 
 
