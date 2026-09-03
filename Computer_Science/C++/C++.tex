@@ -14,9 +14,9 @@
 
 \begin{document}
 \begin{center}
-     \Large{\textbf{C\texttt{++} Cheat Sheet}}\\
-     \small{Class: CSCI 1300 \& COSC 1550 \& COSC 1560}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
-     \noindent\rule{20cm}{0.4pt}
+    \Large{\textbf{C\texttt{++} Cheat Sheet}}\\
+    \small{Class: CSCI 1300 \& COSC 1550 \& COSC 1560}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+    \hspace*{-\dimexpr\oddsidemargin+1in\relax}\rule{\paperwidth}{0.4pt}
 \end{center}
 \begin{multicols}{2}
 \setcounter{secnumdepth}{0}
@@ -287,6 +287,7 @@ switch (x){
     $*$var                  & Get var value, where var is a pointer.\\
     \&var                   & Get memory addresse of \textbf{var}.\\
     void* var               & Pointer with no associated data type.\\
+    p->m                    & Access member \texttt{m} of the object pointed to by \texttt{p}.\\
 \end{tabular}
 
 \subsection{Smart Pointers}
@@ -362,6 +363,15 @@ fmod(x, y)              & Floating-point remainder of \texttt{x}$/$\texttt{y}. \
                               & \texttt{malloc}.\\
 \end{tabular}
 
+\subsection{Random}
+\begin{tabular}{C L}
+    \#include <random>          & Include the standard random library.\\
+    random\_device              & \\
+    mt19937                     & Linear distributed randome number generator object.\\
+    uniform\_real\_distribution & Uniform randome number generator object.\\
+    normal\_distribution        & Normal randome number generator object.
+\end{tabular}
+
 \subsection{Special Ints}
 \textbf{signed fixed width integer types}\\
 \begin{tabular}{>{\small\ttfamily}l >{\small\ttfamily}l >{\small\ttfamily}l >{\small\ttfamily}l}
@@ -419,14 +429,27 @@ uint\_least8\_t & uint\_least16\_t  & uint\_least32\_t  & uint\_least64\_t  \\
     -v                  & Makes the compiler print detailed\\
                         & information. "v" stands for "Verbose".\\
     -E                  & Prints the preprocessor output.\\
-    -Wall               & activates all warnings\\
-    -Wextra             & Enable extra warnings beyond \texttt{-Wall}.\\
     -c filesName        & generate an object file. To add \texttt{.o} filse to\\
                         & the compilation simply add those like a\\
                         & regular file.\\  
-    -O0, -O1,           & Optimizations levels, where \texttt{-O0} is not\\
-    -O2, -O3,           & optimization\\
-    -Ofast
+    -O0, -O1,           & Optimizations levels, where \texttt{-O0} does not\\
+    -O2, -O3,           & optimize the code.\\
+    -Os                 & Optimize for size.\\
+    -fast-math          & Enable fast unsafe math optimizations.\\
+    -march=native       & Optimize code for the architecture of the\\
+                        & machine on which the compiler is running.\\
+    -std=c++17          & Specify version to C++ 17.\\
+    -Wall               & activates all default warnings\\
+    -Wextra             & Enable extra warnings beyond \texttt{-Wall}.\\
+    -Wpedantic          & Reject all programs that use forbidden extensions.\\
+    -Werror             & Make all warnings into errors.\\
+    -Wshadow            & Warn for variables that shadow other variables.\\
+    -Wconversion        & Warn for implicit type conversions that may alter a\\
+                        & value.\\
+    -Wcast-qual         & Warn whenever a pointer is cast so as to remove a\\
+                        & type qualifier from the target type.\\
+    -Wstrict-prototypes & Warn if a function is declared or defined without\\
+                        & specifying the argument types.\\
 \end{tabular}
 
 \subsection{Basic syntax}
