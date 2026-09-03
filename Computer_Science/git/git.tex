@@ -18,8 +18,8 @@
     \put(-60, -7){\includegraphics[width=2cm]{Git-Logo.png}} % adjust coordinates here
   \end{picture}
     \Large{\textbf{Cheat Sheet}}\\
-     \hfill\small{\textcopyright Maximilien Notz \the\year{}}
-     \noindent\rule{20cm}{0.4pt}
+    \small{Last Update: \today}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+    \hspace*{-\dimexpr\oddsidemargin+1in\relax}\rule{\paperwidth}{0.4pt}
 \end{center}
 \begin{multicols}{2}
 \setcounter{secnumdepth}{0}
@@ -45,16 +45,49 @@ All the following commands are to be run in a terminal, the keywords \texttt{git
     push                & Push the commits to the default remote \\
                         & and branch. \\
     pull                & Fetch changes to the local repository. \\
-    pull -rebase        & Fetch changes and rebase the local commits. \\
+    pull --rebase       & Fetch changes and rebase the local commits. \\
     rm fileName         & remove a file from the repo.\\
+    checkout branch     & switch to \texttt{branch}.\\
+    checkout -- fileName& discard local changes to \texttt{fileName}.\\
+\end{tabular}
+
+\subsubsection{Git Config}
+\begin{tabular}{C L}
+  config --list           & output config.\\
+  config --global --list  & output global config.\\
+  config --local --list   & output local config.\\
+  config --system --list  & output system config.\\
+  config user.name "b"    & set the user name to \texttt{b}. to change other\\
+                              & settings simply use the same command and\\
+                              & replace "user.name" with the desired value.\\
+  config user.name        & Output the user name. to output other\\
+                              & settings simply use the same command and\\
+                              & replace "user.name" with the desired value.\\
 \end{tabular}
 
 \subsection{GitHub}
 \textbf{USEFUL TIP:} On the git hub page of the repository, press "." button to launch a online vscode. \\
+\subsubsection{CLI}
+To use the GitHub Cli start the command with \texttt{gh}.
+\begin{tabular}{C C L}
+  repo & \\
+       & create myRepoName   & Create a new repository on GitHub.\\
+       &                     & --source=repoPATH\\ 
+       &                     & --private\\
+       & view user/repo      & View the repository on GitHub.\\
+  pr   &\\
+       & create              & Create a pull request.\\
+       & status              & View the status of pull requests.\\
+       & merge               & Merge a pull request.\\
+  issue&\\
+       & create              & Create a new issue.\\
+       & view                & View an issue.\\
+       & list                & List all issues.\\
+  \end{tabular}
 \subsection{Open-Source Licenses}
 \begin{tabular}{C L}
   Copyleft Strength      & Determines how strongly the license requires\\
-              & derivative works to use the same license.\\
+                         & derivative works to use the same license.\\
   Commercial Use        & Whether the code can be used in commercial\\
               & products or services.\\
   Attribution          & Requirements for giving credit to original\\
@@ -77,7 +110,11 @@ Apache 2.0    & None (Permissive) & Yes & Yes (NOTICE \& license) & Explicit pat
 \hline
 GNU GPL v3    & Strong (Copyleft) & Yes\footnotesize~(derivatives must be GPL when distributed) & Yes (license \& source terms) & Explicit contributor patent license & Must remain GPL (project-wide) & GNU/Linux ecosystem, dev tools (GCC, Bash, GIMP). \\
 \hline
+GNU LGPL v3 & Weak (Library) & Yes\footnotesize~(derivatives must be LGPL when distributed) & Yes (license \& source terms) & Explicit contributor patent license & Library-only copyleft & Libraries/frameworks that can be used in proprietary software (GLib, FFmpeg). \\
+\hline
 Mozilla Public License 2.0 & Weak (File-based) & Yes & Yes (license/NOTICE) & Explicit patent grant & File-based copyleft & Mixed open/proprietary codebases (Firefox, Thunderbird). \\
+\hline
+BSD License & None (Permissive) & Yes & Yes (license \& copyright) & No explicit & Unlimited (incl.\ proprietary) & OS components, academic projects (FreeBSD, OpenBSD). \\
 \hline
 \end{tabular}
 
