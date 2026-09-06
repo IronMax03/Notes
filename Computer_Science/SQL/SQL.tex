@@ -14,17 +14,26 @@
 
 \begin{document}
 \begin{center}
-    \Large{\textbf{SQL Cheat Sheet}}\\
+    \Large{\textbf{SQLite Cheat Sheet}}\\
     \small{Class: COSC-4110\hfill Last Updated: \today}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
     \hspace*{-\dimexpr\oddsidemargin+1in\relax}\rule{\paperwidth}{0.4pt}
 \end{center}
-
 
 % content 
 \begin{multicols}{2}
 \setcounter{secnumdepth}{0}
 
-\subsection{section}
+\subsection{Basic Commands}
+\begin{tabular}{C L}
+    SELECT x    & Selects the column \texttt{x} from the table.\\
+    SELECT *    & Selects all columns from the table.\\
+    FROM table  & Specifies the table to select from.\\
+    WHERE x     & Filters the results based on the condition \texttt{x}.\\
+    ORDER BY x  & Sorts the results based on the column \texttt{x}.\\
+    GROUP BY x  & Groups the results based on the column \texttt{x}.\\
+    AS x        & Renames a column or table to \texttt{x}.\\
+    INSERT INTO table (c) VALUES (v) & Inserts a new row into the table
+\end{tabular}
 
 
 \end{multicols}
