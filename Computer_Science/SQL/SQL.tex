@@ -23,17 +23,45 @@
 \begin{multicols}{2}
 \setcounter{secnumdepth}{0}
 
-\subsection{Basic Commands}
+\subsection{Clauses}
+\textbf{Clause order:} \texttt{SELECT} $\rightarrow$ \texttt{FROM} $\rightarrow$ \texttt{WHERE} $\rightarrow$ \texttt{GROUP BY} $\rightarrow$ \texttt{HAVING} $\rightarrow$ \texttt{ORDER BY} $\rightarrow$ \texttt{LIMIT}
 \begin{tabular}{C L}
-    SELECT x    & Selects the column \texttt{x} from the table.\\
-    SELECT *    & Selects all columns from the table.\\
-    FROM table  & Specifies the table to select from.\\
-    WHERE x     & Filters the results based on the condition \texttt{x}.\\
-    ORDER BY x  & Sorts the results based on the column \texttt{x}.\\
-    GROUP BY x  & Groups the results based on the column \texttt{x}.\\
-    AS x        & Renames a column or table to \texttt{x}.\\
-    INSERT INTO table (c) VALUES (v) & Inserts a new row into the table
+    SELECT x          & Selects the column \texttt{x} from the table.\\
+    SELECT *          & Selects all columns from the table.\\
+    SELECT DISTINCT x & Selects unique values from the column \texttt{x}.\\
+    FROM table        & Specifies the table to select from.\\
+    WHERE x           & Filters the results based on the condition \texttt{x}.\\
+    ORDER BY x        & Sorts the results based on the column \texttt{x}.\\
+    GROUP BY x        & Groups the results based on the column \texttt{x}.\\
+    AS x              & Renames a column or table to \texttt{x}.\\
+    HAVING x          & Filters the results of a \texttt{GROUP BY} clause based on the condition \texttt{x}.\\
+    LIMIT x           & Limits the number of rows returned to \texttt{x}.\\
 \end{tabular}
+
+\subsection{Operator}
+\begin{tabular}{C L}
+    LIKE x      & Used in \texttt{WHERE} clauses to match a pattern.\\
+                & \texttt{\%} represents zero, one, or multiple characters.\\
+                & \texttt{\_} represents a single character.\\
+    AND x       & Combines multiple conditions in a \texttt{WHERE} clause.\\
+    OR x        & Combines multiple conditions in a \texttt{WHERE} clause.\\
+    NOT x       & Negates a condition in a \texttt{WHERE} clause.\\
+    IN (x, y)   & Checks if a value is in a list of values.\\
+    BETWEEN x   & Checks if a value is within a range of values.\\
+    IS NULL     & Checks if a value is \texttt{NULL}.\\
+    IS NOT NULL & Checks if a value is not \texttt{NULL}.\\
+\end{tabular}
+
+\subsection{Functions}
+\begin{tabular}{C L}
+    TOP(n)      & Limits the number of rows returned to \texttt{n}.\\
+    COUNT(x)    & Counts the number of non-null values in column \texttt{x}.\\
+    SUM(x)      & Calculates the sum of values in column \texttt{x}.\\
+    AVG(x)      & Calculates the average of values in column \texttt{x}.\\
+    MIN(x)      & Finds the minimum value in column \texttt{x}.\\
+    MAX(x)      & Finds the maximum value in column \texttt{x}.\\
+\end{tabular}
+
 
 
 \end{multicols}
