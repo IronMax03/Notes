@@ -95,7 +95,10 @@ date "+Y-m-d 00:00:00" & set the date and time. \\
     chmod -w file           & Remove write permission from a file. \\
 \end{tabular}
 
-\subsubsection{Systemd Services}
+\subsection{Daemons}
+\subsubsection{Systemd}
+Systemd is the most widely used init system and service manager in modern Linux distributions.
+It is used in distributions such as Ubuntu, Debian, Fedora, and many others.\\
 \begin{tabular}{C L}
     systemctl start service     & Start a service. \\
     systemctl stop service      & Stop a service. \\
@@ -113,6 +116,17 @@ date "+Y-m-d 00:00:00" & set the date and time. \\
     
 \end{tabular}
 
+\subsubsection{OpenRC}
+OpenRC is an alternative init system and service manager used in some Linux distributions, such as Alpine Linux and Gentoo.\\
+\begin{tabular}{C L}
+rc-service myService start & Start a service. \\
+rc-service myService stop  & Stop a service. \\
+rc-service myService restart & Restart a service. \\
+rc-service myService status  & Check the status of a service. \\
+rc-update add myService default & Enable a service to start on boot. \\
+rc-update del myService default & Disable a service from starting on boot. \\
+    
+\end{tabular}
 
 \subsection{Shell Scripting}
 \subsubsection{operators}
@@ -167,7 +181,32 @@ curl ifconfig.me    & Display machine's public IPv4 address.\\
     Ctrl + D        & Exit the SSH session. \\
 \end{tabular}
 
-\newpage
+\subsection{Cron}
+Cron is a time-based job scheduler. It allows users to schedule tasks (commands or scripts) to run automatically at specified intervals.\\
+\subsubsection{Basics}
+\begin{tabular}{C L}
+    crontab -l        & List the current user's crontab. \\
+    crontab -e        & Edit the current user's crontab. \\
+    crontab -r        & Remove the current user's crontab. \\
+    crontab filename  & Install a new crontab from a file. \\
+    crond            & The cron daemon sometime also called \texttt{cron}. \\
+\end{tabular}
+
+\subsubsection{Syntax}
+\begin{tabular}{C L}
+    * * * * * command & Run \texttt{command} every minute. \\
+    0 * * * * command & Run \texttt{command} at the start of every hour. \\
+    0 0 * * * command & Run \texttt{command} at midnight every day. \\
+    0 0 * * 0 command & Run \texttt{command} at midnight every Sunday. \\
+    0 0 1 * * command & Run \texttt{command} at midnight on the first day of every month. \\
+    0 0 1 1 * command & Run \texttt{command} at midnight on January 1st every year. \\
+\end{tabular}
+After the time and date fields, you can specify the command to be executed (note that cron dont use \$PATH so you need to use absolute paths). Example: 
+\begin{minted}[fontsize=\footnotesize, bgcolor=LightGray]{bash}
+0 0 * * 0 /usr/bin/python3 /home/user/myscript.py
+0 5 * * * /sbin/reboot
+\end{minted}
+This will run the Python script \texttt{myscript.py} at midnight every Sunday and reboot the system at 5 AM every day.
 
 \subsection{package managers}
 \begin{tabular}{C L}
