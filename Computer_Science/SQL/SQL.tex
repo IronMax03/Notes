@@ -15,7 +15,7 @@
 \begin{document}
 \begin{center}
     \Large{\textbf{SQLite Cheat Sheet}}\\
-    \small{Class: COSC-4110\hfill Last Updated: \today}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+    \small{Last Updated: \today}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
     \hspace*{-\dimexpr\oddsidemargin+1in\relax}\rule{\paperwidth}{0.4pt}
 \end{center}
 
@@ -24,7 +24,7 @@
 \setcounter{secnumdepth}{0}
 
 \subsection{Clauses}
-\textbf{Clause order:} \texttt{SELECT} $\rightarrow$ \texttt{FROM} $\rightarrow$ \texttt{WHERE} $\rightarrow$ \texttt{GROUP BY} $\rightarrow$ \texttt{HAVING} $\rightarrow$ \texttt{ORDER BY} $\rightarrow$ \texttt{LIMIT}
+\textbf{Clause order:} \texttt{SELECT} $\rightarrow$ \texttt{FROM} $\rightarrow$ \texttt{WHERE} $\rightarrow$ \texttt{GROUP BY} $\rightarrow$ \texttt{HAVING} $\rightarrow$ \texttt{ORDER BY} $\rightarrow$ \texttt{LIMIT}\\
 \begin{tabular}{C L}
     SELECT x          & Selects the column \texttt{x} from the table.\\
     SELECT *          & Selects all columns from the table.\\
@@ -34,22 +34,25 @@
     ORDER BY x        & Sorts the results based on the column \texttt{x}.\\
     GROUP BY x        & Groups the results based on the column \texttt{x}.\\
     AS x              & Renames a column or table to \texttt{x}.\\
-    HAVING x          & Filters the results of a \texttt{GROUP BY} clause based on the condition \texttt{x}.\\
+    HAVING x          & Filters the results of a \texttt{GROUP BY} clause based on the\\
+                      & condition \texttt{x}.\\
+    LIKE x            & Used in \texttt{WHERE} clauses to match a pattern.\\
+                      & "\%" many characters, "\_" single character\\
     LIMIT x           & Limits the number of rows returned to \texttt{x}.\\
 \end{tabular}
 
 \subsection{Operator}
 \begin{tabular}{C L}
-    LIKE x      & Used in \texttt{WHERE} clauses to match a pattern.\\
-                & \texttt{\%} represents zero, one, or multiple characters.\\
-                & \texttt{\_} represents a single character.\\
-    AND x       & Combines multiple conditions in a \texttt{WHERE} clause.\\
-    OR x        & Combines multiple conditions in a \texttt{WHERE} clause.\\
-    NOT x       & Negates a condition in a \texttt{WHERE} clause.\\
-    IN (x, y)   & Checks if a value is in a list of values.\\
-    BETWEEN x   & Checks if a value is within a range of values.\\
-    IS NULL     & Checks if a value is \texttt{NULL}.\\
-    IS NOT NULL & Checks if a value is not \texttt{NULL}.\\
+    LIKE x          & Used in \texttt{WHERE} clauses to match a pattern.\\
+                    & \texttt{\%} represents zero, one, or multiple characters.\\
+                    & \texttt{\_} represents a single character.\\
+    AND x           & Combines multiple conditions in a \texttt{WHERE} clause.\\
+    OR x            & Combines multiple conditions in a \texttt{WHERE} clause.\\
+    NOT x           & Negates a condition in a \texttt{WHERE} clause.\\
+    IN (x, y)       & Checks if a value is in a list of values.\\
+    BETWEEN x AND y & Checks if a value is within a range of values.\\
+    IS NULL         & Checks if a value is \texttt{NULL}.\\
+    IS NOT NULL     & Checks if a value is not \texttt{NULL}.\\
 \end{tabular}
 
 \subsection{Functions}
@@ -62,7 +65,25 @@
     MAX(x)      & Finds the maximum value in column \texttt{x}.\\
 \end{tabular}
 
+\subsubsection{Examples}
+\begin{minted}[bgcolor=LightGray]
+{sql}
+SELECT Orders.OrderID, Customers. FirstName,
+Customers.LastName, Customers.Email, Orders.OrderDate
+FROM Orders
+JOIN Customers ON Orders.CustomerID=Customers.CustomerID
+ORDER BY OrderID
+\end{minted}
 
+\subsection{Nested Queries}
+\begin{minted}[bgcolor=LightGray]
+{sql}
+SELECT * FROM Orders
+WHERE CustomerID=(
+	SELECT CustomerID FROM Customers
+	WHERE Email="ex@example.com"
+)
+\end{minted}
 
 \end{multicols}
 \end{document}
