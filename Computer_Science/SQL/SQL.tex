@@ -41,6 +41,35 @@
     LIMIT x           & Limits the number of rows returned to \texttt{x}.\\
 \end{tabular}
 
+\subsection{Table Modifiers}
+It is a good practice to Select before modifying a table.\\
+\begin{tabular}{C L}
+    INSERT INTO x(cols) VALUES (lst) & Make a row-wise insertion of the\\
+                                     & values in \texttt{lst} into the table \texttt{x}.\\
+    CREATE TABLE x (cols)            & Creates a new table named \texttt{x} with the specified columns.\\
+    DELETE FROM x WHERE c            & Deletes rows from the table \texttt{x} where\\
+                                     & the \texttt{c} is met.\\
+    DROP TABLE x                     & Deletes the table \texttt{x}.\\
+    UPDATE x SET c=v WHERE c         & Updates the column \texttt{c} in table \texttt{x} to\\
+                                     & the value \texttt{v} if the \texttt{c} is met.\\
+\end{tabular}
+In create queries we can specify the data type and constraints of each column. The most common data types are:
+\begin{tabular}{C L}
+    INTEGER & A signed integer.\\
+    REAL    & A floating point value.\\
+    TEXT    & A text string.\\
+    BLOB    & A binary large object.\\
+\end{tabular}\\
+And the most common constraints are:\\
+\begin{tabular}{C L}
+    PRIMARY KEY & Uniquely identifies each row in the table.\\
+    FOREIGN KEY & Establishes a relationship between two tables.\\
+    NOT NULL    & Ensures that a column cannot have a \texttt{NULL} value.\\
+    UNIQUE      & Ensures that all values in a column are unique.\\
+    CHECK       & Ensures that all values in a column satisfy a specific condition.\\
+    DEFAULT     & Sets a default value for a column when no value is specified.\\
+\end{tabular}
+
 \subsection{Operator}
 \begin{tabular}{C L}
     LIKE x          & Used in \texttt{WHERE} clauses to match a pattern.\\
@@ -65,7 +94,7 @@
     MAX(x)      & Finds the maximum value in column \texttt{x}.\\
 \end{tabular}
 
-\subsubsection{Examples}
+\subsection{Examples}
 \begin{minted}[bgcolor=LightGray]
 {sql}
 SELECT Orders.OrderID, Customers. FirstName,
@@ -75,7 +104,7 @@ JOIN Customers ON Orders.CustomerID=Customers.CustomerID
 ORDER BY OrderID
 \end{minted}
 
-\subsection{Nested Queries}
+\subsubsection{Nested Queries}
 \begin{minted}[bgcolor=LightGray]
 {sql}
 SELECT * FROM Orders
@@ -84,6 +113,26 @@ WHERE CustomerID=(
 	WHERE Email="ex@example.com"
 )
 \end{minted}
+\subsubsection{Insert Queries}
+\begin{minted}[bgcolor=LightGray]{sql}
+INSERT INTO EMPLOYEES(NAME, FIRSTNAME, DEPT,DEPTFLOOR) 
+VALUES ('Brown', 'Tom', 'Management', 1)
+\end{minted}
+
+\subsubsection{Table Creation}
+\begin{minted}[bgcolor=LightGray]{sql}
+CREATE TABLE EMPLOYEES(
+    "id" INTEGER NOT NULL,
+    "name" TEXT NOT NULL,
+    "first_name" TEXT NOT NULL,
+    "dept_id" TEXT NOT NULL,
+    "dept_floor" INTEGER NOT NULL,
+    PRIMARY KEY("id"),
+    FOREIGN KEY("dept") 
+      REFERENCES "Departments"("dept_id")
+)
+\end{minted}
+
 
 \end{multicols}
 \end{document}
