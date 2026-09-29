@@ -56,6 +56,7 @@
 \setcounter{secnumdepth}{0}
 
 \subsection{General Reminder}
+
 \begin{tabular}{>{\ttfamily}l l}
     r.randint(x,y)      & Generate a random integer between \textbf{x}\\
                             & and \textbf{y}(import random as r).\\
@@ -81,6 +82,8 @@
                             & copies of all nested objects.\\
         del var             & Deletes \texttt{var} from memory.\\
     \end{tabular}
+\texttt{print(obj,sep='|',end='.',file=sys.stdout,flush=False)}
+Prints \texttt{obj} to the specified \texttt{file} with a separator \texttt{sep} between objects and an ending character \texttt{end} at the end
 
 \subsection{Operators}
 \begin{tabular}{|>{\ttfamily}l|l|l|}
@@ -336,33 +339,18 @@ class ClassName(parent1, parent2, ...):
                     & and end of the string.\\
     .join(lst)      & Joins all elements in \texttt{lst} into a single\\
                     & string, separated by the original string.\\
+    .endswith(x)    & Returns True if a string ends with \texttt{x} (note\\
+                    & that \texttt{s[-1] == x} throws an error).\\
     r"..."          & Raw string, ignores escape sequences.\\
     f"...\{var\}..."& Formatted string literal, inserts \texttt{var} inside the\\
                     & string.\\
-    s[i:j]         & Slicing, returns substring from index \texttt{i}\\
+    f"..\{i:03d\}.."& output the integer \texttt{i} as 3 digit number with\\
+                    & leading zeros.\\
+    s[i:j]          & Slicing, returns substring from index \texttt{i}\\
                     & to \texttt{j-1}.\\
+    
+
 \end{tabular}
-
-\subsection{Basic Syntax}
-\begin{minted}[bgcolor=LightGray]{Python}
-if condition_1:
-    # code if condition_1 is true
-elif condition_2:
-    # code if condition_2 is true and condition_1 
-    # is false
-else:
-    # code
-
-def function(a:type1, b:type2 = value, ...) -> rType:
-    # code
-    return # value of type rType
-
-for i in lst:
-    # for each element in lst
-
-while condition:
-    # runs while condition is true
-\end{minted}
 
 \subsection{Performance Tips}
 \subsubsection{Numba}
@@ -401,7 +389,26 @@ def my_function(...):
     \hline
 \end{tabular}
 
+\subsection{Basic Syntax}
+\begin{minted}[bgcolor=LightGray]{Python}
+if condition_1:
+    # code if condition_1 is true
+elif condition_2:
+    # code if condition_2 is true and condition_1 
+    # is false
+else:
+    # code
 
+def function(a:type1, b:type2 = value, ...) -> rType:
+    # code
+    return # value of type rType
+
+for i in lst:
+    # for each element in lst
+
+while condition:
+    # runs while condition is true
+\end{minted}
 
 
 
