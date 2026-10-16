@@ -1,0 +1,117 @@
+\documentclass[5pt]{article}
+\usepackage{multicol,multirow}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[margin=0.75cm]{geometry}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{relsize}
+
+\usepackage[english]{babel}
+\newtheorem{theorem}{Theorem}
+
+\usepackage{empheq}
+\usepackage{amsfonts}
+
+\usepackage{array}
+\usepackage[inline]{enumitem}
+
+\usepackage{tkz-euclide}
+\usepackage{tikz}
+\usepackage{rotating}
+
+\definecolor{LightGray}{gray}{0.9}
+
+\usepackage{minted}
+\newcolumntype{L}{>{\footnotesize}l}
+\newcolumntype{C}{>{\ttfamily\footnotesize}l}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+
+\newcommand{\tr}[3]{
+\begin{tikzpicture}[scale=0.40]
+    \coordinate [] (A) at (-1.5cm,-1.cm);
+    \coordinate [] (C) at (1.5cm,-1.0cm);
+    \coordinate [] (B) at (1.5cm,1.0cm);
+    \draw (A) -- node[above] {$a$} (B) -- node[right] {$b$} (C) -- node[below] {$c$} (A);
+    \draw (1.25cm,-1.0cm) rectangle (1.5cm,-0.75cm);
+\end{tikzpicture}
+}
+
+
+\begin{document}
+
+
+\begin{center}
+     \Large{\textbf{Machine Learning in Python}}\\
+     \small{Last Update: \today}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+     \noindent\rule{20.2cm}{0.4pt}
+\end{center}
+
+
+\begin{multicols}{2}
+\setcounter{secnumdepth}{0}
+
+\subsection{Numpy}
+\subsection{Pytorch}
+\subsubsection{Tensor}
+Let \texttt{t} be a pytorch tensor and the following are from \texttt{torch}:\\
+\begin{tabular}{C L}
+.randn(s)     & Create a random tensor of rank 1\\
+.ones(s)      & Create a tensor of ones of rank 1\\
+.zeros(s)     & Create a tensor of zeros of rank 1\\
+.cat(lst,dim=d) & Concatenate the tensors in lst along dimension \texttt{d}\\
+t.size()     & Return the size of the tensor \texttt{t}\\
+t.view(s)     & Reshape the tensor \texttt{t} to the shape
+
+\end{tabular}
+
+\subsubsection{Deep Learning}
+All the following are in \texttt{torch.nn}:\\
+\begin{tabular}{C L}
+.linear(m, n)     & Apply a afine linear transformation object with \texttt{m}\\
+                  & inputs and \texttt{n} outputs.\\
+.conv1d(m, n, k)  & Apply 1D convolution with \texttt{m} input chanels and \texttt{n}\\
+                  & output chanels with a kernel \texttt{k}.\\
+.conv2d(m, n, k)  & Apply 2D convolution with \texttt{m} input chanels and \texttt{n}\\
+                  & output chanels with a kernel \texttt{k}.\\
+.conv3d(m, n, k)  & Apply 3D convolution with \texttt{m} input chanels and \texttt{n}\\
+                  & output chanels with a kernel \texttt{k}.\\
+\end{tabular}
+\texttt{print(obj,sep='|',end='.',file=sys.stdout,flush=False)}
+Prints \texttt{obj} to the specified \texttt{file} with a separator \texttt{sep} between objects and an ending character \texttt{end} at the end
+
+\subsubsection{Activation Function}
+All \texttt{Pytorch} are not performed in place unless we add the argument \texttt{inplace=False}.\\
+\begin{tabular}{C L}
+.Sigmoid()                      & $\sigma(x)=\frac{1}{1+e^{-x}}$\\
+.ReLU()                         & $\text{ReLU}(x)=\max(0,x)$\\
+.LeakyReLU(negative\_slope=m)   & $\text{LeakyReLU}(x)=\begin{cases}x & x>0\\ mx & x\leq0 \end{cases}$\\
+.Tanh()                         & $\tanh(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}$
+\end{tabular}
+
+\subsubsection{Regularization}
+\begin{tabular}{C L}
+.Dropout(p=P)   & Dropout regularization with probability \texttt{P}\\
+.BatchNorm()    & Batch normalization\\
+\end{tabular}
+
+
+\subsection{Scikit Learn}
+
+\subsection{Base Models}
+\subsubsection{XGBoost}
+\subsubsection{LightGBM}
+\subsubsection{ROCKET}
+\subsubsection{MINIROCKET}
+
+
+
+
+\end{multicols}
+\end{document}
