@@ -135,6 +135,7 @@ def Objective(trial):
     return score
 study = optuna.create_study(direction='maximize')
 study.optimize(Objective, n_trials=100)
+print("Best hyperparameters:", study.best_params)
 \end{minted}
 
 \subsubsection{Pruning}
