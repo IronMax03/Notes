@@ -49,7 +49,7 @@
 
 \begin{center}
      \Large{\textbf{Machine Learning in Python}}\\
-     \small{Last Update: \today}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+     \small{Last Update: \today}\hfill\small{ Maximilien Notz}
      \noindent\rule{20.2cm}{0.4pt}
 \end{center}
 
@@ -66,9 +66,10 @@ Let \texttt{t} be a pytorch tensor and the following are from \texttt{torch}:\\
 .ones(s)      & Create a tensor of ones of rank 1\\
 .zeros(s)     & Create a tensor of zeros of rank 1\\
 .cat(lst,dim=d) & Concatenate the tensors in lst along dimension \texttt{d}\\
+.mul(t1,t2)     & Element-wise multiplication of \texttt{t1} and \texttt{t2}\\
+.add(t1,t2)     & Element-wise addition of \texttt{t1}\\
 t.size()     & Return the size of the tensor \texttt{t}\\
 t.view(s)     & Reshape the tensor \texttt{t} to the shape
-
 \end{tabular}
 
 \subsubsection{Deep Learning}
@@ -101,8 +102,44 @@ All \texttt{Pytorch} are not performed in place unless we add the argument \text
 .BatchNorm()    & Batch normalization\\
 \end{tabular}
 
-
 \subsection{Scikit Learn}
+\subsubsection{K-Fold Cross-Validation}
+Snippet for K-Fold Cross-Validation using Scikit Learn:
+\begin{minted}[bgcolor=LightGray]{Python}
+kfold = KFold(n_splits=5, shuffle=True)
+scores = cross_val_score(model, X, y, cv=kfold, 
+    scoring='accuracy')
+
+print("Folds accuracy:", scores)
+print("Mean Accuracy:", np.mean(scores))
+\end{minted}
+
+\subsection{Optuna}
+Optuna is a powerful hyperparameter optimization framework that automates the process of searching for the best hyperparameters for machine learning models.
+\subsubsection{General Shape}
+\begin{minted}[bgcolor=LightGray]{Python}
+def Objective(trial):
+    # Define hyperparameters to optimize
+    param1 = trial.suggest_float('param1', low, high)
+    param2 = trial.suggest_int('param2', low, high)
+        
+    # Create and train your model
+    model = YourModel(_param1=param1, _param2=param2)
+    kfold = KFold(n_splits=5, shuffle=True)
+    scores = cross_val_score(model, X, y, cv=kfold, 
+            scoring='accuracy')
+
+    # Evaluate the model on validation data
+    score = model.score(X_val, y_val)
+        
+    return score
+study = optuna.create_study(direction='maximize')
+study.optimize(Objective, n_trials=100)
+\end{minted}
+
+\subsubsection{Pruning}
+Optuna pruning allows you to stop unpromising trials early, saving computational resources and speeding up the optimization process.
+You can enable pruning by using \texttt{trial.should\_prune()} inside the training loop which method to check if the trial should be pruned.
 
 \subsection{Base Models}
 \subsubsection{XGBoost}
