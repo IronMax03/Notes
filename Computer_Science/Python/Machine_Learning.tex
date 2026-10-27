@@ -136,6 +136,9 @@ def Objective(trial):
 study = optuna.create_study(direction='maximize')
 study.optimize(Objective, n_trials=100)
 print("Best hyperparameters:", study.best_params)
+fig = optuna.visualization.plot_slice(study, 
+    params=["param1", "param2"])
+show(fig)
 \end{minted}
 
 \subsubsection{Pruning}
