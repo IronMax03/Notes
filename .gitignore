@@ -3,5 +3,6 @@
 *.fls
 *.gz
 *.fdb_latexmk
+*.pyg
 .DS_Store
 _minted
