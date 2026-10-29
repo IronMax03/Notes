@@ -24,6 +24,25 @@
 \begin{multicols}{2}
 \setcounter{secnumdepth}{0}
 
+\subsection{Linux File Structure}
+\begin{tabular}{C L}
+    /boot       & Boot loader files\\
+    /bin        & executable binaries\\
+    /home       & Users home directory\\
+    /etc        & system config files\\
+    /var/log    & log files\\
+    /usr/local  & software manualy compiled or installed manually\\
+\end{tabular}
+
+\subsubsection{Path shortcute}
+\begin{tabular}{C L}
+    $\tilde{ }$       & home directory\\
+    /       & root directory\\
+    .       & current directory\\
+    ..      & parent directory\\
+    -       & previous directory\\
+\end{tabular}
+
 \subsection{Linux Terminal}
 \subsubsection{General Commands}
 \begin{tabular}{C L}
@@ -39,14 +58,9 @@ date "+Y-m-d 00:00:00" & set the date and time. \\
 \end{tabular}
 
 
-
-
 \subsubsection{File Management Commands}
 \begin{tabular}{C L}
     cd      & Change directory. \\
-    cd ..   & Move to the previous directory. \\
-    cd \~    & Move to the home directory. \\
-    cd /    & Move to the root directory. \\
     ls      & List files in the current directory. \\
     ls -l   & List files with detailed information. \\
     ls -a   & List all files, including hidden ones. \\
@@ -54,7 +68,7 @@ date "+Y-m-d 00:00:00" & set the date and time. \\
     open    & Open a file with the default application. \\
     mkdir   & Create a new directory. \\
     rm      & Remove a file. \\
-    rm -r   & Remove a directory and its contents. \\
+    rm -rf  & Remove a directory and its contents. \\
     cp      & Copy a file or directory. \\
     mv      & Move or rename a file or directory. \\
     touch   & Create a new empty file. \\
@@ -113,7 +127,6 @@ It is used in distributions such as Ubuntu, Debian, Fedora, and many others.\\
     journalctl -n 100 -u service & View the last 100 log entries for a\\
                                  & specific service. \\
     --no-pager                   & Disable paging of log output. \\
-    
 \end{tabular}
 
 \subsubsection{OpenRC}
@@ -125,7 +138,6 @@ rc-service myService restart & Restart a service. \\
 rc-service myService status  & Check the status of a service. \\
 rc-update add myService default & Enable a service to start on boot. \\
 rc-update del myService default & Disable a service from starting on boot. \\
-    
 \end{tabular}
 
 \subsection{Shell Scripting}
@@ -201,7 +213,7 @@ Cron is a time-based job scheduler. It allows users to schedule tasks (commands 
     0 0 1 * * command & Run \texttt{command} at midnight on the first day of every month. \\
     0 0 1 1 * command & Run \texttt{command} at midnight on January 1st every year. \\
 \end{tabular}
-After the time and date fields, you can specify the command to be executed (note that cron dont use \$PATH so you need to use absolute paths). Example: 
+After the time and date fields, you can specify the command to be executed (note that cron dont use \$PATH so you need to use absolute paths). Example:
 \begin{minted}[fontsize=\footnotesize, bgcolor=LightGray]{bash}
 0 0 * * 0 /usr/bin/python3 /home/user/myscript.py
 0 5 * * * /sbin/reboot
@@ -241,6 +253,20 @@ This will run the Python script \texttt{myscript.py} at midnight every Sunday an
     search pkg          & Search for a package named \texttt{pkg}. \\
 \end{tabular}
 
+\subsection{Tips}
+\subsubsection{Render a website as an app}
+If a app is not available for linux but can be used on a web browser (eg: outlook, spotify, etc.). you can use the command \texttt{chromium-browser --app=siteUrl}
+(eg: \texttt{chromium-browser --app=https://outlook.office365.com/mail}). Create a file \textt{~/.local/share/applications/outlook.desktop} with the following inside:
+\begin{minted}[fontsize=\footnotesize, bgcolor=LightGray]{bash}
+[Desktop Entry]
+Name=Outlook
+Comment=Outlook in Chromium
+Exec=chromium-browser --app=https://outlook.office.com/mail/
+Icon=internet-mail
+Type=Application
+Categories=Network;Email;
+StartupWMClass=outlook.office.com__mail
+\end{minted}
 \end{multicols}
 
 \end{document}
