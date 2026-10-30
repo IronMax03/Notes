@@ -253,6 +253,17 @@ This will run the Python script \texttt{myscript.py} at midnight every Sunday an
     search pkg          & Search for a package named \texttt{pkg}. \\
 \end{tabular}
 
+\subsubsection{brew}
+\begin{tabular}{C L}
+    update              & Update the package list. \\
+    upgrade             & Upgrade all installed packages to their latest versions. \\
+    list                & List all available packages. \\
+    install pkg         & Install a package named \texttt{pkg}. \\
+                        & \texttt{--only-dependencies} self explenatory.\\
+    uninstall pkg       & Remove a package named \texttt{pkg}. \\
+    bundle install pkg  & Install a package named \texttt{pkg} and its dependencies. \\
+\end{tabular}
+
 \subsection{Tips}
 \subsubsection{Render a website as an app}
 If a app is not available for linux but can be used on a web browser (eg: outlook, spotify, etc.). you can use the command \texttt{chromium-browser --app=siteUrl}
