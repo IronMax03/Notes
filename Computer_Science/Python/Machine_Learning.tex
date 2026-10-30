@@ -58,6 +58,20 @@
 \setcounter{secnumdepth}{0}
 
 \subsection{Numpy}
+\subsubsection{np.random}
+\begin{tabular}{C L}
+.seed(seed=S)               & Set the seed to \texttt{S} or reset if \texttt{S} is none.\\
+.random\_sample(size=s)     & return a np array or \texttt{s} random floats\\
+                            & between \texttt{l} and \texttt{h}.\\
+.randint(l,high=h,size=s)   & return a np array or \texttt{s} random integers\\
+                            & between \texttt{l} and \texttt{h}.\\
+.shuffle(x)                 & Shufle the array \texttt{x}.\\
+.permutation(m)             & return the indices of random permutation\\
+                            & of a list of \texttt{m} elements. \\
+\end{tabular}
+\footnotesize{\texttt{.choice(a,size=s,replace=True,p=p)}  Generates a random sample of size \texttt{s} from the 1d array a with probability distributions \texttt{p} with replacements or without.\\
+}
+
 \subsection{Pytorch}
 \subsubsection{Tensor}
 Let \texttt{t} be a pytorch tensor and the following are from \texttt{torch}:\\
