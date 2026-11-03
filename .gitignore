@@ -4,5 +4,7 @@
 *.gz
 *.fdb_latexmk
 *.pyg
+*.pygtex
+*.pygstyle
 .DS_Store
 _minted
