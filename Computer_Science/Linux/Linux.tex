@@ -32,6 +32,7 @@
     /etc        & system config files\\
     /var/log    & log files\\
     /usr/local  & software manualy compiled or installed manually\\
+    /dev/null   & when data is sent to this file, the data disappears.\\
 \end{tabular}
 
 \subsubsection{Path shortcute}
@@ -46,19 +47,22 @@
 \subsection{Linux Terminal}
 \subsubsection{General Commands}
 \begin{tabular}{C L}
-    clear   & Clear the terminal screen. \\
-    history & Display the command history. \\
-    cal     & Display a calendar. \\
-    uptime  & Display how long the system has been running. \\
-    man     & Display the manual for a command. (Tap q to quit the manual)\\
-    date    & Display the current date and time. \\
+    clear     & Clear the terminal screen. \\
+    history   & Display the command history. \\
+    cal       & Display a calendar. \\
+    uptime    & Display how long the system has been running. \\
+    man       & Display the manual for a command. (Tap q to quit)\\
+    sleep 10  & Wait 10 seconds before stopping.\\
+    yes hello & print \texttt{hello} until the program is killed.\\
+    cmd \&    & run \texttt{cmd} in the background.\\
+    date      & Display the current date and time. \\
 \end{tabular}
 \begin{tabular}{C L}
 date "+Y-m-d 00:00:00" & set the date and time. \\
 \end{tabular}
 
 
-\subsubsection{File Management Commands}
+\subsubsection{File navigation and editing}
 \begin{tabular}{C L}
     cd      & Change directory. \\
     ls      & List files in the current directory. \\
@@ -73,12 +77,13 @@ date "+Y-m-d 00:00:00" & set the date and time. \\
     mv      & Move or rename a file or directory. \\
     touch   & Create a new empty file. \\
     cat     & Display the contents of a file. \\
+    more    & \texttt{cat} for big files.\\
     tail    & Display the last few lines of a file. \\
     tail -f & Continuously display new lines added to a file. \\
     head    & Display the first few lines of a file. \\
     stat    & Display detailed information about a file. \\
-\end{tabular}
-
+\end{tabular}\\
+\footnotesize{To search the command history press \texttt{Ctrl + r}.}
 
 \subsubsection{OS Commands}
 \begin{tabular}{C L}
@@ -89,9 +94,13 @@ date "+Y-m-d 00:00:00" & set the date and time. \\
     id                      & Display user ID and group ID information. \\
     id -u                   & Display the user ID. \\
     id -g                   & Display the group ID. \\
+    nproc                   & show the number of processing units (CPU cores).\\
     ps                      & Display currently running processes. \\
+    top                     & Show the current processes running alongside\\
+                            & the cpu and ram usage.\\
     kill                    & Terminate a process by its PID. \\
     kill -9                 & Forcefully terminate a process by its PID. \\
+    kill -15                & terminate and clean a process by its PID. \\
     reboot                  & Restart the system. \\
     poweroff                & Shut down the system. \\
     useradd                 & Add a new user. \\
@@ -107,9 +116,22 @@ date "+Y-m-d 00:00:00" & set the date and time. \\
     chmod -x file           & Remove execute permission from a file. \\
     chmod -r file           & Remove read permission from a file. \\
     chmod -w file           & Remove write permission from a file. \\
+\end{tabular}\\
+An alternative way of shutting down or reboot is to use \texttt{shutdown [OPTION] [TIME] [MESSAGE]} where \texttt{MESSAGE} shows a message to all users. \\
+\begin{tabular}{L L}
+    \textbf{[TIME]}    & \\
+    \texttt{now}       & run shutdown instantly.\\
+    \texttt{+m}        & run shutdown after \texttt{m} minutes.\\
+    \texttt{hh:mm}     & run shutdown at the absolute time \texttt{hh:mm}.\\
+    \textbf{[OPTION]}  & \\
+    \texttt{-P}        & This is the default option.\\
+    \texttt{-H}        & Halt\\
+    \texttt{-r}        & reboot\\
+    \texttt{--no-wall} & shutdown without warning.\\
 \end{tabular}
 
 \subsection{Daemons}
+Daemons are a type of process.
 \subsubsection{Systemd}
 Systemd is the most widely used init system and service manager in modern Linux distributions.
 It is used in distributions such as Ubuntu, Debian, Fedora, and many others.\\
@@ -193,6 +215,9 @@ curl ifconfig.me    & Display machine's public IPv4 address.\\
     Ctrl + D        & Exit the SSH session. \\
 \end{tabular}
 
+\subsection{nginx}
+\texttt{nginx} is a software used to run a server on linux.\\
+
 \subsection{Cron}
 Cron is a time-based job scheduler. It allows users to schedule tasks (commands or scripts) to run automatically at specified intervals.\\
 \subsubsection{Basics}
@@ -267,7 +292,7 @@ This will run the Python script \texttt{myscript.py} at midnight every Sunday an
 \subsection{Tips}
 \subsubsection{Render a website as an app}
 If a app is not available for linux but can be used on a web browser (eg: outlook, spotify, etc.). you can use the command \texttt{chromium-browser --app=siteUrl}
-(eg: \texttt{chromium-browser --app=https://outlook.office365.com/mail}). Create a file \textt{~/.local/share/applications/outlook.desktop} with the following inside:
+(eg: \texttt{chromium-browser --app=https://outlook.office365.com/mail}). Create a file \texttt{\textasciitilde/.local/share/applications/outlook.desktop} with the following inside:
 \begin{minted}[fontsize=\footnotesize, bgcolor=LightGray]{bash}
 [Desktop Entry]
 Name=Outlook
