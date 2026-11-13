@@ -61,16 +61,51 @@
 \subsubsection{np.random}
 \begin{tabular}{C L}
 .seed(seed=S)               & Set the seed to \texttt{S} or reset if \texttt{S} is none.\\
-.random\_sample(size=s)     & return a np array or \texttt{s} random floats\\
+.random\_sample(size)       & return a np array or \texttt{s} random floats\\
                             & between \texttt{l} and \texttt{h}.\\
-.randint(l,high=h,size=s)   & return a np array or \texttt{s} random integers\\
+.randint(low,high,size)     & return a np array or \texttt{s} random integers\\
                             & between \texttt{l} and \texttt{h}.\\
+.uniform(low,high,size)     & return a uniformaly distributed array of\\
+                            & random floats. \\
+.standard\_normal(size)     & return a array of random floats, standard\\
+                            & normaly distributed.\\
 .shuffle(x)                 & Shufle the array \texttt{x}.\\
 .permutation(m)             & return the indices of random permutation\\
                             & of a list of \texttt{m} elements. \\
 \end{tabular}
 \footnotesize{\texttt{.choice(a,size=s,replace=True,p=p)}  Generates a random sample of size \texttt{s} from the 1d array a with probability distributions \texttt{p} with replacements or without.\\
 }
+
+\subsection{Polars}
+\begin{tabular}{C L}
+.read\_json("file\_name")     &   import json file as datafram.\\
+.read\_csv("file\_name")      &   import csv file as datafram.\\
+.read\_parquet("file\_name")  &   import parquet file as datafram.\\
+.from\_pandas(df)             &   import pandas dataframe \texttt{df} as polars\\
+                              &   dataframe.\\
+.from\_numpy(arr)             &   import numpy array \texttt{arr} as polars\\
+                              &   dataframe.\\
+.col(name)                    &   represent the column with the name \texttt{name}\\
+                              &    from the dataframe.\\
+\end{tabular}
+
+\subsubsection{Dataframes}
+\begin{tabular}{C L}
+.select(colLst)     &   keep only the columns in \texttt{colLst}.\\
+.with\_columns(exp) &   Create a new coumn from a given expresion.\\
+.filter(condition)  &   Filter the dataframe with a given condition.\\
+.explode(col)       &   Explode the column \texttt{col} into multiple rows,\\
+                    &   meaning that the column content become the table.\\
+.groupby(colLst)    &   Group the dataframe by the columns in \texttt{colLst}.\\
+
+.agg(aggLst)        &   Aggregate the grouped dataframe with the list of aggregation functions in \texttt{aggLst}.\\
+.join(df, on=col)   &   Join the dataframe with another dataframe \texttt{df} on the column \texttt{col}.\\
+.as(str)            &   Rename the dataframe to \texttt{str}.\\
+.to\_pandas()       &   Convert the polars dataframe to a pandas dataframe.\\
+.to\_numpy()        &   Convert the polars dataframe to a numpy array.\\
+.lazy()             &   Convert the polars dataframe to a lazy dataframe.\\
+.collect()          &   Collect the lazy dataframe to a polars dataframe.\\
+\end{tabular}
 
 \subsection{Pytorch}
 \subsubsection{Tensor}
@@ -107,7 +142,8 @@ All \texttt{Pytorch} are not performed in place unless we add the argument \text
 .Sigmoid()                      & $\sigma(x)=\frac{1}{1+e^{-x}}$\\
 .ReLU()                         & $\text{ReLU}(x)=\max(0,x)$\\
 .LeakyReLU(negative\_slope=m)   & $\text{LeakyReLU}(x)=\begin{cases}x & x>0\\ mx & x\leq0 \end{cases}$\\
-.Tanh()                         & $\tanh(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}$
+.Tanh()                         & $\tanh(x)=\frac{e^x-e^{-x}}{e^x+e^{-x}}$\\
+.Softmax()                      & $\text{Softmax}(x_i)=\frac{e^{x_i}}{\sum^n_{j=1}e^{x_j}}$
 \end{tabular}
 
 \subsubsection{Regularization}
@@ -115,6 +151,35 @@ All \texttt{Pytorch} are not performed in place unless we add the argument \text
 .Dropout(p=P)   & Dropout regularization with probability \texttt{P}\\
 .BatchNorm()    & Batch normalization\\
 \end{tabular}
+
+\subsubsection{torch.optim}
+\texttt{torch.optim}\\
+\textbf{Optimizers}\\
+\begin{tabular}{C L}
+SGD(p,**hyperparam)    & Create a stochastic gradient decent optimizer.\\
+AdamW(p,**hyperparam)  & Create a adaptive moment estimation optimizer.\\
+\end{tabular}
+\textbf{Methods}\\
+\begin{tabular}{C L}
+.step()         & \\
+.zero\_grad()    & Stochastic gradient decent.\\
+\end{tabular}
+
+\subsubsection{Simple training loop}
+\begin{minted}[bgcolor=LightGray]{python}
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.01)
+
+for epoch in range(100):
+    optimizer.zero_grad()          
+    outputs = model(X_train)       
+    loss = criterion(outputs, y_train)  
+    loss.backward()               
+    optimizer.step()   
+
+    if (epoch + 1) % 10 == 0:
+        print(f"Epoch [{epoch+1}/100], Loss: {loss.item():.4f}") 
+\end{minted}
 
 \subsection{Scikit Learn}
 \subsubsection{K-Fold Cross-Validation}
