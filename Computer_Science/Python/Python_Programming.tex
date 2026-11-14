@@ -23,6 +23,8 @@
 \definecolor{LightGray}{gray}{0.9}
 
 \usepackage{minted}
+\newcolumntype{L}{>{\footnotesize}l}
+\newcolumntype{C}{>{\ttfamily\footnotesize}l}
 
 \DeclarePairedDelimiter\abs{\lvert}{\rvert}%
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
@@ -47,7 +49,7 @@
 
 \begin{center}
      \Large{\textbf{Python Programming}}\\
-     \small{Class: COSC 1800}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
+     \small{Last Update: \today}\hfill\small{\textcopyright Maximilien Notz \the\year{}}
      \noindent\rule{20.2cm}{0.4pt}
 \end{center}
 
@@ -57,8 +59,8 @@
 
 \subsection{General Reminder}
 
-\begin{tabular}{>{\ttfamily}l l}
-    r.randint(x,y)      & Generate a random integer between \textbf{x}\\
+\begin{tabular}{C L}
+        r.randint(x,y)      & Generate a random integer between \textbf{x}\\
                             & and \textbf{y}(import random as r).\\
         input(msg)          & Prompt the user with \textbf{msg} and take the\\
                             & user input.\\
@@ -80,13 +82,14 @@
                             & still reference the original.\\
         .deepcopy()         & Creates a new object with completely new\\
                             & copies of all nested objects.\\
+        bin(x)              & Output the binary decomposition of the int \texttt{x}\\
         del var             & Deletes \texttt{var} from memory.\\
     \end{tabular}
 \texttt{print(obj,sep='|',end='.',file=sys.stdout,flush=False)}
 Prints \texttt{obj} to the specified \texttt{file} with a separator \texttt{sep} between objects and an ending character \texttt{end} at the end
 
 \subsection{Operators}
-\begin{tabular}{|>{\ttfamily}l|l|l|}
+\begin{tabular}{|C|L|L|}
     \hline
     Symbol  &   Name                    & Type       \\
     \hline
@@ -113,18 +116,18 @@ Prints \texttt{obj} to the specified \texttt{file} with a separator \texttt{sep}
 
 \subsection{Error Handling}
 \begin{minted}[bgcolor=LightGray]{Python}
-try:   
+try:
     # risky operation
 except ex:
     # runs if an exception of type ex is raised
 else:
     # runs if no exception is raised
-finally: 
+finally:
     # Runs regardless of what happens
 \end{minted}
 
 \subsection{Data Structures}
-\begin{tabular}{l>{\ttfamily}lll}
+\begin{tabular}{LCLL}
     list          & [e\_1, $\dots$]         & ordered, changeable, duplicates.\\
     tuple         & (e\_1, $\dots$)         & ordered, unchangeable, duplicates.\\
     set           & \{e\_1, $\dots$\}       & unordered, unchangeable,\\
@@ -134,7 +137,7 @@ finally:
 
 \subsubsection{Typing}
 \texttt{import typing} to use type hints.\\
-\begin{tabular}{>{\small\ttfamily}l l}
+\begin{tabular}{L L}
     Sequence      & ordered container supporting indexing and\\
                   & slicing.\\
     List          & mutable ordered sequence, supports indexing\\
@@ -154,7 +157,7 @@ finally:
 \end{tabular}
 
 \subsubsection{sets Methods}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
     .add(e)                     & Add \texttt{e} in the set.\\
     .update(lst)                & Add all elements from \texttt{lst} in the set.\\
     .remove(e)                  & Remove \texttt{e} in the set.\\
@@ -162,7 +165,7 @@ finally:
     .intersection(lst)          & keep only the elements that are both in itself and \texttt{lst}\\
     .difference(lst)            & remove all element of \texttt{lst} in the set\\
 \end{tabular}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
     .symmetric\_difference(lst) & \\
 \end{tabular}
 
@@ -173,7 +176,7 @@ finally:
     lst2 = 5 * [a] # [a, a, a, a, a]
     lst3 = [a for i in range(3)] # [a, a, a]
 \end{minted}
-\begin{tabular}{>{\ttfamily}l l}
+\begin{tabular}{C L}
     list(var)       & Convert a set or tuple to a list.\\
     lst[i]          & Access the \texttt{i}th element in the list.\\
     .append(a)      & Adds \texttt{a} to the end of the list.\\
@@ -182,7 +185,6 @@ finally:
                     & removed value.\\
     .pop(i)         & Remove element at index \texttt{i}, return the \\
                     & removed value.\\
-    range(n)        & Create a list with all integers from \texttt{0} to \texttt{n}.\\
 \end{tabular}
 
 \subsubsection{dictionary Methods}
@@ -190,14 +192,14 @@ finally:
     dic = {"max":22, "ugo":40, "cyp":21}
     dic["max"] # -> 22
 \end{minted}
-\begin{tabular}{>{\ttfamily}l l}
- 
+\begin{tabular}{C L}
+
 \end{tabular}
 
 \subsection{Regular Expressions(REGEX)}
 \subsubsection{Functions}
 Let \texttt{e} be a regular expression and \texttt{s} and \texttt{s2} be strings.
-\begin{tabular}{>{\small\ttfamily}l l}
+\begin{tabular}{C L}
     import re               & include python REGEX library.\\
     .findall(e, s)          & Returns a list containing all matches of \texttt{e} in \texttt{s}.\\
     .search(e, s)           & Returns a Match object if there is a match of\\
@@ -214,7 +216,7 @@ Let \texttt{e} be a regular expression and \texttt{s} and \texttt{s2} be strings
 
 
 \textbf{Metacharacters:}\\
-\begin{tabular}{>{\small\ttfamily}l l|>{\small\ttfamily}l l}
+\begin{tabular}{C L|C L}
     \hline
     []                  & A set of chars                    & *     & Zero or more occurrences\\
     $\backslash$        & special sequence and              & +     & One or more occurrences\\
@@ -236,7 +238,7 @@ Let \texttt{e} be a regular expression and \texttt{s} and \texttt{s2} be strings
 \end{itemize*}
 
 \textbf{Special Sequences:}\\
-\begin{tabular}{>{\small\ttfamily}l l|>{\small\ttfamily}l l}
+\begin{tabular}{C L|C L}
     \hline
     \textbackslash A & Match at start of string & \textbackslash d & Any digit [0-9]\\
     \textbackslash b & Word boundary            & \textbackslash D & Any non-digit\\
@@ -248,7 +250,7 @@ Let \texttt{e} be a regular expression and \texttt{s} and \texttt{s2} be strings
 
 \subsubsection{REGEX Backreferences}
 Refer to earlier capturing groups in the pattern or in replacements. Prefer raw strings (e.g., \texttt{r"..."}) to avoid double escaping.
-\begin{tabular}{>{\small\ttfamily}l l}
+\begin{tabular}{C L}
 \textbackslash 1, \textbackslash 2, ...                 & Backreference to the nth capturing group in the\\
                                                         & pattern.\\
 (?P<name>...)                                           & Named capturing group.\\
@@ -260,7 +262,7 @@ Refer to earlier capturing groups in the pattern or in replacements. Prefer raw 
 \end{tabular}
 
 \subsection{File Handling}
-\begin{tabular}{>{\small\ttfamily}l l}
+\begin{tabular}{C L}
     open(s, arg)    & returns a a file object from a file at path \texttt{s}.\\
                     & file object can be iterated line by line.\\
     .read()         & returns a string version of a file.\\
@@ -285,7 +287,7 @@ Refer to earlier capturing groups in the pattern or in replacements. Prefer raw 
 \end{itemize*}
 
 \subsubsection{with statement}
-The \texttt{with} statement manages resources  resource management by automatically handling setup and cleanup tasks. 
+The \texttt{with} statement manages resources  resource management by automatically handling setup and cleanup tasks.
 For file handling, it ensures that files are properly closed when the block exits, even if an exception occurs.
 \begin{minted}[bgcolor=LightGray]{Python}
 with open("myFile.txt") as f:
@@ -302,13 +304,13 @@ class ClassName(parent1, parent2, ...):
     def method1(self, ...):
         # code
 \end{minted}
-\begin{tabular}{>{\small\ttfamily}l l}
+\begin{tabular}{C L}
     self        & reference to the current instance of the class.\\
     \_\_init\_\_  & constructor method called when an object is created.\\
     \_\_del\_\_ & destructor method called when an object is deleted.\\
 \end{tabular}
 \subsubsection{Operator Overloading}
-\begin{tabular}{>{\small\ttfamily}l l}
+\begin{tabular}{C L}
     \_\_str\_\_(self)           & Overload \texttt{str()}.\\
     \_\_repr\_\_(self)          & Overload \texttt{repr()} (used by\\
                                 & \texttt{print()}).\\
@@ -322,7 +324,7 @@ class ClassName(parent1, parent2, ...):
     \_\_neg\_\_(self)           & unary -\\
     \_\_pos\_\_(self)           & unary +\\
     \_\_abs\_\_(self)           & abs()\\
-    \_\_eq\_\_(self, o)         & == equality\\ 
+    \_\_eq\_\_(self, o)         & == equality\\
     \_\_ne\_\_(self, o)         & != inequality\\
     \_\_lt\_\_(self, o)         & $<$ less than\\
     \_\_le\_\_(self, o)         & $<=$ less or equal\\
@@ -331,7 +333,7 @@ class ClassName(parent1, parent2, ...):
 \end{tabular}
 
 \subsection{Strings}
-\begin{tabular}{>{\small\ttfamily}l l}
+\begin{tabular}{C L}
     str(var)        & Convert \texttt{var} to a string.\\
     .lower()        & Returns the string in lowercase.\\
     .upper()        & Returns the string in uppercase.\\
@@ -348,21 +350,30 @@ class ClassName(parent1, parent2, ...):
                     & leading zeros.\\
     s[i:j]          & Slicing, returns substring from index \texttt{i}\\
                     & to \texttt{j-1}.\\
-    
-
 \end{tabular}
+
+\subsection{Sequence Generation}
+The following function are made to be used inside a for loop.
+\begin{tabular}{C L}
+    range(n)                    & returns \texttt{[0,1, ...,n]}\\
+    range(start, stop, d)       & returns \texttt{[start,start+d, ...,stop]}\\
+    enumerate([a,b,...])        & returns \texttt{[(0,a),(1,b), ...]}\\
+    zip([a1,a2,...],[b1,b2,...])& return \texttt{[(a1,b1),(a2,b2), ...]}\\
+\end{tabular}
+
+\subsection{pathlib}
 
 \subsection{Performance Tips}
 \subsubsection{Numba}
 \textbf{Numba} is a Just-in-Time (JIT) compiler that translates a subset of Python and NumPy code into fast machine code at runtime.
 \begin{minted}[bgcolor=LightGray]{Python}
-from numba import jit   
+from numba import jit
 @jit()
 def my_function(...):
     # code
 \end{minted}
 \textbf{jit settings:}\\
-\begin{tabular}{>{\small\ttfamily}l l}
+\begin{tabular}{C L}
     nopython=True       & Disable the use of the Python interpreter\\
                         & within the compiled function for maximum\\
                         & performance.\\
@@ -394,7 +405,7 @@ def my_function(...):
 if condition_1:
     # code if condition_1 is true
 elif condition_2:
-    # code if condition_2 is true and condition_1 
+    # code if condition_2 is true and condition_1
     # is false
 else:
     # code
