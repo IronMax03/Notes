@@ -32,6 +32,7 @@ All the following commands are to be run in a terminal, the keywords \texttt{git
                         & directory.\\
     status              & Display the state of the working directory.\\
     log                 & Show all commit logs of the current\\
+    log --graph --all   & See how branches relate.\\
                         & repository.\\
     add file            & Add \texttt{file} to the staging area.\\
     add -A              & Add all changes to the staging area. \\
@@ -41,14 +42,26 @@ All the following commands are to be run in a terminal, the keywords \texttt{git
                         & \texttt{msgg}. \\
     commit --amend -m "msg" & change the last commit message to \texttt{msgg}. \\
     reset               & delete all local changes. \\
-    push origin branch  & Push the commits to remote \texttt{origin} on \texttt{branch}. \\
     push                & Push the commits to the default remote \\
                         & and branch. \\
     pull                & Fetch changes to the local repository. \\
     pull --rebase       & Fetch changes and rebase the local commits. \\
     rm fileName         & remove a file from the repo.\\
-    checkout branch     & switch to \texttt{branch}.\\
     checkout -- fileName& discard local changes to \texttt{fileName}.\\
+\end{tabular}
+
+\subsubsection{Git Branch}
+\begin{tabular}{C L}
+push origin myB   & Push the commits to remote in \texttt{myB}. \\
+checkout branch   & switch to \texttt{branch}.\\
+branch            & list local branches (\* marks the current one).\\
+branch -a         & list local and remote branches.\\
+branch -d myB     & delete a merged local branch.\\
+branch -D myB     & Force delete a branch that wos not merged.\\
+branch -m newName & rename the current branch to \texttt{newName}.\\
+switch -c newB    & create a new branch called \texttt{newB} and switch to it.\\
+switch myB        & switch to the brench called \texttt{myB}.\\
+merge myB         & merge \texttt{myB} to the main branch.\\
 \end{tabular}
 
 \subsubsection{Git Stash}
@@ -81,7 +94,7 @@ To use the GitHub Cli start the command with \texttt{gh}.
 \begin{tabular}{C C L}
   repo & \\
        & create myRepoName   & Create a new repository on GitHub.\\
-       &                     & --source=repoPATH\\ 
+       &                     & --source=repoPATH\\
        &                     & --private\\
        & view user/repo      & View the repository on GitHub.\\
   pr   &\\
